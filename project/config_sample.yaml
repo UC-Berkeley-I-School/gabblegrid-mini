@@ -1,0 +1,10 @@
+# Google credentials are tied to berkeley.edu account (and client ID GabbleGrid)
+
+credentials:
+  google:
+    client_id: "YOUR_GOOGLE_CLIENT_ID"
+    client_secret: "YOUR_GOOGLE_CLIENT_SECRET"
+  github:
+    client_id: "YOUR_GITHUB_CLIENT_ID"
+    client_secret: "YOUR_GITHUB_CLIENT_SECRET"
+    redirect_uri: "YOUR_REDIRECT_URI"

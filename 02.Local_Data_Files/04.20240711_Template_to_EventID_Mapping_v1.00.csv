@@ -1,0 +1,1001 @@
+EventId,EventTemplate,Occurrences
+3aa50e45,instruction cache parity error corrected,105924
+b9250ad9,MidplaneSwitchController performing bit sparing on R<*>-M<*>-L<*>-U<*>-C bit <*>,964
+fc5f0940,generating core.<*>,1706751
+1840cbfe,"<*> ddr errors(s) detected and corrected on rank <*>, symbol <*>, bit <*>",33939
+828a502b,<*> <*> <*> error(s) (dcr <*>) detected and corrected,5040
+65f23e3e,"CE sym <*>, at <*>, mask <*>",201206
+147cfcff,total of <*> ddr error(s) detected and corrected,28485
+ba77ab8e,ddr: activating redundant bit steering: rank=<*> symbol=<*>,1314
+6ede2c6c,"ddr: excessive soft failures, consider replacing the card",41
+57138c88,"ciod: Error loading <*> invalid or missing program image, No such file or directory",46416
+6265c739,<*> double-hummer alignment exceptions,295764
+c3c18d52,<*> tree receiver <*> in re-synch state event(s) (dcr <*>) detected,7847
+6b9e518d,idoproxydb has been started: $Name: <*> $ Input parameters: -enableflush -loguserinfo db.properties BlueGene<*>,114
+6b31e08c,ciodb has been restarted.,129
+1e85eb57,mmcs_db_server has been started: <*> --useDatabase BGL --dbproperties <*> --iolog /bgl/BlueLight/logs/BGL --reconnect-blocks all,63
+4983ff07,ciod: LOGIN <*> failed: No such file or directory,43647
+183ff96a,ciod: failed to read message prefix on control stream (CioStream socket to <*>:<*>,5983
+fd2fdc47,<*> TLB error interrupt,152735
+0259e53a,instruction <*> <*>,58031
+d59f04cd,machine <*> <*>,24773
+a111fe6f,machine check status register: <*>,246
+0b5734c3,summary...........................<*>,244
+1f5adb7d,data <*> plb <*>,593
+ad738237,tlb error.........................<*>,296
+693e1c03,<*> parity <*>,343
+b15df703,d-cache <*> parity <*>,588
+8f4acfdd,imprecise machine check...........<*>,289
+8d23c697,machine state register: <*>,8454
+33699bb4,<*> state <*>,13291
+368b1120,<*> input interrupt enable...<*>,13115
+1bff92a7,floating point <*> <*>,6544
+f4a80ec4,floating pt ex mode <*> enable......<*>,13044
+07038970,debug <*> <*>,13045
+121941c0,data <*> <*>,84495
+06072e40,core configuration register: <*>,6431
+60cad074,disable <*> <*>,8936
+0328c31b,disable apu instruction broadcast........<*>,2396
+55addd29,guaranteed <*> cache block <*>,4779
+cf145002,force load/store alignment...............<*>,2389
+3777cdd1,icache prefetch <*>,4777
+4149b6da,<*> purpose registers:,4634
+1e2c893c,<*> <*>:<*>eeeeeee <*>,187
+cab7c146,<*>:<*>:<*>,534
+6ce600a9,<*>:<*> <*>,50
+12e81061,<*> <*>:<*>eeeeeee <*>:ffffffff <*>:ffffffff,2
+dede275d,<*> <*>,1790
+d4aab023,<*> <*>fefff<*>,14
+a109aa14,<*> <*>:<*>fefff<*>,2
+38869982,<*> cr:<*> xer:<*> <*>,2291
+220716fc,rts panic! - stopping execution,3983
+c70dad25,<*> torus receiver <*> input pipe error(s) (dcr <*>) detected and corrected,10487
+a5623903,<*>e <*>,172
+1fda146a,<*>e <*> <*>,9
+684c4e1c,<*>:<*>bffffa<*>:<*>c,1
+07b4a031,<*>:<*>cdfffe<*>:<*>c,1
+7fbc8d7c,<*>:a<*>:<*>c,2
+85ed43d7,<*> <*>c,23
+c7247fb6,<*>:<*>e<*>ed<*>:<*>c,1
+2eb8b523,<*>:<*>:<*>c,10
+9f69abb1,<*> <*> <*>:ffffffff,182
+f63f980b,<*>b<*>ea<*>,55
+81009d2a,<*>e<*>feaa<*>,35
+23ed7c91,<*>e<*> <*>,57
+00980b01,<*> <*>e <*>,103
+af999985,rts internal error,2187
+af477c99,<*>:<*>bfe<*>:<*>c,1
+4e528fca,<*> <*> <*>c,37
+94d92d0f,<*> <*>:<*>,63
+3708ffb6,<*> <*>:ffffffff,2
+b180f3d6,<*>:<*>fdb<*>:<*>c,1
+82516772,<*>:<*>bffffd<*>:<*>c,1
+1be4e79b,<*>:<*>bfc<*>:<*>c,1
+d8d06c48,<*>ab<*>:<*>c,1
+4a438082,<*>:fee<*>bef<*>:<*>c,1
+6e8cacc0,<*>:e<*>:<*>c,1
+66b25439,<*>:c<*>:<*>c,1
+f9885348,<*>:d<*>:<*>c,1
+893a2b45,<*>:<*>f<*>fd<*>:<*>c,1
+55fa48ef,<*>:a<*>dd<*>:<*>c,1
+59ecbd3e,<*>cb<*>:<*>c,1
+b16c2d36,<*>:bf<*>ed<*>:<*>c,1
+38e36f34,<*>:e<*>fbd<*>:<*>c,1
+51e9c1f4,<*>:c<*>:<*>:<*>c,1
+f2acc151,<*>d<*>:<*>c,1
+5bb076cb,<*>:<*>dc<*>cb<*>:<*>c,1
+03783a6e,<*>:<*>fa<*>:<*>c,1
+7177c10c,<*>cc<*>:<*>c,2
+e0a21e97,<*>:f<*>f<*>ace<*>:<*>c,1
+1599a60f,<*>:<*>bcdc<*>:<*>c,1
+8355ed44,<*>:ad<*>:<*>:<*>c,1
+83447d6c,<*>:<*>b<*>fd<*>:<*>c,1
+cc0d2f4c,<*>:<*>edefb<*>:<*>c,1
+250463db,<*>:daabe<*>:<*>c,1
+e872bbe9,ciod: Message code <*> is not <*> or <*>,2278
+2355b700,ciod: pollControlDescriptors: Detected the debugger died.,6443
+a7179c7e,"ciod: for node <*>, <*> <*> <*> <*> <*> <*> <*>",433
+9c0ffa0d,ciod: cpu <*> at treeaddr <*> sent unrecognized message <*>,2569
+044744e5,machine check interrupt (bit=<*>): L<*> dcache unit data parity error,49
+62fd540d,<*>b <*>:<*>ff<*>,1
+3e59e921,<*>b<*> <*>,6
+6796e2c2,<*>:fffffff<*>:<*>,5
+083912c3,ciod: LOGIN <*> failed: <*> <*>,1288
+a7aa6a31,machine check interrupt (bit=<*>): <*> <*> <*> <*>,62
+31bea08a,L<*> <*> <*> register: <*>,143
+243d8ef7,start <*>,192
+0af83d09,close EDRAM pages as soon as possible....<*>,48
+ba1a3e70,size of <*> <*> <*> <*> (<*>M),96
+2d40a57d,disable all access to cache directory....<*>,48
+d39f7ed9,write buffer commit threshold............<*>,48
+13b72099,prefetch depth for <*> <*>,144
+f4c653a2,max number of outstanding prefetches.....<*>,48
+30442b65,turn on hidden refreshes.................<*>,48
+39352bbd,disable write lines <*>:<*>..................<*>,48
+f0bd9bfb,capture first <*> <*> error address..<*>,283
+f0c5d0b0,disable flagging of DDR UE's as major internal error.<*>,47
+ca17b436,<*> error detected in <*> <*>,235
+620020e3,<*> error detected in EDRAM bank <*>,188
+b265915b,parity error in <*> <*>,141
+cb5b50aa,parity error in read queue <*>,141
+e44c272d,number of correctable errors detected in L<*> <*>,94
+a6810873,interrupt threshold...<*>,94
+99451efb,number of lines with parity errors written to L<*> EDRAMs...<*>,47
+a5f84854,DDR <*> <*> register: <*> <*>,94
+646a2086,memory and bus summary...........................<*>,47
+856dcf68,command manager unit summary.....................<*>,47
+e0d805d0,memory manager <*> <*>,188
+3bf1bcdc,memory manager <*> <*> <*>,188
+05d14ace,memory manager <*>,94
+2dd1b293,state machine....................................<*>,47
+58a54357,memory manager / command manager address parity..<*>,47
+0256fb0b,regctl scancom interface.........................<*>,47
+5827d3bf,DDR failing info register: <*>,18
+d81b36a7,capture valid.........<*>,47
+fac52822,symbol................<*>,47
+49a593e5,mask..................<*>,47
+36921b9f,miscompare............<*>,47
+acc970d2,uncorrectable error...<*>,47
+2bfcdc54,correctable error.....<*>,47
+d447db0e,qw trapped............<*>,47
+80bac4a3,chip select...........<*>,47
+9e0ff38f,DDR failing data registers: <*> <*>,47
+198b9694,<*> <*>c <*>,8
+9db1d065,<*>ae <*>fe<*>,1
+cc12b228,<*> <*>:ffffffff <*>,4103
+2fe70e79,<*>:ffffffff <*>,42
+efb60325,"PrepareForService is being done on this <*> mCardSernum(<*>), <*> mIp(<*>), mType(<*>)) by root",5
+16b5975a,<*> <*> <*> <*> <*> <*> <*> <*> as part of Service Action <*>,2853
+928b0f63,EndServiceAction <*> performed upon <*> by <*>,233
+a2335b6b,Node card is not fully functional,17364
+9d5d6232,Can not get assembly information for node card,17305
+abb57bda,Node card status: no ALERTs are active. Clock Mode is Low. Clock Select is Midplane. Phy JTAG Reset is asserted. ASIC JTAG Reset is <*> <*> <*> <*> <*> <*> <*> <*> <*> <*> <*> <*> <*> <*> <*> <*> <*> <*> <*> <*> <*> <*> <*> <*> <*> <*> <*> OK. MPGOOD ERROR LATCH IS ACTIVE. The <*>.<*> volt rail is OK. The <*>.<*> volt rail is OK.,16897
+66c627c6,Node card VPD check: U<*> node in processor card slot J<*> do not match. VPD ecid <*> found <*>,21356
+0509d32d,ciod: sendMsgToDebugger: error sending PROGRAM_EXITED message to debugger.,3
+ca64273c,<*>:<*>eeeeeee <*>,19
+4b80a7ee,<*> <*>:<*>fd,1
+b48cf21c,<*> <*>:<*>fd<*>,6
+a6ecb646,<*>fdc <*> <*>,3
+890d57c7,<*>ef<*>:<*>,1
+6ace88ab,<*>fd<*> <*>,3
+ce173d18,<*> <*>:c<*>:c<*>,3
+87b4bca2,<*>eeeeeee <*>,43
+d5fb1b6d,<*>f <*> <*>,2
+64624f0a,<*>:<*>f <*>ecf<*>a<*>,1
+0cdb05bb,<*>fea<*>eeeeeee <*>,21
+13b6821e,<*>:ffff<*>e<*> <*>:fffbccf<*>c<*>,1
+f91b0812,<*> <*>fc<*>b<*>,1
+a4ce9deb,<*> <*>:<*>fb<*>f<*>da<*>,1
+280872f8,<*> <*> <*>:<*>bd<*>,2
+eb3b19f3,<*> torus <*> <*> <*> error(s) (dcr <*>) detected and corrected,1217
+176a1b3b,<*> correctable errors exceeds threshold (iar <*> lr <*>),26
+30362e04,<*>:<*>fea<*>eeeeeee <*>,6
+e4e4cba4,<*>fc<*> <*>:fffa<*>,1
+51d8f5f5,<*>:<*>:<*>dfc<*>,1
+bfa57e9a,<*>:<*>daa<*>eeeeeee <*>:ffa<*>,1
+ac4c9928,<*>:<*>df<*>b<*>ccbc<*>f<*>,1
+9afc4d00,<*>:<*>deed<*>ccf<*>ef<*>,1
+fa94a280,<*> <*>:<*>daa<*>f<*>df<*>ad<*>,1
+72a42ef8,<*>:<*>da<*>c<*> <*>:<*>dfc<*>,1
+03cafdec,<*>:b<*>ce<*> <*>:<*>cdc<*>fe<*>,1
+163d9392,<*>c <*>,12
+2e5bf41e,<*>:<*>cdc<*>fe<*>:<*>fea<*>b<*>,1
+25255d86,<*>:b<*>:<*>af<*>d<*>,1
+f278a30a,<*>:<*>af<*>c<*>fb<*> <*>,1
+3fba9c93,Starting SystemController,71
+9849b7a4,Controlling BG/L rows [ <*> ],20
+582df684,Running as background command,70
+cce08081,exception syndrome register: <*>,18013
+cc8ff6de,program interrupt: <*> <*>,57874
+89854e51,floating point operation....................<*>,9824
+abff2903,store operation.............................<*>,9824
+9851467f,data store interrupt caused by <*>,19646
+b48b277c,auxiliary processor.........................<*>,8419
+d8f41a22,byte ordering exception.....................<*>,8102
+87710483,program interrupt: fp cr update.............<*>,8102
+41c5149c,program interrupt: fp cr field .............<*>,8102
+d5b051a1,<*> <*> <*>:<*>feaa<*>,4096
+522eddd3,<*>e<*>ed<*>bd<*>bf<*>,2047
+dce1d503,<*>e<*>ff<*>aca,1
+a4f9731b,<*>feaa<*> <*>,2053
+d611c676,<*>:<*>feaa<*> <*>,2053
+4fb55a5e,<*> <*>:<*>fea<*>eeeeeee <*>,10
+753f9b3b,<*> <*>:fff<*>,1
+b902e0db,<*>:<*>fa<*> <*>:<*>aa<*>a<*>a<*>,1
+c69abe33,<*>fea<*>e <*>:<*>af<*>d<*>,1
+dfc3b473,<*>af<*>b <*>,1
+72c9ff71,external input interrupt (unit=<*> bit=<*>): <*> <*> <*> <*> <*> <*> <*>,1323
+abcf3716,external input interrupt (unit=<*> bit=<*>): number of corrected SRAM errors has exceeded threshold,39
+ea3efa0b,suppressing further interrupts of same type,7694
+a205f79c,<*>fee<*>eeeeeee <*>,4
+a7427537,<*>bd<*>ae<*> <*>,1
+cde840ec,<*>:<*>fdead<*>:<*>,1
+70418ded,<*>d<*>:<*>,4
+730ddd0b,<*>:<*>c<*>,3
+00eeb5ca,Ido chip status changed: <*> ip=<*> v=<*> t=<*> status=M <*> <*> <*> <*> <*>,11904
+31d79076,<*>c <*> <*>:<*>eeeeeee <*>,7
+33cf69d6,<*> <*> <*>:b<*>,7
+00d49120,<*> <*>:<*>fefff<*>af<*>d<*>,2
+fafe46d4,<*>ef<*>ef<*>:<*>,1
+07aa4b1c,<*>ec<*>fc<*>ff <*>,1
+d5f227c2,<*>:<*>fee<*>b<*>c <*> <*>a,1
+f205f0b2,<*>:<*>fea<*>ff <*>d <*>,1
+184c8648,<*> <*>:<*>:<*>,2
+1eac84c1,<*> <*> <*>dc<*>f<*>b<*>,1
+bda7c63e,<*>:<*>ff<*>fefff<*>,1
+9e57fe43,<*>ff <*>f <*>f <*>,1
+16282341,<*>eeeeeee <*> <*>,4
+e41670ca,<*>:<*>ec<*> <*>c<*>c<*>,1
+efa87fd5,<*>e<*>cf<*>,1
+1385101c,<*> <*>bb<*>,2
+5948e02e,BGLMaster has been started: ./BGLMaster --consoleip <*> --consoleport <*> --configfile bglmaster.init,6
+b24efdd6,BglIdoChip table has <*> IDOs with the same IP address (<*>),9
+5aa0e6cd,<*> IpAddress(<*>) Status(A),64
+cafa6187,"<*> <*> <*> <*> <*> <*> <*> <*> <*> <*> <*> <*> <*> <*> <*> <*> <*> <*> <*> <*> <*> <*> <*> <*> <*> <*> <*> <*> <*> <*> is in state = COMMUNICATION_ERROR, sequenceNumberIsOk = false, ExpectedSequenceNumber = <*>, Reply Sequence Number = <*> timedOut = true, retries = <*>, timeout = <*>, Expected Op Command = <*>, Actual Op Reply = <*> Expected Sync Command = <*>, Actual Sync Reply = <*>",520
+a7e126df,NodeCard VPD is corrupt,10
+01c4e373,"While initializing node card, ido with LP of <*> caught java.lang.IllegalStateException: IDo is not in functional state -- currently in state COMMUNICATION_ERROR",9
+6130094b,<*>:<*>fe<*>,11
+f1b6f016,<*>:<*>feaa<*>:<*>,1
+798e6e18,<*>:<*>ae<*>,3
+c3fdcb6a,<*>:ffffca<*>:<*>:ffffca<*>,3
+49c3c8c1,ciod: Unexpected eof at line <*> of node map file <*>,328
+4496b375,ciod: Error creating node map from file <*> <*> <*> <*>,5464
+4965e9ad,"ddr: Unable to steer rank=<*>, symbol=<*> - rank is already steering symbol <*>. Due to multiple symbols being over the correctable e",22
+4d32b271,"<*> threshold, consider replacing the card",45
+6eac71e0,"ddr: Unable to steer rank=<*>, symbol=<*> - rank is already steering symbol <*>. Due to multiple symbols being over the <*>",24
+61286e4e,<*> <*>ae<*>a<*>,1
+cabd1955,<*>:<*>fea<*> <*>,3
+63f7d377,<*>:<*>fea<*>e<*>bf<*>b,1
+1bc93721,<*>bf<*> <*>,1
+7503e0fb,<*>:<*>afc <*>:<*>d<*>ebda<*>,1
+bebf7d69,"PrepareForService is being done on this part <*> <*> <*> mIp(<*>), mType(<*>)) by <*>",131
+a1da6209,"ciod: Error loading <*> program image too big, <*> > <*>",1512
+40645e82,critical input interrupt (unit=<*> bit=<*>): warning for <*> <*> wire,7682
+2d239257,job <*> timed out. Block freed.,306
+8a7f0f76,<*>:ffff<*>:<*>bf<*>,3
+f3464c5e,<*>:<*>ff<*>:<*>d<*>,3
+1d99c917,<*>:<*>fefff<*>:<*>:<*>,2
+7f98e46f,<*> <*>feffff<*>,2
+0d02c0e2,program interrupt,3667
+41557973,<*>:<*>fefff<*>:<*>:<*>c<*>ae<*>,7
+1761114c,<*> <*>:<*>ac<*> <*>:<*>feffff<*>,1
+f3758ba0,ciod: <*> <*> <*> <*> <*> <*> <*> at line <*> of node map file <*>,4024
+1ae4a1e2,<*> floating point alignment exceptions,267725
+a4ec7e5b,<*> <*> <*>,11
+ce5d3c32,<*>:<*>bd<*>fefff<*>,1
+557f3dc3,"Problem communicating with <*> <*> iDo machine with LP of <*> caught java.lang.IllegalStateException: while executing <*> Operation caught java.lang.RuntimeException: Communication error: (DirectIDo for com.ibm.ido.DirectIDo object <*> with image version <*> and card type <*>] is in state = COMMUNICATION_ERROR, sequenceNumberIsOk = false, ExpectedSequenceNumber = <*>, Reply Sequence Number = -<*>, timedOut = true, retries = <*>, timeout = <*>, Expected Op Command = <*>, Actual Op Reply = -<*>, Expected Sync Command = <*>, Actual Sync Reply = -<*>)",21
+607e02d4,"<*> <*> <*> <*> <*> <*> <*> <*> <*> <*> java.lang.IllegalStateException: while executing <*> Operation caught java.lang.RuntimeException: Communication error: (DirectIDo for com.ibm.ido.DirectIDo object <*> with image version <*> and card type <*>] is in state = COMMUNICATION_ERROR, sequenceNumberIsOk = false, ExpectedSequenceNumber = <*>, Reply Sequence Number = <*> timedOut = true, retries = <*>, timeout = <*>, Expected Op Command = <*>, Actual Op Reply = <*> Expected Sync Command = <*>, Actual Sync Reply = <*>",14
+8d52d544,Node card status: no ALERTs are active. Clock Mode is Low. Clock Select is Midplane. Phy JTAG Reset is asserted. ASIC JTAG Reset is <*> <*> <*> <*> <*> <*> <*> <*> <*> <*> <*> <*> <*> <*> <*> <*> <*> <*> <*> <*> <*> <*> <*> <*> <*> <*> <*> <*> <*> <*> <*> <*> <*> <*> <*> <*> <*> <*> <*> OK. THE <*>.<*> VOLT RAIL IS NOT OK.,119
+50f692e1,NodeCard temperature sensor chip U<*> is not accessible,5
+ea2f4fd1,<*> power module U<*> is not accessible,549
+24866a12,NodeCard VPD chip is not accessible,1
+7ef2b881,"While initializing node card, ido with LP of FF:F<*>:<*>F:<*>:E<*>D:<*>:E<*>:<*>:<*> caught java.lang.NullPointerException",1
+bc68dc47,"Node card status: ALERT <*>, ALERT <*>, ALERT <*>, ALERT <*> is (are) active. Clock Mode is Low. Clock Select is Midplane. Phy JTAG Reset is asserted. ASIC JTAG Reset is not asserted. TEMPERATURE MASK IS ACTIVE. No temperature error. Temperature Limit Error Latch is clear. PGOOD is asserted. PGOOD error latch is clear. MPGOOD is OK. MPGOOD error latch is clear. The <*>.<*> volt rail is OK. The <*>.<*> volt rail is OK.",1
+9863df41,Target=ido://FF:F<*>:<*>F:<*>:E<*>D:<*>:E<*>:<*>:<*>/JTAG/<*> Message=Pll failed to lock,3
+de284825,<*> Message=ScomError,3
+8a1ae52c,<*> Message=Invalid JtagId = ffffffff,63
+197e3bb9,<*> <*> <*> socket closed,209
+76af886d,<*> exited normally with exit code <*>,12
+22085eff,MidplaneSwitchController::sendTrain() port disconnected: R<*>-M<*>-L<*>-U<*>-E,24
+aa90fcea,Node card status: no ALERTs are active. Clock Mode is Low. Clock Select is Midplane. Phy JTAG Reset is asserted. ASIC JTAG Reset is asserted. Temperature Mask is not active. No temperature error. Temperature Limit Error Latch is clear. PGOOD IS NOT ASSERTED. PGOOD ERROR LATCH IS ACTIVE. MPGOOD is OK. MPGOOD ERROR LATCH IS ACTIVE. The <*>.<*> volt rail is OK. The <*>.<*> volt rail is OK.,49
+b054e294,"e error threshold, consider replacing the card",1
+cf07a659,<*>:b<*>:b<*>f<*>bb<*>,1
+296318c4,<*> <*>:<*>eeeeeee <*> <*>,2
+9bff5da8,<*>:<*>a<*>bb<*>:<*>:<*>,1
+f0c35201,<*> <*>cd<*>,12
+c63ab994,<*>:<*>cd<*> <*>f,1
+a014c314,ciod: Error <*> node map <*> <*> <*> <*> <*> <*> <*>,2456
+a828f891,shutdown complete,99
+a998f28e,"PrepareForService is being done on this Midplane (mLctn(R<*>-M<*>), <*> <*> by <*>",249
+b3f2729b,PrepareForService is being done on this rack (R<*>) by <*>,30
+59e93563,<*> is not fully functional,308
+f48d0e50,this link card is not fully functional,22
+57ba34dc,no ethernet link,14
+49ff7848,"rts: kernel terminated for reason <*>rts: bad message header: <*> <*> <*> type=<*>, cpu=<*>, index=<*>, <*>",1389
+bbecc066,ciod: In packet from node <*>.<*> <*> message code <*> is not <*> or <*> <*> <*>),88
+8d0ed4c2,<*>fd<*>b<*>bf<*>,5
+3b11ca0a,<*>:<*>:c<*>:c<*>,7
+04efccd9,<*>e<*>fd<*>,7
+014b8856,<*>fd<*>b<*>:<*>,1
+7c5d066b,<*> <*>c<*>aa<*>,1
+4d46560d,<*>:<*>:<*>fea<*>ce<*>,1
+7c1d2f06,<*> <*>:<*>ae<*>,2
+ee832118,<*>:<*>d<*>ec<*>,1
+9d9fff48,<*> <*>:<*>fb<*>,1
+d7515a49,<*>:<*>bb<*>fae<*>,1
+4015c6eb,<*>:<*>:<*>d<*>,1
+782be13b,<*>faf<*>e<*>,1
+e1b85049,<*> <*> <*>c <*>,1
+fba5edb5,<*> <*>:<*>fe<*>,8
+7e4af760,<*>ee<*> <*>:<*>eeeeeee <*>b <*>,1
+c1646a49,ciod: Missing or invalid fields on line <*> of node map file <*>,2048
+05f7a599,Power deactivated: <*>,192
+62e78bca,parity error.......<*>,1
+4531fae3,machine state register: machine state register: machine state register: machine state register: machine state register: machine,5
+40393eca,state register: machine state register: machine state register: machine state register: machine state register: machine state re,5
+7db9f871,gister: machine state register: machine state register: machine state register: machine state register: machine state register:,5
+2b062444,New ido chip inserted into the database: <*> ip=<*> v=<*> t=<*>,3455
+ca731736,"rts: kernel terminated for reason <*>rts: bad message header: invalid cpu, type=<*>, cpu=<*>, index=<*>, total=<*>",3334
+482916a2,"rts: kernel terminated for reason <*>rts: bad message header: too many packets, type=<*>, cpu=<*>, index=<*>, total=<*>, <*>",28
+eab8a828,max=<*>,130
+ff52c40c,<*>,856
+e0c8dba4,MidplaneSwitchController::parityAlignment() pap failed: <*> status=<*>,6
+43c91fa2,ciod: Error creating node map from file <*> <*> <*>,2328
+8281d2c7,<*> max=<*>,116
+89c713e5,external input interrupt (unit=<*> bit=<*>): uncorrectable torus error,10
+259ee9a0,Torus non-recoverable error DCRs follow.,10
+490afbb2,DCR <*> : <*>,130
+2cb01286,ax=<*>,13
+2df58fdd,<*> <*>:b<*>,3
+e0dce32a,<*>:<*>fefff<*>:<*>fefff<*>af<*>,1
+034bc1b2,<*>e<*>:<*>,2
+17811ebc,MailboxMonitor::serviceMailboxes() lib_ido_error: -<*> unexpected socket error: Broken pipe,1
+239124d5,<*> exited abnormally due to signal: Aborted,34
+665ebbac,"ciod: Error loading <*> invalid or missing program image, <*> <*> <*>",22040
+47583a03,<*>:<*>c <*>,2
+e8688755,<*>:<*>fee<*>b<*>:<*>,1
+53321720,<*>:fb<*>ecf <*>a<*>e<*>,1
+5a6de409,<*>a <*>,2
+5c69729e,<*>fea<*>d<*>c <*>,1
+ba7c014d,ciod: In packet from node <*>.<*> <*> message code <*> is not <*> or <*> (softheader=<*>),86
+5904ace1,<*>d<*>:<*>ba<*>,1
+7cca3202,<*> <*>c<*>,3
+30a41633,<*>fea<*> <*>:<*>af<*>,1
+362c4aa6,<*>:<*>f<*>ca<*>:<*>eb<*> <*>:<*>fea<*>d<*>,1
+d1ee557d,<*> <*>f<*>,9
+ddde6dbe,<*>ec <*>,31
+067d8c46,<*>:<*>:b<*>,6
+c28e153e,<*> <*>b<*>,34
+634e9d24,<*>c<*>ef<*>:<*>,1
+0df48bcd,<*>c<*>:<*>,2
+3b6073c8,<*>b<*>:<*>,2
+fcfb0ed8,<*>c <*> <*>,9
+06d2e629,<*>f<*>:<*>,2
+20a27faf,<*>bc <*> <*>,3
+8bee262c,x=<*>,2
+8de374c6,"ciod: Error loading ../homme/build.Linux/preqx -n <*>: invalid or missing program image, No such file or directory",64
+88e182dd,<*>:<*>fab<*>d<*>:<*>eeeeeee <*>,1
+d79c7d8f,<*>f<*>b<*>b<*>,1
+1afa60e8,<*>:<*>e<*>,2
+7e0c721e,<*>:<*>fabd<*>abdd<*>abd<*>ab<*>d<*>,1
+829344e3,<*>:<*>ab<*>b<*>af<*>,1
+152cfe50,<*>:<*>fabdd<*> <*>:<*>fabda<*> <*>:<*>fab<*>e<*>,1
+6641ddab,<*>:<*>fab<*>e<*> <*>,1
+3258eb01,<*>:<*>f<*>ba<*>e<*>eeeeeee <*>,1
+d19d1e51,<*>f<*>f<*>:<*>,1
+21dbb3a0,<*> <*> <*>d<*>,2
+05ee89d6,<*> <*>fd<*> <*>bd<*>,1
+b7b94378,<*>:<*>efe<*>efe<*>cf<*> <*>:<*>efe<*>,1
+773d922b,<*>:<*>efe<*>fd<*>fa<*>be<*>,1
+602080d8,<*>:<*>f<*>ba<*>e<*> <*>,1
+83f87699,<*> <*>:<*>feaa<*>eeeeeee <*>,6
+96851284,<*>:<*>feaa<*>:fff<*>:b<*>,3
+113a5c4b,<*>c<*>d <*>,6
+3a9b1aa6,<*>:<*>feaa<*> <*> <*>,5
+3c51a051,<*>a<*>a <*>,2
+8fc47542,<*> <*>:<*>cc<*>d<*>,1
+5d9d18bb,<*>feaa<*>feaa<*>feaa<*>a<*>,2
+906b7730,Ido packet timeout,4276
+f331f27a,<*> <*> <*> BGLERR_IDO_PKT_TIMEOUT connection lost to node/link/service card,16
+16da8291,ciod: Error reading message prefix after <*> on CioStream socket to <*>:<*>: <*> <*> <*> <*>,23219
+ab853295,<*> <*>fffff<*>,1
+cca6bf07,<*>:<*>fea<*>c <*>:ba<*>cfa<*>f <*> <*>,1
+c9b46dc7,<*>:<*>ed<*> <*>:<*>eda<*>,1
+122ef97f,<*> <*>:<*>:<*>b<*>ca<*>,1
+47c4e0ad,<*> <*>a <*>,9
+23dabebf,<*> <*>:<*>fee<*>,5
+f350f8d6,<*> <*>fea<*>,4
+4eaad34d,<*>d<*> <*>,1
+c346eb7a,<*>:<*>feea<*>eeeeeee <*>,6
+a9536a35,<*> <*>b<*>bd<*>a<*>,2
+21474bd8,<*>:<*>af<*>:<*>:<*>,1
+e493254b,<*>:<*>d<*>ff<*>a<*>ef<*> <*>:<*>bd<*>a<*>,1
+cdce47d3,<*> <*> <*> <*>a<*>,1
+bbb0c55b,<*>:<*>dbc<*>:<*>,1
+e5b93bad,<*>:<*>:ffffffe<*>dc,1
+baca367d,<*>:<*>eeeeeee <*> <*>,4
+45646244,<*>:<*>fea<*>:<*>dbc<*>c<*>,1
+96fbee5d,<*>:<*>f<*>ce<*> <*>:<*>abdb<*>,1
+0f33033d,<*>:<*>dbc<*> <*>,1
+b96151ec,mmcs_server exited abnormally due to signal: Segmentation fault,3
+2281afb9,<*> <*>e<*>,4
+ec836380,<*>:<*>ce<*>aa<*>,1
+dbe4dda4,<*>:<*>df<*>,2
+99e0800e,<*>:bfee<*>fee<*>eeeeeee <*>:<*>dc<*>f<*>c,1
+dbe0dbb7,<*>:<*>b <*>,1
+12bb39c6,<*>:<*>fee<*> <*>,2
+de8fd3fe,<*>db <*>:<*>adf<*>,1
+1ebe3968,<*>:<*>feaa<*>eeeeeee <*>,2
+ecb42b32,<*>:<*>c <*> <*>,2
+930ed32a,<*> <*>feaa<*>e<*>,1
+d9f92484,monitor caught java.lang.UnsupportedOperationException: power module U<*> not present and is stopping,2
+e50b0505,While inserting monitor info into DB caught java.lang.NullPointerException,2
+d50b3568,"Node card VPD check: missing U<*> node, VPD ecid <*> in processor card slot J<*>",887
+76b7594c,DeclareServiceNetworkCharacteristics has been run but the DB is not empty,1
+50deed5a,DeclareServiceNetworkCharacteristics has been run with the force option but the DB is not empty,1
+0ad3e4ad,Added <*> subnets and <*> addresses to DB,1
+19bf61bd,Controlling BG/L rows [ <*> <*> ],50
+590fcce7,"Problem communicating with service card, ido chip: <*> java.lang.IllegalStateException: IDo is not in functional state -- currently in state COMMUNICATION_ERROR",6
+8bd08458,"While initializing service card iDo with LP of <*> caught java.io.IOException: Could not contact iDo with <*> and IP=/<*> because java.lang.RuntimeException: Communication error: (DirectIDo for Uninitialized DirectIDo for <*> is in state = COMMUNICATION_ERROR, sequenceNumberIsOk = false, ExpectedSequenceNumber = <*>, Reply Sequence Number = -<*>, timedOut = true, retries = <*>, timeout = <*>, Expected Op Command = <*>, Actual Op Reply = -<*>, Expected Sync Command = <*>, Actual Sync Reply = -<*>)",197
+b579afcf,"Expected <*> active FanModules, but found <*> ( Found J<*> J<*> J<*> J<*> J<*> J<*> J<*> J<*> J<*> ).",11
+4d9507e0,BGLMaster has been started: ./BGLMaster --consoleip <*> --consoleport <*> --configfile bglmaster.init --autorestart y,59
+bd4b2536,"Found invalid node ecid in processor card slot J<*>, ecid <*>",5558
+cf66561e,"Node card status: ALERT <*>, ALERT <*>, ALERT <*>, ALERT <*> is (are) active. Clock Mode is Low. Clock Select is Midplane. Phy JTAG Reset is asserted. ASIC JTAG Reset is not asserted. Temperature Mask is not active. No temperature error. Temperature Limit Error Latch is clear. PGOOD is asserted. PGOOD error latch is clear. MPGOOD is OK. MPGOOD error latch is clear. The <*>.<*> volt rail is OK. The <*>.<*> volt rail is OK.",171
+71b39498,"Problem communicating with service card, ido chip: <*> java.io.IOException: Could not find EthernetSwitch on port:address <*>:<*>",166
+dc32f7bf,Bad cable going into LinkCard <*> Jtag (<*>) Port <*> - <*> bad wires,232
+64c2e748,Missing reverse cable: Cable R<*>-M<*>-L<*> <*> <*> (J<*>) --> R<*>-M<*>-L<*> <*> <*> (J<*>) is present BUT the reverse cable R<*>-M<*>-L<*> <*> <*> (J<*>) --> R<*>-M<*>-L<*> <*> <*> (J<*>) is missing,522
+e87321dc,Error: unable to mount filesystem,720
+1b5a0a61,Lustre mount FAILED : bglio<*> : block_id : location,5105
+5faacb90,idoproxydb hit ASSERT condition: ASSERT <*> Source <*> Source line=<*> Function=int <*> <*>,84250
+799c74b2,"Target=ido://FF:F<*>:<*>F:<*>:E<*>D:<*>:E<*>:<*>:FB/JTAG/<*> Message=JtagId All all zeros, power good may be low",4
+04f5a2ae,Microloader Assertion,1504
+6bb8fb41,VALIDATE_LOAD_IMAGE_CRC_IN_DRAM,8
+cab45ccb,<*> <*>a<*>,12
+978745e5,<*> <*>e<*>c,10
+c1d3f794,<*>:ffffc<*>:<*>,11
+0f19419d,<*>:ffffc<*>ff <*>ff <*>,8
+d4900f3c,<*>:ffffc<*>bf <*>bf <*>,2
+6e7bac80,idoproxydb hit ASSERT condition: ASSERT expression=!(nMsgLen > <*>) Source file=idomarshalerio.cpp Source line=<*> Function=int IdoMarshalerRecvBuffer::ReadBlock(IdoMsg::IdoMsgHdr*&),2
+b52fdfa4,idoproxydb hit ASSERT condition: ASSERT expression=!(RecvMsgHdr.ulLen > <*>) Source file=idomarshalerio.cpp Source line=<*> Function=virtual int IdoMarshalerIo::RunRecv(),1
+615aeaca,<*> <*>f <*>,9
+746f6671,"MidplaneSwitchController::parityAlignment() pap failed: R<*>-M<*>-L<*>-U<*>-C, <*> <*>",8
+77e2433e,"MidplaneSwitchController::receiveTrain() iap failed: R<*>-M<*>-L<*>-U<*>-A, <*> ec<*>",166
+8912229f,rts tree/torus link training failed: wanted: <*> <*> <*> <*> <*> <*> <*> <*> <*> <*> C <*> <*> <*> <*> Z-,190
+2993ebab,rts tree/torus link training failed: wanted: C X+ X- Y+ Y- Z+ Z- got: C <*> <*> <*> <*>,18
+a466848c,rts tree/torus link training failed: wanted: A B C X+ X- Y+ Y- Z+ Z- got: A <*> <*> <*> <*> <*> <*> <*>,171
+46d35382,rts tree/torus link training failed: wanted: <*> C X+ X- Y+ Y- Z+ Z- got: <*> C <*> <*> <*> <*>,82
+837f3e65,rts tree/torus link training failed: wanted: <*> <*> <*> <*> <*> <*> <*> <*> <*> <*> <*> <*> <*> <*>,64
+aca8f388,rts tree/torus link training failed: wanted: A B C X+ X- Y+ Y- Z+ Z- got: <*> <*> <*> <*> <*> <*> <*>,46
+f25ec84e,rts tree/torus link training failed: wanted: <*> <*> <*> <*> <*> <*> <*> <*> <*> <*> <*> <*> <*> <*> <*> Z+,32
+93f21d36,rts tree/torus link training failed: wanted: C X+ X- Y+ Y- Z+ Z- got: C X+ Y- Z-,2
+3b66e9ad,"ddr: Unable to steer rank=<*>, symbol=<*> - rank is already steering symbol <*>. Due to multiple symbols being over the correctable error threshold, consider replacing the card",197
+dbbe199c,<*>ff<*> <*>:<*>ec<*>c<*>,1
+9274906f,<*> <*>:<*>ecf<*>,1
+0bebe37f,<*>:<*>ecf<*>ecf<*>,1
+992e4030,<*>d <*> <*>,3
+4880ffa8,<*>c<*>f<*>,1
+f0cdedcd,<*> <*>:<*>ec<*>,1
+7c363edf,"ciod: Error loading <*> invalid or missing program image, Permission denied",43040
+11b69b8b,ciod: generated <*> core files for program <*>,62484
+130bb340,rts: kernel terminated for reason <*>,18587
+62d313ca,rts: bad message header: cpu <*> invalid <*> <*> PSR<*> PSR<*> <*> PIXF=<*>,412
+b90867ec,rts: bad message header: <*> <*> <*> <*> <*> <*> <*> <*> <*> <*> PSR<*> PSR<*> <*> PIXF=<*>,58
+d897da95,rts: bad message header: index <*> greater than total <*> <*> PSR<*> PSR<*> <*> PIXF=<*>,238
+fc8b59ea,rts: bad message header: cpu <*> invalid <*> PSR<*> PSR<*> PRXF=<*>a PIXF=<*>,189
+791a32a5,rts: bad message header: <*> <*> <*> <*> <*> <*> <*> <*> <*> PSR<*> PSR<*> <*> PIXF=<*>,654
+1f282241,kernel panic,18
+6c6bd9d5,rts: bad message header: <*> <*> <*> <*> <*> <*> <*> <*> PSR<*> PSR<*> <*> PIXF=<*>,548
+fdb15215,rts: bad message header: cpu <*> invalid <*> <*> <*> PSR<*> PSR<*> PRXF=<*>a PIXF=<*>,18
+2c4d7668,mmcs_db_server has been started: ./mmcs_db_server --useDatabase BGL --dbproperties <*> --iolog /bgl/BlueLight/logs/BGL --reconnect-blocks all --shutdown-timeout <*>,72
+86cbf95e,<*>:<*>feea<*> <*>feea<*>a<*>,1
+8d21ed85,<*>:b<*>eeeeeee <*>,2
+65b49a15,<*> <*>:<*>feea<*>b<*>,2
+1b700d02,iar <*> dear <*>,442966
+ac51659d,"NFS Mount failed on bglio<*>, slept <*> seconds, retrying (<*>)",2670
+eb299b60,CHECK_INITIAL_GLOBAL_INTERRUPT_VALUES,544
+64dc455d,Lustre mount FAILED : bglio<*> : point /p/gb<*>,26426
+203e5034,mmcs_db_server has been started: ./mmcs_db_server --useDatabase BGL --dbproperties serverdb.properties --iolog /bgl/BlueLight/logs/BGL --reconnect-blocks all --no-reconnect-blocks,2
+88733caa,<*>:ffff<*>:<*>aae<*>,1
+fa71ef94,<*>ff<*>:<*>b<*>ac<*>,1
+395bfdea,<*>:<*>b<*>ac<*>:<*>,1
+564c7007,<*>:<*>feaa<*>c <*>:<*>feaa<*>feaa<*>a<*>,1
+36f8151b,<*> <*>d<*>,3
+0a3c6290,EndServiceAction <*> was performed upon R<*>-M<*>-L<*> by <*>,4
+b3829978,<*>a<*>ef<*>:<*>,1
+d2378411,<*>:<*>:fffffff<*>,11
+ab4279bb,<*>af<*>:<*>cd<*>,1
+f2d74c71,<*>d<*>:<*>ec<*>,1
+5c746c05,<*> <*>:<*>eb<*>feea<*>,1
+b3d4c1a5,<*>ea<*>fc <*>:<*>feea<*>cd<*>,1
+a4861d5f,<*> <*>feea<*>ec<*>,1
+a0815e70,<*>feaa<*>abd<*>,1
+6cd9fc02,<*>:<*>abd<*>:<*>feaa<*>,1
+89e4ce87,<*>d<*>:<*>eef<*>,1
+63cc380b,<*>:<*>ba<*>ba<*>:<*>feea<*>,1
+1779a021,<*>feea<*>:<*>bf<*>,1
+962714c9,<*>df<*>:<*>feea<*>ef<*>,1
+a4ae7a21,<*>feaa<*>eeeeeee <*>,2
+fc8b8302,<*> <*>be <*>,2
+280c02a4,<*>:<*>aa<*>:<*>,1
+f2bcb466,<*>:<*>b<*>ddc<*>,1
+810c7f78,external input interrupt (unit=<*> bit=<*>): tree header with no target waiting,1
+038ab2a6,<*>:<*>fb<*>feea<*>eeeeeee <*>,1
+607181b0,<*>:<*>ce<*>ae <*>,1
+e0a8fe27,<*>:<*>c<*>a<*>,1
+59395bec,<*> <*>:<*>abef<*>c<*>,1
+47356958,<*>:<*>af<*>e<*>ee<*>,1
+c726d8d4,<*>:ffff<*>eeeeeee <*>ea<*>,1
+4c93ff8f,<*>:<*>de<*>,1
+03f6cb31,<*>:<*>cdf<*> <*>,1
+5e6d6160,<*>cf<*>b<*>fb<*>,1
+7accfbc4,<*>bb<*>bb<*>b<*>df<*>,1
+5b2ed9a4,<*>:<*>feaa<*>feaa<*>de<*>,1
+ca07157a,<*>:<*>ca<*>cca<*>c <*>,1
+971fe6cb,<*>feaa<*>a<*>,1
+ad127e5a,<*> <*>feaa<*>,1
+528fdcdf,power module status fault detected on node card. status registers are: <*>,4
+746235ca,<*>b<*>:<*>d<*>a<*>,1
+71850673,<*> <*>:fff<*>cf<*>,1
+14e7b033,<*> <*> <*>:<*>feea<*>,2
+6b48ccb1,<*>feea<*> <*>,2
+dc31272f,<*>:<*>feea<*>b<*>d<*>b<*>,1
+ac8ccecb,<*>a<*> <*>,3
+8d29ffcd,<*> <*>:fffffff<*>,7
+dbeef516,<*>:<*>cd<*>a<*>,4
+fae12b99,<*>ff<*>f<*>a<*>,1
+d3d6de78,<*>c<*>cc<*>b<*>,1
+aff3703c,<*>f<*>d<*>c<*>b<*>,1
+ac7a484b,<*>a<*>:<*>,2
+d6ef8228,<*>ef<*> <*>:b<*>ae<*>,1
+7e73011a,<*>:<*>adf<*> <*>:<*>fd<*>fee<*>c<*>,1
+393f2a2f,<*>c<*>ac <*>c<*>d<*>,1
+532aeaad,<*>faec<*>fbd<*> <*>:<*>faecd<*>,1
+1412d4e7,<*>:<*>a<*>cd<*>af <*>:<*>fee<*>a<*>cdc,1
+d7529621,<*> <*>dcf<*>,1
+7de49ab4,<*> <*>bf<*>b<*>,1
+bfca87d4,<*>b <*> <*>,3
+f8bc05c3,<*>fee<*>fee<*>ac<*>e<*>,1
+28822a4f,<*>bde<*> <*>,1
+27455a3b,<*>:<*>afa<*>efa<*>fa<*>,1
+84c5f3ca,<*>:<*>bdf<*>ed<*>fc <*>ed<*>,1
+e8b75251,<*>feea<*>eeeeeee <*>,4
+901014c2,<*>:<*>feea<*>feea<*>:<*>a<*>ef<*>,1
+b2b1302e,<*>c<*> <*>,4
+a302be56,<*> <*>a<*>ad<*>,1
+04c31d02,<*>:<*>ffcd<*>:<*>ffc<*>ea<*>,1
+efac3ec2,<*>:<*>cdb<*>cdadc<*> <*>:<*>cdb<*>d<*>,1
+13a33984,<*>:<*>fea<*>f<*> <*>:ffffff<*>:<*>,1
+ada43d6a,<*>fee<*>fea<*>,1
+973bc10e,<*>:<*>fee<*>fc <*>:<*>cdb<*>cdb<*>cdadc<*>,1
+c1e3c204,<*>:<*>fea<*>cc<*> <*>,1
+5fded050,<*>:<*>baae<*>e <*>:<*>b,1
+7f4d3afe,<*>a<*>feea<*>c,1
+981e45ac,<*>:<*>a<*>bac<*>:<*>,1
+84765030,<*>:<*>feea<*>:<*>e <*>e,1
+ed782aa7,<*>:ffffffe<*>afb<*> <*>,1
+caa2b4f4,<*>:<*>afd<*>:ffffffe<*>afc<*>,1
+a5e8660c,<*> <*> <*>:<*>fea<*>,2
+f1a996a5,<*>fee<*>f<*> <*>:<*>fdcff<*>,1
+37192551,<*> <*> <*>:<*>afa<*>df<*>,1
+9743f439,<*>:<*>fdf<*>c<*> <*>,1
+9d4ebf92,<*>ca<*>:<*>,1
+9ca533f6,<*>f<*> <*>,2
+efc34984,<*>:<*>fea<*>c<*>,1
+a5186e00,<*>fea<*>bfc <*>,1
+444ae9ec,<*>:<*>fea<*>bd<*> <*>:<*>fea<*>c<*>,1
+40017bd4,<*>:<*>:ffffffe<*>cc<*>,1
+683abe24,<*> <*>:<*>fea<*>,5
+1c82de2b,<*>fee<*>:<*>e<*>bf<*>,1
+aac13e61,<*>:<*>:<*>df<*>,1
+45b657dc,<*>dc <*>:<*>ea<*> <*>,1
+86660de0,<*> <*>:<*>dfc<*>c<*>f<*>,1
+bcc8c5a8,<*>d<*>ddab<*>,1
+042aa80c,lr:<*> <*> xer:<*> ctr:<*>,25
+10516409,<*>:<*>fee<*>a<*>df<*>,1
+1e67e550,<*> <*> <*>:<*>,2
+9f7a4b99,<*> <*> <*> <*>cf<*>,1
+77401b11,<*>cc<*> <*>,2
+51b3e213,<*>:<*>:<*>:<*>c,1
+d5ce6325,<*> <*>:<*>eeeeeee <*>cfe <*>:<*>fee<*>f<*>c,1
+9a7ff211,<*>fee<*>:<*>,1
+48735878,<*>:<*>:<*>ef<*>,1
+0025df56,<*>:ffff<*>:<*>,1
+c52c7925,<*> <*>:ffffffe<*>,3
+0ce98313,<*> <*> <*> <*>,1
+da8ab919,<*>:<*>af<*> <*>,1
+1f0f70bf,pro,1
+a9c449d4,program,1
+4847be01,<*>:<*>d<*>,1
+a16614b4,<*> <*>c<*>c<*>cd<*>,1
+601b24dc,<*> <*>c<*>b<*>,1
+2870bf0f,<*>:<*>fefff<*>:<*>fefff<*>ad<*>,1
+5539c823,<*> <*>:<*>fefff<*>d<*>a<*>,1
+418b8da0,<*> <*>c<*>d<*>f<*>,1
+42559647,<*>cc <*>,2
+eede2da3,<*>dd<*> <*>:<*>fee<*>ae<*>,1
+904e6c17,<*> <*>:<*>cd<*>,2
+5a991035,<*> <*>fee<*>af<*>,2
+1e363788,<*>:<*>afbe<*>:ffffffe<*>,1
+bd58e022,<*>:ffffffc<*> <*>:ffffffe<*>:<*>,1
+ed8246e3,<*>:<*>afa<*> <*>:<*>eeeeeee <*>:<*>bf<*>c <*>:<*>fee<*>b<*>,1
+ec6e6a71,<*> <*>:<*>eeeeeee <*> <*>:<*>fee<*>,2
+dfbb9f2c,<*>fee<*>fea<*>f<*>,1
+59e319d0,<*>:<*>:bff<*>f<*>,1
+dc698d6c,<*>:<*>f<*>,2
+aad322db,<*>ae<*>:<*>fe<*>,1
+ae31970c,<*>:<*>feeaa<*> <*> <*>,1
+49a12dfc,<*> <*>:<*>eac<*>eac<*>,2
+b68dc423,<*>:<*>ec<*>:<*>fe<*>,1
+49d6e1c6,<*>:<*>ba<*>c<*>c<*>c<*>,1
+1e5fdb88,<*>:ffffffe<*> <*>,3
+7b7fb037,<*>:<*>bb<*>b<*>c<*>efc<*>,1
+05588c1a,"Error getting detailed hw info for node, caught java.io.IOException: Problems with the chip, clear all resets",1
+1c6b0b26,"Error getting detailed hw info for node, caught java.io.IOException: Problems with the chip, could not <*> <*> <*>",35
+b949acc6,Node card status: no ALERTs are active. Clock Mode is Low. Clock Select is Midplane. Phy JTAG Reset is asserted. ASIC JTAG Reset is not asserted. Temperature Mask is not active. No temperature error. Temperature Limit Error Latch is clear. PGOOD IS NOT ASSERTED. PGOOD ERROR LATCH IS ACTIVE. MPGOOD IS NOT OK. MPGOOD ERROR LATCH IS ACTIVE. The <*>.<*> volt rail is OK. The <*>.<*> volt rail is OK.,227
+63c56d56,Node card status: no ALERTs are active. Clock Mode is Low. Clock Select is Midplane. Phy JTAG Reset is asserted. ASIC JTAG Reset is not asserted. Temperature Mask is not active. No temperature error. Temperature Limit Error Latch is clear. PGOOD IS NOT ASSERTED. PGOOD ERROR LATCH IS ACTIVE. MPGOOD IS NOT OK. MPGOOD ERROR LATCH IS ACTIVE. THE <*>.<*> VOLT RAIL IS NOT OK. THE <*>.<*> VOLT RAIL IS NOT OK.,49
+70b598cd,<*>:<*>fd<*>bc <*>fe<*>fe<*>c<*>,1
+8d4ff870,<*>:<*>fee<*>eeeeeee <*>,6
+5f7094eb,<*> <*>:<*>a<*>db<*> <*>:<*>a<*>db<*>,1
+2f8f04d8,<*> <*>:<*>a<*>db<*>:<*>,1
+f60ab8ac,<*> <*> <*>:<*>aad<*>,1
+786e2f4a,"Error sending packet on tree network, packet at address <*> is not aligned",5
+996c9c62,data cache <*> parity error detected. attempting to correct,14006
+e60185c5,"ddr: redundant bit steering failed, sequencer timeout",1
+9c7bd269,<*> <*> <*>:<*>feaa<*>feaa<*>,1
+4eb7893a,<*> <*> <*>f,1
+4f0f0d82,ddrSize == <*> || ddrSize == <*>,1
+f86dec57,rts assertion failed: `personality->version == BGLPERSONALITY_VERSION' in `void start()' at start.cc:<*>,2
+b495444b,<*>c<*>f<*>ad,1
+458f0fea,<*>:<*>edb<*>:<*>,1
+f151a0a5,<*> <*>:<*>f<*>ed<*>f<*>edf<*>,1
+ee2eb469,<*>:<*>d<*>d<*>da<*>,1
+309b7a7e,<*>:<*>d<*>d<*>,1
+159ce3ff,<*>:<*>d<*>df<*>e<*>ed<*>e<*>a<*>,1
+f8f82018,<*>:<*>f<*>ed<*>:<*>f<*>ea<*>,1
+115dee5a,<*>ec<*>c<*>fea<*>,1
+526588f4,<*>fee<*>f<*>f<*>eaf<*>,1
+69faaf31,<*>:<*>f<*>ddf<*>c<*>:<*>f<*>eb<*>,1
+64bf9be7,<*>be <*>:<*>bda<*>eeeeeee <*>:<*>bf<*>f,1
+947d046c,<*>:<*>ee<*>b<*>,1
+6d21e718,<*>:<*>be <*>:fff<*>:b<*>,1
+e6a40f11,<*>:<*>e<*>ee<*>e<*>:<*>,1
+763f5799,<*> <*>:<*>cd<*>a<*>f<*>,1
+e8001382,<*>bda<*>cf<*>bda<*>a<*>,1
+60057700,<*>e<*>:<*>bda<*>a<*>,1
+89ed351d,<*>:<*>fee<*>ff<*>:<*>b<*>,1
+e5538bdb,<*>c<*>:<*>feea<*>a<*>,1
+efed8efb,<*> <*>fee<*>fb<*>,1
+62008f40,<*> <*>:<*>ff<*>ee<*>,1
+80121b2a,<*>:<*>ff<*>ff<*>ff<*>f<*>,1
+08702992,<*>:ffff<*>b<*>a <*>:<*>eeeeeee <*>a <*>:<*>fee<*>bf<*>,1
+ed59847a,<*>ab <*>ac <*>:<*>fea<*>f<*>,1
+4ba0224e,<*>a<*>ee<*>ee<*>dd<*>,1
+fc21c4eb,<*>:<*>ff<*>efcd<*> <*>:<*>efb<*>ee<*>e<*>,1
+8fade888,<*>:<*>a<*>dfe<*> <*>:<*>bcc<*>b<*>d<*>a<*>,1
+e1201a8a,<*> <*>:<*>fe<*>:<*>fe<*>a<*>c<*>,1
+2b77e3a6,<*> <*>:<*>ae<*>c,1
+98740745,L<*> major internal error,3
+06f144ba,<*>:<*>fc<*>fb<*>,1
+5520c5f7,<*>fa<*> <*>:<*>eeeeeee <*> <*>,1
+6b3e743b,<*>ae<*>:<*>,1
+acdf044c,<*>:c<*>a<*>eb <*>:c<*>a<*>df<*> <*>:c<*>a<*>cc<*>d <*>:c<*>ad<*>d<*>b,1
+219be8de,<*>cdf<*>ff<*>,1
+e35a7215,<*>:ffffffc<*>:ffffffff <*>df<*>,1
+539b96b6,<*>:<*>fea<*>:<*>fea<*>,1
+6f34dc3b,<*>fee<*>de<*>dd<*>c<*>,1
+e9b5ad18,<*>:<*>cdf<*>cde<*>d<*>,1
+949115cd,<*> <*>:<*>ff<*>ff<*>cd<*>,1
+cb905768,<*>d<*>ff<*>ca <*>:<*>db<*>,1
+d85e496f,<*>:<*>b<*>,1
+c446f597,<*> <*> <*>:<*>aa<*>bd<*>,1
+40688cb6,"Error receiving packet on tree network, <*> <*> <*> <*> <*> <*> <*> <*> <*> PSR<*> PSR<*> PRXF=<*> PIXF=<*>",3073
+f9df8a24,ddr: activating redundant bit steering for next allocation: rank=<*> symbol=<*>,492
+98910868,<*>a <*>:<*>fee<*>eeeeeee <*>b,1
+4c53ede7,<*>:<*>aa<*> <*>b <*>,1
+a967ea70,<*>:<*>:<*>aa<*>f<*>,1
+c3808293,<*>ffd<*>b<*> <*>:e<*>ffd<*>b<*>,1
+de110f65,<*>:e<*>d<*>ffd<*>dbc<*>,1
+765c228c,<*>:<*>adb<*> <*>,1
+9e70da30,<*>fa<*>aa<*>aa<*>f<*>,1
+d25767a3,<*>:<*>bcb<*>b<*> <*>,1
+f5a80168,<*>:<*>bcb<*>:<*>b<*>a<*>,1
+c7a3c04e,<*> <*>:<*>ecaf<*> <*>,1
+2a09f0c5,<*> <*>:<*>fa<*>ac <*> <*>,1
+8e6fa207,<*>:<*>ae<*>db<*> <*>,1
+dff488ac,<*> <*>:<*>feea<*>eeeeeee <*>,4
+63569a98,<*>ae<*>d<*>a,1
+5a06fa1d,<*> <*>cb <*>,1
+29a7532e,<*>cc<*>:<*>cc<*>,1
+c466fe3b,<*> <*>:<*>bb<*>cd<*> <*>:<*>bb<*>b<*>,1
+fc9e0451,<*> <*>:<*>bdd<*>b<*>b<*>,1
+f4d25358,<*>d <*>:<*>fee<*>ac<*> <*>:<*>eeeeeee <*>:<*>aa<*>e<*>,1
+c452a9b1,<*>d<*>fd<*>db<*>,1
+6174a822,<*> <*>:fffffff<*> <*>:<*>aaa<*>,1
+9fbdfb66,<*>ae<*> <*>,1
+ad08f755,<*>d<*>aa<*>aa<*>,1
+8dbb3cbd,<*> <*>ba<*>bd,1
+a7e11323,<*>:<*>fc<*>:<*>,1
+f8db2af4,<*>:<*>a <*>ff<*>,1
+4be3c26a,<*>:<*>fee<*>aa<*>:<*>,1
+d84633c9,<*> <*>b<*>ae,1
+92778ba4,<*>ac <*>ae <*>ff<*>,1
+bced5b7e,<*>ac<*> <*>,1
+ab204ec3,<*>ac <*>c<*>d,1
+ec94fde7,<*>:<*>:ffffffe<*>,1
+874c6a4c,<*> <*>:ffffff<*>,2
+ad6268f9,<*> <*>aed<*>,1
+ce7e3930,<*>d<*>d<*>b<*>,1
+b9c4b0e1,<*> <*>b<*>e<*>,1
+c23d8791,<*>b<*>e<*>:<*>,1
+6ad9b51a,<*>bf<*>b<*>cbad<*>,1
+0dc5e3f3,<*>:<*>c<*>cb<*>b<*>,1
+bc6dacd9,<*>:<*>e<*>caf<*>,1
+812ba8f5,<*>add<*>add<*> <*>:ffff<*>c<*>,1
+670e9048,<*>:<*>fc<*>ba<*> <*>:<*>fe<*>c <*>:<*>dc<*>c<*>c,1
+610db62d,<*>:<*>c<*>c<*>f<*>,1
+32668423,L<*> DCACHE summary averages: #ofDirtyLines: <*> out of <*> #ofDirtyDblWord: <*> out of <*>,3149
+291fd9ef,No power module U<*> found found on link card,6
+3d0bb149,Temperature Over Limit on link card,972
+952b8ddb,<*> PGOOD error latched on link card,353
+647899b9,<*>:<*>:<*> <*>:<*>fffc<*>,1
+8f5d77aa,<*>:<*>fea<*>f<*>d<*>d<*>f<*>,1
+7b370424,<*>:<*>d<*>fae<*> <*>:<*>dd<*>fc<*>c<*>a<*>,1
+05cc5965,"Error receiving packet on tree network, expecting type <*> instead of type <*> <*> PSR<*> PSR<*> PRXF=<*> PIXF=<*>",3072
+20c6c805,<*>c<*>eeeeeee <*>,1
+6047b964,<*>:<*>dc <*>,1
+228e76e1,"ciod: In packet from node <*>.<*> (R<*>-M<*>-N<*>-C:J<*>-U<*>), message code <*> is not <*> or <*> <*> <*> <*>)",2
+ff069658,<*>bb<*>a<*>c<*>ec<*>,1
+f03436c8,<*>:<*>bb<*>:ffffffe<*> <*>:<*>bb<*>,2
+9e223b98,<*>:<*>bb<*>eeeeeee <*>fee<*>,1
+638c7ebd,<*>:<*>bb<*> <*>:<*>fd<*>a<*>,1
+5446f84b,<*>fc<*>c<*>ea<*>:<*>,1
+fd754c58,<*>:<*>fee<*>fea<*> <*>,1
+abfcd6cd,<*>a <*>a <*>b <*>:<*>fea<*>,1
+f90ccb85,<*>:<*>eaa <*>,1
+e35b9c29,<*>aa<*>dcc <*>dc<*>dc<*>,1
+62fa967d,<*>:<*>fee<*>:<*>,1
+5473ee4c,<*>:<*>:<*>b<*>ac <*>ac,1
+85eb0743,<*>:<*>fea<*>af<*> <*>:<*>fea<*>a<*>a<*>,1
+265bb62b,<*>:ffffffe<*>b<*> <*>,1
+2001c118,<*>db<*>:ffffffe<*>cf<*>,1
+b20a0b84,<*>:<*>dc<*> <*>:<*>dc<*>a<*>fe<*>,1
+8c71ac2a,<*>:<*>a<*>ea<*>:<*>,1
+2e4cddbf,<*>b<*>c<*>,1
+e169036d,<*> <*>:<*>fa<*>,2
+767a7cba,<*>:<*>fa<*>:<*>,1
+4c74cb03,<*> <*> <*>:<*>dc<*>,1
+25d21cdc,<*> <*> <*>:<*>eb<*>eb<*>dd<*>,1
+0b9c816c,<*>:<*>df<*>a<*>:<*> <*>,1
+e8f33439,<*>:<*>dc<*>aa<*>:<*>feea<*>a<*>,1
+25082a07,<*>ba<*>c <*>b<*>f<*>,1
+822aceaa,<*>:<*>ba<*>c <*> <*>:b<*>df<*>,1
+564a40f7,BGLMaster has been started: ./BGLMaster --consoleip <*> --consoleport <*> --configfile bglmaster.init --autorestart y --db<*>profile /u/bgdb<*>cli/sqllib/db<*>profile --dbproperties db.properties,31
+18ad7153,"critical input interrupt (unit=<*> bit=<*>): warning for <*> <*> wire, suppressing further interrupts of same type",3546
+a450c390,<*> tree receiver <*> in re-synch state event(s) (dcr <*>) detected over <*> seconds,3148
+cfae5cde,<*> torus receiver <*> input pipe error(s) (dcr <*>) detected and corrected over <*> seconds,3512
+30b3b946,"<*> ddr error(s) detected and corrected on rank <*>, symbol <*> over <*> seconds",10436
+8df7ac9e,total of <*> ddr error(s) detected and corrected over <*> seconds,10415
+26c05abc,<*> <*> <*> error(s) (dcr <*>) detected and corrected over <*> seconds,1515
+cc2f4956,<*>:<*>d<*>aede,1
+b4ce3273,<*> <*>:<*>afa<*> <*>:<*>bfa<*>,1
+306161fd,<*>bfea<*>bfea<*>bfa<*>c<*>,1
+03391cca,<*>fd<*>b<*> <*>,1
+815445f4,<*> <*> <*>cd<*>,1
+76c30a22,Machine Check Status Register: <*>,56
+1a3df0d1,Machine State Register: <*>,69
+40663199,Core Configuration Register <*>: <*>,69
+32b8ff1b,DDR failing info register: DDR Fail Info Register: <*>,29
+09eee691,<*> <*> Registers:,205
+892a4ed1,r<*>=<*> r<*>=<*> r<*>=<*> r<*>=<*>,547
+35df2e69,lr=<*> cr=<*> xer=<*> ctr=<*>,68
+a38f9838,msr=<*> dear=<*> esr=<*> fpscr=<*>,68
+2f97261e,dbcr<*>=<*> dbsr=<*> ccr<*>=<*>,68
+d2d663fb,Floating Point Status and Control Register: <*>,68
+7cc667ee,exception summary........................<*>,68
+c0d9234e,enabled exception summary................<*>,68
+ab24ea9f,invalid operation exception <*>,204
+6854ff1c,overflow exception.......................<*>,68
+880414ea,underflow exception......................<*>,68
+75eb2f83,divide-by-zero exception.................<*>,68
+38ce5534,inexact exception........................<*>,68
+645e3a9c,invalid <*>,408
+6f046d5d,fraction <*>,136
+96a99a86,quiet NaN................................<*>,68
+e663de76,minus <*>,136
+1eab2244,minus <*> <*>,136
+5995c4af,plus <*>,136
+330672aa,plus <*> <*>,136
+61b90618,reserved.................................<*>,68
+8aba64af,invalid operation exception (int cnvt)...<*>,68
+b2212966,enable invalid operation exceptions......<*>,68
+d684ce5c,enable <*> <*>,340
+dda1b034,round nearest............................<*>,68
+33f20330,round toward <*>,204
+1cc35878,fpr<*>=<*> ffffffff <*> <*>,1096
+f9631383,"ciod: Received signal <*>, code=<*>, errno=<*>, address=<*>",39457
+e61c0669,<*> <*> <*> <*> <*> <*> <*> <*> <*> as part of Service Action <*>,766
+5d90c7dc,Power Good signal deactivated: <*> A service action may be required.,94
+43c21335,<*> torus <*> <*> <*> error(s) (dcr <*>) detected and corrected over <*> seconds,1049
+8fab64d7,"ciod: Error reading message prefix on CioStream socket to <*>:<*>, <*> <*> <*> <*>",28802
+f41ab62b,Target=ido://FF:F<*>:<*>F:<*>:D<*>D:<*>:E<*>:<*>A:FE/JTAG/<*> Message=Invalid JtagId = ffffffff Run environmental monitor to diagnose possible hardware failure.,2
+fb582019,<*>:<*>fee<*>feaf<*> <*>,1
+1138a35c,<*>fc <*> <*>,1
+80e1cc85,<*> <*>:<*>fee<*>d<*>,1
+aebed4cb,<*>f <*>fd<*> <*>:<*>eeeeeee <*>:ffffffff,1
+ff066194,<*>:<*>fd<*> <*>:<*>fee<*>ac<*>,1
+900cd77c,"com.ibm.bgldevices.BulkPowerModule with VPD of com.ibm.bgldevices.BulkPowerModule$VpdReply: IBM Part Number: <*>P<*>, Vendor: Cherokee International, Vendor Serial Number: <*>, Assembly Revision:  .A, Code Revision: B.<*>, Manufacture Date: during week <*> of <*>, Manufacture Location: Tustin, CA, USA is usable but not a supported version",4
+4c48a0b5,monitor caught java.lang.IllegalStateException: while executing CONTROL Operation caught java.io.EOFException and is stopping,1
+0add6a8d,monitor caught java.lang.IllegalStateException: while executing <*> Operation caught java.net.SocketException: Broken pipe and is stopping,190
+64c03440,While reading FanModule caught java.lang.IllegalStateException: while executing I<*>C Operation caught java.net.SocketException: Broken pipe,8
+c1b97bea,Hardware monitor caught java.lang.IllegalStateException: while executing I<*>C Operation caught java.net.SocketException: Broken pipe and is stopping,4
+44d39448,While setting fan speed caught java.lang.IllegalStateException: while executing I<*>C Operation caught java.lang.IllegalStateException: client not in a usable state because java.net.SocketException: Broken pipe,8
+1af4f1f6,While reading FanModule caught java.lang.IllegalStateException: while executing I<*>C Operation caught java.lang.IllegalStateException: client not in a usable state because java.lang.IllegalStateException: client not in a usable state because java.net.SocketException: Broken pipe,8
+5b2067fe,While setting fan speed caught java.lang.IllegalStateException: while executing I<*>C Operation caught java.lang.IllegalStateException: client not in a usable state because java.lang.IllegalStateException: client not in a usable state because java.lang.IllegalStateException: client not in a usable state because java.net.SocketException: Broken pipe,8
+4820e0d3,While reading FanModule caught java.lang.IllegalStateException: while executing I<*>C Operation caught java.lang.IllegalStateException: client not in a usable state because java.lang.IllegalStateException: client not in a usable state because java.lang.IllegalStateException: client not in a usable state because java.lang.IllegalStateException: client not in a usable state because java.net.SocketException: Broken pipe,8
+3eb637ea,While setting fan speed caught java.lang.IllegalStateException: while executing I<*>C Operation caught java.lang.IllegalStateException: client not in a usable state because java.lang.IllegalStateException: client not in a usable state because java.lang.IllegalStateException: client not in a usable state because java.lang.IllegalStateException: client not in a usable state because java.lang.IllegalStateException: client not in a usable state because java.net.SocketException: Broken pipe,7
+4a2ea858,While reading FanModule caught java.lang.IllegalStateException: while executing I<*>C Operation caught java.lang.IllegalStateException: client not in a usable state because java.lang.IllegalStateException: client not in a usable state because java.lang.IllegalStateException: client not in a usable state because java.lang.IllegalStateException: client not in a usable state because java.lang.IllegalStateException: client not in a usable state because java.lang.IllegalStateException: client not in a usable state because java.net.SocketException: Broken pipe,7
+e47c2821,While setting fan speed caught java.lang.IllegalStateException: while executing I<*>C Operation caught java.lang.IllegalStateException: client not in a usable state because java.lang.IllegalStateException: client not in a usable state because java.lang.IllegalStateException: client not in a usable state because java.lang.IllegalStateException: client not in a usable state because java.lang.IllegalStateException: client not in a usable state because java.lang.IllegalStateException: client not in a usable state because java.lang.IllegalStateException: client not in a usable state because java.net.SocketException: Broken pipe,5
+41917a59,While reading FanModule caught java.lang.IllegalStateException: while executing I<*>C Operation caught java.lang.IllegalStateException: client not in a usable state because java.lang.IllegalStateException: client not in a usable state because java.lang.IllegalStateException: client not in a usable state because java.lang.IllegalStateException: client not in a usable state because java.lang.IllegalStateException: client not in a usable state because java.lang.IllegalStateException: client not in a usable state because java.lang.IllegalStateException: client not in a usable state because java.lang.IllegalStateException: client not in a usable state because java.net.SocketException: Broken pipe,5
+6989496f,While setting fan speed caught java.lang.IllegalStateException: while executing I<*>C Operation caught java.lang.IllegalStateException: client not in a usable state because java.lang.IllegalStateException: client not in a usable state because java.lang.IllegalStateException: client not in a usable state because java.lang.IllegalStateException: client not in a usable state because java.lang.IllegalStateException: client not in a usable state because java.lang.IllegalStateException: client not in a usable state because java.lang.IllegalStateException: client not in a usable state because java.lang.IllegalStateException: client not in a usable state because java.lang.IllegalStateException: client not in a usable state because java.net.SocketException: Broken pipe,3
+d2d20be2,While reading FanModule caught java.lang.IllegalStateException: while executing I<*>C Operation caught java.lang.IllegalStateException: client not in a usable state because java.lang.IllegalStateException: client not in a usable state because java.lang.IllegalStateException: client not in a usable state because java.lang.IllegalStateException: client not in a usable state because java.lang.IllegalStateException: client not in a usable state because java.lang.IllegalStateException: client not in a usable state because java.lang.IllegalStateException: client not in a usable state because java.lang.IllegalStateException: client not in a usable state because java.lang.IllegalStateException: client not in a usable state because java.lang.IllegalStateException: client not in a usable state because java.net.SocketException: Broken pipe,3
+383c6cb8,Hardware monitor caught java.net.SocketException: Broken pipe and is stopping,77
+058871d3,"ciod: Error loading -mode VN: invalid or missing program image, No such file or directory",1024
+2a6224ef,<*>:<*>bb<*>eeeeeee <*>:<*>fff<*> <*>:<*>fee<*>,1
+c4b9b631,<*>a <*>c <*>ec<*> <*>:<*>bb<*>c<*>,1
+34cdf99d,<*>:<*>c<*>dc<*>ab<*>,1
+06eb1b16,<*>:<*>bb<*>a<*>ec<*>:<*>,1
+8273a9df,<*>:<*>afdb<*>:<*>,1
+8597981a,<*> <*>:<*>cb<*>,2
+fce91f06,<*> <*>:<*>b<*>dedf<*>d<*>,1
+eb8ed186,<*>:ffffffe<*>fd<*>b<*>,1
+d14bdb9e,<*>b <*>e <*>f <*>:<*>fea<*>,1
+e7fa3bfe,<*>:<*>f<*>ae<*>,1
+aadcd87f,<*> <*> <*>b<*>,2
+b738da61,<*>:ffffffe<*>cd<*>dcb<*>,1
+004a68ba,<*>:<*>b<*>cf<*>:ffffffe<*>ce<*>,1
+69e787e8,<*>:<*>b<*>cd<*> <*>:<*>eeeeeee <*>f <*>:<*>fee<*>c<*>,1
+40161c21,<*>eb <*>b<*>cca<*>,1
+cb829cb2,<*>:<*>d<*>b<*>dc<*>,1
+d16a4839,<*>:<*>feea<*>,1
+e1a7148a,<*>:ffff<*>:<*>d<*>c,1
+4db5d203,<*> <*>c<*>ba<*>a<*>,1
+18ca2760,<*>:<*>f<*> <*>:<*>feea<*>d<*>,1
+a71a51a7,<*>d<*>b <*>,1
+be4358e7,<*>:<*>feea<*>:<*>:<*>,1
+f4182236,MACHINE CHECK <*> <*> <*> <*> iar <*> lr <*>),14482
+5eeb7c0e,"ciod: Error reading message prefix on CioStream socket to <*>:<*>, Connection timed out",1991
+8ef42a09,Exception Syndrome Register: <*>,4
+47ea5376,fpr<*>=<*> <*>,286
+85e9a2a5,fpr<*>=<*> <*> f<*>dd<*>f c<*>ba<*>,1
+c5eaef34,fpr<*>=<*> <*> <*> c<*>,6
+9c33dd98,fpr<*>=<*> c<*>d<*> <*> <*>,2
+9cd91271,fpr<*>=<*> <*> <*>,586
+3dc57918,fpr<*>=<*> c<*> <*> <*>,3
+d8c02079,fpr<*>=<*> <*> fe<*>a<*> c<*>b<*>ec,1
+87f33648,fpr<*>=<*> <*>e<*>be <*>f<*>d <*>d<*>f,1
+5776f85d,fpr<*>=<*> <*> <*> <*>e,2
+a00909ad,fpr<*>=<*> <*>a <*> <*>,2
+ea54fb07,mmcs_db_server has been started: ./mmcs_db_server --useDatabase BGL --dbproperties db.properties --iolog /bgl/BlueLight/logs/BGL --reconnect-blocks all --shutdown-timeout <*> --shutdown-timeout <*>,18
+60bc7748,"ciod: In packet from node <*>.<*> (R<*>-M<*>-NF-C:J<*>-U<*>), message still ready for node <*> (softheader=<*>)",1
+9437be73,machine check interrupt (bit=<*>): L<*> dcache unit <*> <*> parity error,23
+0a63ce95,fpr<*>=<*> <*> cb<*>ef<*> <*>cf<*>c,1
+f4991a04,fpr<*>=<*> <*> <*> <*>fd<*>,2
+65e751c0,fpr<*>=<*> bf<*>c<*> e<*>e <*>fc<*>d<*>,1
+993ddde4,fpr<*>=<*> <*> <*> c<*>c<*>,4
+f77ea26f,fpr<*>=<*> bffcf<*>e<*> <*>ffaa<*> bfd<*>f<*>f,1
+127028d8,fpr<*>=<*> <*>eddf<*> ae<*>ee<*>be bfaf<*>cf,1
+4b3e4263,fpr<*>=<*> bfe<*>ae<*> d<*>bce c<*>b,1
+464c6ea7,fpr<*>=<*> <*>fdd<*>b<*>e <*> bfdea<*>,1
+0420956f,fpr<*>=<*> <*> a<*>ee<*>ee bf<*>fa<*>,1
+98e5436d,fpr<*>=<*> <*> c<*>d<*>cf<*> <*>dfb<*>a,2
+a1f1fda5,fpr<*>=<*> c<*>a<*>b <*>c<*>d<*>fd <*>,1
+34cf1829,fpr<*>=<*> <*> <*> <*>d,3
+7e283a6c,fpr<*>=<*> <*>e<*>ca<*> d<*>a<*>c<*> bfb<*>f<*>e,1
+d790cb1e,fpr<*>=<*> bffe<*>d<*> d<*>a<*>c<*>c <*>fbd<*>d<*>,1
+c3cce8ee,fpr<*>=<*> <*> df<*>abd<*> <*>fc<*>b<*>,1
+c4edb920,fpr<*>=<*> <*> d<*>f<*>d<*>b <*>,1
+7524fb99,fpr<*>=<*> c<*>fba <*> bfb<*>ba,1
+983dea6f,fpr<*>=<*> <*>fefab<*>a <*>c<*>ed bfd<*>fba<*>,1
+2e9e34d1,fpr<*>=<*> <*> ba<*>e<*>d bfa<*>dcc,1
+8683bb52,fpr<*>=<*> <*> a<*>b<*> c<*>eb,1
+b4892893,fpr<*>=<*> <*> b<*>eae bfdc<*>,2
+331e5ce3,fpr<*>=<*> bff<*>d<*>e <*> c<*>b<*>d,1
+c20080a6,fpr<*>=<*> <*>fb<*>c<*>c <*>a<*>e<*>c <*>fb<*>b<*>,1
+cfadcfcc,fpr<*>=<*> <*> a<*>e<*>e <*>fcb<*>fd,1
+4e666c51,fpr<*>=<*> <*> a<*>c<*>cf <*>dc<*>,1
+8d05f369,fpr<*>=<*> <*> f<*>c<*>bd <*>ba,1
+d2cd4d31,fpr<*>=<*> <*>faf<*>d<*> e<*>f<*>ad <*>fdcc<*>ca,1
+2055b0e5,fpr<*>=<*> bf<*>d df<*>d<*>aa <*>,1
+e7a5a36d,fpr<*>=<*> <*>f<*>ea<*>c <*>cc<*>a<*>c c<*>e<*>,1
+f530bda2,fpr<*>=<*> <*>fb<*>c<*> <*>cd<*>b<*>c bfb<*>b<*>,1
+fbb4650b,fpr<*>=<*> <*> f<*>b<*>c<*>fd bf<*>c<*>b<*>,1
+88361ca1,fpr<*>=<*> <*> caeeb<*>b<*> <*>ff<*>,1
+f2bd9516,fpr<*>=<*> c<*>c<*>f<*>c <*>c<*>e<*>ce bf<*>a<*>,1
+7007bb5d,fpr<*>=<*> <*> <*> c<*>f<*>,3
+1196a1e7,fpr<*>=<*> <*> b<*>a<*>a<*>c <*>ee<*>f<*>,1
+5283cc76,fpr<*>=<*> <*> <*> <*>b,2
+75329391,fpr<*>=<*> <*> c<*>d<*>c<*>c <*>f<*>cf<*>,2
+808ec762,fpr<*>=<*> c<*>fbab<*> <*>ffae<*>b <*>,1
+1a1c0c2f,fpr<*>=<*> c<*>c<*>ec <*>f<*>a bf<*>c<*>,1
+dc0b844a,fpr<*>=<*> <*> ea<*>dfa<*>e bf<*>ec<*>,1
+7c83121a,MidplaneSwitchController::clearPort() bll_clear_port failed: R<*>-M<*>-L<*>-U<*>-A,2
+87ec27cc,ciod: Error creating node map from file my_map.txt: No such file or directory,24
+d1abb43a,fpr<*>=<*> <*>ffff<*> <*>ff<*>adc <*>ffff<*>,1
+9dacee4d,fpr<*>=<*> <*>cd<*>f<*> <*>ff<*>a<*> <*>ffff<*>f<*>,1
+ec9ff7fa,fpr<*>=<*> bfdab<*>ea f<*>d<*>fc<*> bff<*>e<*>,1
+2c5e0acc,fpr<*>=<*> c<*>b <*>ec<*>c<*> bff<*>ed<*>,1
+37d4abb6,fpr<*>=<*> bfed<*>fde <*>d<*>bbc<*> <*>fe<*>f,1
+a26f07f5,fpr<*>=<*> <*>ff<*>cd<*> c<*>b<*>d c<*>e<*>d,1
+e14a05d7,fpr<*>=<*> c<*>cb<*>d <*>a<*>d<*>dd<*> c<*>aec,1
+f1f5c8c5,fpr<*>=<*> <*>f<*>fa bc<*>a<*>f bfec<*>,1
+93181fe9,fpr<*>=<*> bfe<*> ef<*>ae<*>a<*> bffee<*>ae,1
+fc24d79f,fpr<*>=<*> bff<*>ab <*>c<*>bc<*>e c<*>d<*>b,1
+c858c9ee,fpr<*>=<*> c<*>c<*>ea <*> c<*>b<*>a<*>,1
+62c33092,fpr<*>=<*> bfea<*>f <*>fdbbf<*> bffcbf<*>a,1
+322228ab,<*> microseconds spent in the rbs signal handler during <*> calls. <*> microseconds was the maximum time for a single instance of a correctable ddr.,135092
+0045c3a8,"<*> total interrupts. <*> critical input interrupts. <*> microseconds total spent on critical input interrupts, <*> microseconds max time in a critical input interrupt.",135092
+a325330f,instance of a correctable ddr. RAS KERNEL INFO <*> microseconds spent in the rbs signal handler during <*> calls. <*> microseconds was the maximum time for a single instance of a correctable ddr.,4
+3f7f233d,"max time in a cr RAS KERNEL INFO <*> total interrupts. <*> critical input interrupts. <*> microseconds total spent on critical input interrupts, <*> microseconds max time in a critical input interrupt.",4
+7b69be8b,"ciod: In packet from node <*>.<*> (R<*>-M<*>-N<*>-C:J<*>-U<*>), message still ready for node <*> (softheader=<*>a <*>)",1
+d128557a,fpr<*>=<*> <*> <*> c<*>d<*>cb,2
+78beac3d,fpr<*>=<*> <*>fffff fffffffe fffffffc,1
+9e9164b0,"external input interrupt (unit=<*> bit=<*>): number of corrected SRAM errors has exceeded threshold, suppressing further interrupts of same type",57
+3d526018,ddr: Suppressing further CE interrupts,302
+8ddc7b2c,"Kernel detected <*> integer alignment exceptions (<*>) iar <*>, dear <*> (<*>) iar <*>, dear <*> (<*>) iar <*>, dear <*> (<*>) iar <*>, dear <*> (<*>) iar <*>, dear <*> (<*>) iar <*>, dear <*> (<*>) iar <*>, dear <*> (<*>) iar <*>, dear <*>",22175
+9941d1dc,fpr<*>=<*> bfb<*>a<*> a<*>aa<*>ac bfc<*>f<*>,1
+e661033d,fpr<*>=<*> bfbaf<*>fe b<*>cf<*> bfc<*>d<*>c,1
+a5955e5a,fpr<*>=<*> bfcb<*>d e<*>cdf<*> <*>fcab<*>f<*>,1
+700ab0a2,fpr<*>=<*> c<*>cf<*>e <*> c<*>cd<*>,1
+40c35d69,fpr<*>=<*> bff<*>fdf<*> <*>dcd<*> bffc<*>f<*>a,1
+8d36067b,fpr<*>=<*> <*>ab<*> de<*>b<*>b <*>defe<*>,1
+5e121a08,fpr<*>=<*> c<*>d <*>aef<*>ff c<*>ac<*>,1
+ff9c4317,fpr<*>=<*> c<*>bc<*> ee<*>caaa <*>ff<*>af<*>,1
+5b67013c,fpr<*>=<*> <*> dfa<*>d<*> c<*>d,1
+92d74c29,fpr<*>=<*> bfc<*>b<*>d <*>cbfb<*> c<*>a<*>bc,1
+a0a0aeee,fpr<*>=<*> <*>fdf<*>fa <*>f<*>cfe <*>,1
+06bde7f8,fpr<*>=<*> c<*>c e<*>ca<*>f<*> c<*>f<*>a<*>,1
+6a009a2e,fpr<*>=<*> <*>ff<*>fbd<*> <*>c<*>decd bfeb<*>b<*>e,1
+9222328a,fpr<*>=<*> bfd<*>d<*>e <*> bfd<*>d<*>f,1
+3141c8ff,fpr<*>=<*> bfe<*>cfc<*> <*>b<*>fa<*>d<*> bfe<*>cf<*>,1
+25c4db87,fpr<*>=<*> <*>fe<*>cf<*>b <*>c<*>bfaa <*>,1
+511a9c99,fpr<*>=<*> <*>ff<*>ec <*>e<*>ceb<*> bff<*>d<*>,1
+77be3a62,fpr<*>=<*> bdd<*>fe c<*>b<*>fb <*>df<*>dd<*>,1
+40b04dda,fpr<*>=<*> bdf<*>e<*>c bd<*>be<*>c <*>dff<*>,1
+d7d59e80,fpr<*>=<*> <*>e <*>cd<*>e<*>b bef<*>,1
+cbd9daaf,fpr<*>=<*> <*> <*> bf<*>,2
+dc57c56b,fpr<*>=<*> be<*>c<*>c <*> be<*>beda<*>,1
+79e75c2a,fpr<*>=<*> <*>e<*>fde<*>c <*>fee<*> be<*>bcf,1
+17c045e0,fpr<*>=<*> <*>e<*>ddd<*> e<*>b<*>ae <*>,1
+58c1bb0b,fpr<*>=<*> be<*>bc<*> bd<*>ac<*>d be<*>ba<*>ec,1
+2f46fdab,fpr<*>=<*> bed<*>f<*> b<*>fb<*> <*>edb<*>e<*>,1
+10c954a5,fpr<*>=<*> <*>ec<*>d fea<*>a <*>edb<*>b,1
+92d90c08,fpr<*>=<*> <*>edb<*>e <*>e <*>edb<*>bd,1
+a8a06450,fpr<*>=<*> <*>ec<*>f<*> d<*>dbe<*>ae bed<*>,1
+6cff3aff,"dear <*> (<*> RAS KERNEL INFO Kernel detected <*> integer alignment exceptions (<*>) iar <*>, dear <*> (<*>) iar <*>, dear <*> (<*>) iar <*>, dear <*> (<*>) iar <*>, dear <*> (<*>) iar <*>, dear <*> (<*>) iar <*>, dear <*> (<*>) iar <*>, dear <*> (<*>) iar <*>, dear <*>",2
+316de8a3,ciod: Error loading /p/gb<*>/light<*>/sppm_chkpt/sppm: not a CNK program image,1024
+b1729791,fpr<*>=<*> <*>fd<*>b<*>fb <*> bcd<*>d<*>,1
+99339798,fpr<*>=<*> <*>ffb<*> <*> <*>,4
+de0f06fb,fpr<*>=<*> <*> fffffe<*>a <*>,3
+a0e0ea70,fpr<*>=<*> bf<*>d<*>cb <*> <*>,2
+93540e8a,fpr<*>=<*> <*> a<*>efe<*>c bfd<*>f<*>,1
+67a6e8bd,fpr<*>=<*> <*> <*> <*>fe<*>,2
+7f371263,fpr<*>=<*> <*> <*> <*>fdfffff,2
+a3eb2756,fpr<*>=<*> <*>de<*> <*>fbb<*>ec <*>fee<*>b<*>,1
+739c29cb,fpr<*>=<*> <*>f <*> <*>ec<*>aa,1
+acd9b0b8,fpr<*>=<*> <*>ff<*>ff<*> d<*>e<*>aef<*> <*>eca<*>,1
+caa1a2c5,fpr<*>=<*> <*> <*> <*>a,2
+0133a077,fpr<*>=<*> <*>ebf<*>e <*> aaecab<*>,1
+40efe14b,fpr<*>=<*> <*> ba<*>feeb<*> <*>fdff<*>c,1
+c18d3955,fpr<*>=<*> <*> f<*>a<*>c <*>,1
+be1481ed,fpr<*>=<*> <*> c<*>f<*>ff <*>fdef<*>e<*>,1
+cbc1168c,"rts assertion failed: `vaddr % PAGE_SIZE_<*>M == <*>' in `int initializeAppMemory(int, TLBEntry&, unsigned int, unsigned int)' at mmu.cc:<*>",1
+29f9c50e,fpr<*>=<*> <*>ff<*>e f<*>a <*>fd<*>cb<*>c,1
+e62d9b56,fpr<*>=<*> bfd<*>c <*> <*>,2
+07689958,fpr<*>=<*> <*> abdb<*>b<*> <*>ffd<*>f<*>,1
+319fa048,fpr<*>=<*> <*> c<*>a <*>f<*>ed<*>,1
+7582ef7b,fpr<*>=<*> <*> cf<*>aacc<*> bf<*>a<*>d<*>,1
+3c407070,fpr<*>=<*> <*> f<*> <*>fdb<*>c<*>e,1
+21870b70,fpr<*>=<*> <*> c<*>b<*>bc<*> bfc<*>d<*>,1
+1f4da8a4,fpr<*>=<*> <*> e<*>b<*>a<*>d bfc<*>b<*>b,3
+993130d2,fpr<*>=<*> <*> d<*>ee<*>f <*>,1
+0c76365b,fpr<*>=<*> <*> c<*>b<*>dbd <*>fdd<*>fef,2
+b01a5737,fpr<*>=<*> <*>fa <*>e<*>b<*>fae <*>,1
+9292245f,fpr<*>=<*> <*> a<*>ffca<*> <*>cfc<*>f,1
+f799d3c9,fpr<*>=<*> bfe<*>e<*> b<*>c<*>f <*>,1
+db4271d9,fpr<*>=<*> <*>fe<*>e<*>a <*> c<*>a<*>b,1
+debd5e07,fpr<*>=<*> <*>e<*>aa <*>fd<*> <*>fe<*>d<*>f,1
+ddef41d1,fpr<*>=<*> bf<*> e<*>a<*>cb<*> <*>f<*>ce<*>d,2
+2aed8bca,fpr<*>=<*> <*>f<*>a<*>cf <*> bfe<*>,1
+8ac9e924,fpr<*>=<*> bf<*>ab<*> bfec<*> bee<*>ba<*>,1
+c1d14bb4,fpr<*>=<*> <*> bc<*>a<*>efa <*>,1
+c5d053b4,fpr<*>=<*> <*> e<*>fc<*>b<*>a <*>ff<*>d<*>,1
+d0ae831e,fpr<*>=<*> <*> d<*>d<*>bdbb <*>ddb<*>cdf,2
+df4dfcf9,fpr<*>=<*> c<*>dde<*> <*>dc<*>fe<*> <*>fce<*>c,1
+85adefac,fpr<*>=<*> <*>fc<*>b<*> b<*> bf<*>d<*>a,1
+3a11ebe8,fpr<*>=<*> <*>efff <*>b<*>df<*> bff<*>,1
+04b78aed,fpr<*>=<*> <*> a<*> bfbb<*>c<*>b,1
+9f51e163,fpr<*>=<*> <*>bead<*> b<*>c <*>,1
+05c905c6,fpr<*>=<*> <*> c<*> bfb<*>bf<*>d,1
+2635842f,fpr<*>=<*> <*> cb<*>f<*> bc<*>ae<*>,1
+8111f513,fpr<*>=<*> <*> fa<*>ad<*>f <*>fecfc<*>c,1
+7107b532,fpr<*>=<*> <*> f<*>f<*>f <*>b<*>cafc,1

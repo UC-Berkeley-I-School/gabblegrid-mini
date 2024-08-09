@@ -1,0 +1,8 @@
+Description,ID,Owner,Timestamp,Start Date,Start Time,Sliding Window,AutoPicker,Max Events,Number of Samples,Observation Period,Gap Period,Prediction Period,Start Seq Num
+,995CE1,gaurav.narasimhan@gmail.com,2024-08-02 19:06:26,2005-11-22,22:40,Sequential,Manual,40,60,30,5,1,12406.0
+,30BAD4,gaurav.narasimhan@gmail.com,2024-08-02 22:03:34,2005-11-08,22:00,Sequential,Manual,5,10,10,4,1,11634.0
+,580E72,gaurav.narasimhan@gmail.com,2024-08-02 22:07:43,2005-11-22,22:40,Sequential,Manual,5,100,10,4,1,12406.0
+,8F6AE9,gaurav.narasimhan@gmail.com,2024-08-03 00:08:30,2005-11-30,23:50,Sequential,Manual,5,40,30,5,1,12701.0
+Test_01,5156D9,gaurav.narasimhan@gmail.com,2024-08-03 00:16:43,2005-11-08,16:10,Sequential,Manual,50,50,30,1,1,11615.0
+Test_02,61A94F,gaurav.narasimhan@gmail.com,2024-08-03 00:30:19,2005-11-08,16:10,Sequential,Manual,30,60,20,4,1,11615.0
+max(5)_obs(30)_gap(2)_pred(1)_samp(130),AB1C01,gaurav.narasimhan@gmail.com,2024-08-03 06:44:09,2005-11-08,16:10,Sequential,Manual,5,130,30,2,1,11615.0
