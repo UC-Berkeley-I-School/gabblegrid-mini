@@ -1,0 +1,58 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Packages
+*.egg
+*.egg-info/
+dist/
+build/
+eggs/
+wheels/
+*.manifest
+*.spec
+
+# Logs
+logs/
+*.log
+
+# Environment variables
+.env
+
+# Python virtual environment
+venv/
+.venv/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Exclude PyTorch model files
+*.pt
+*.pth
+
+# Exclude specific folders
+00.Full_Project_Backups/
+01.Local_Model_Files/
+04.Local_Other_Files/
+05.Local_Results_Tracker/
+95.Admin/
+97.Archive/
+94.Project_Transcript/
+
+
+# Exclude specific files
+
+01.BGL.log_structured.csv
+
+# Exclude everything else except the project folder
+# *
+# !/home/ubuntu/efs-w210-capstone-ebs/00.GabbleGrid/**
+

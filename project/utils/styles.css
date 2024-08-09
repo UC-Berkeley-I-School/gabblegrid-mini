@@ -1,0 +1,103 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+}
+.title {
+    color: grey; /* Change header font color to grey */
+    font-size: 34px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+.section {
+    background-color: #ffffff;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.section img {
+    margin-bottom: 10px;
+    border-radius: 8px;
+}
+.section h2 {
+    font-size: 28px;
+    margin-bottom: 10px;
+    color: grey !important; /* Change header font color to light grey */
+}
+.section h5 {
+    font-size: 22px;
+    margin-bottom: 10px;
+    color: grey !important; /* Change h5 font color to grey */
+}
+.section p {
+    font-size: 16px;
+    line-height: 1.6;
+}
+.section ol {
+    margin-left: 20px;
+}
+.section input, .section select {
+    margin-bottom: 10px;
+}
+.header {
+    margin-bottom: 30px;
+}
+.footer {
+    margin-top: 20px;
+    text-align: center;
+}
+/* New styles for Essential Reading */
+.essential-reading a {
+    color: blue;
+    text-decoration: underline;
+    font-size: 0.9em;
+    line-height: 1.0;
+    display: block;
+    margin-bottom: 1px;
+}
+/* Increase tab font size */
+div[data-testid="stTabs"] button div p {
+    font-size: 17px !important;
+}
+/* Styles for MVP Concept subsections */
+.mvp-subsection {
+    margin-bottom: 20px;
+}
+
+/* Add this to your styles.css file */
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 1; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgb(0,0,0); 
+    background-color: rgba(0,0,0,0.4); 
+    padding-top: 60px;
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; 
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
