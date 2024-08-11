@@ -1,5 +1,13 @@
-# Secrets and such
+# Key Files, secrets et al
 config.yaml
+# Exclude systemd service files
+/etc/systemd/system/gabblegrid.service
+/etc/systemd/system/gabblegrid-dev.service
+
+# Exclude Nginx configuration files
+/etc/nginx/sites-available/default
+/etc/nginx/sites-available/dev.gabblegrid.com
+
 
 
 # Byte-compiled / optimized / DLL files
@@ -48,6 +56,7 @@ Thumbs.db
 .cache/
 tmp/
 temp/
+*.db
 
 # Exclude IDE and editor config files
 .vscode/
@@ -65,6 +74,10 @@ temp/
 95.Admin/
 97.Archive/
 94.Project_Transcript/
+03.Local_Inference_Eval_Files/
+project/playground_beta/01.Experiments/
+
+
 
 # Node.js dependencies (if applicable)
 node_modules/

@@ -5,6 +5,8 @@ from google_auth_oauthlib.flow import Flow
 import requests
 import traceback
 from utils.sidebar_utils import render_sidebar  # Add this import at the top
+import os
+
 
 # Set the page configuration as the first Streamlit command
 st.set_page_config(
@@ -126,15 +128,32 @@ def main():
     with open("config.yaml") as f:
         config = yaml.safe_load(f)
 
+    # Print environment variable to ensure it's being detected
+    # st.write(f"GABBLEGRID_ENV variable: {os.environ.get('GABBLEGRID_ENV', 'Not Found')}")
+
     # GitHub OAuth configuration
     client_id = config['credentials']['github']['client_id']
     client_secret = config['credentials']['github']['client_secret']
-    redirect_uri = "https://gabblegrid.com"
+    # redirect_uri = "https://gabblegrid.com"
 
     # Google OAuth configuration
     google_client_id = config['credentials']['google']['client_id']
     google_client_secret = config['credentials']['google']['client_secret']
     google_redirect_uri = "https://gabblegrid.com"
+
+#################### Redirect URI for Dev Auth only ###################
+    
+    # Determine the environment based on a custom environment variable
+    if "GABBLEGRID_ENV" in os.environ and os.environ["GABBLEGRID_ENV"] == "dev":
+        redirect_uri = "https://dev.gabblegrid.com"
+        google_redirect_uri = "https://dev.gabblegrid.com"
+    else:
+        redirect_uri = "https://gabblegrid.com"
+        google_redirect_uri = "https://gabblegrid.com"
+
+    # Debugging output
+    # st.write(f"Redirect URI: {redirect_uri}")
+######################################################################    
 
     if 'token' not in st.session_state:
         st.session_state.token = None
@@ -266,8 +285,8 @@ def main():
         #     "Plug-n-Play", "Design", "Tech", "Models", "About", "Admin"
         # ])
 
-        tab1, tab2, tab3, tab4, tab5, tab6, tab7, tab8, tab10 = st.tabs([
-            "Home", "Why Agents", "Playground", "Playground Beta", 
+        tab1, tab2, tab4, tab5, tab6, tab7, tab8, tab10 = st.tabs([
+            "Home", "Why Agents", "Playground", 
             "Plug-n-Play", "Design", "Tech", "Models", "Admin"
         ])
 
@@ -279,12 +298,12 @@ def main():
             display_why_agents_tab()
             display_footer()
 
-        with tab3:
-            if check_auth():
-                display_playground_tab()
-            else:
-                st.warning("Please log in to access the Playground tab.")
-            display_footer()
+        # with tab3:
+        #     if check_auth():
+        #         display_playground_tab()
+        #     else:
+        #         st.warning("Please log in to access the Playground tab.")
+        #     display_footer()
 
         with tab4:
             if check_auth():
