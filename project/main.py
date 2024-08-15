@@ -29,13 +29,13 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 from content.home_tab import display_home_tab
-from playground.playground_main import display_playground_tab
+# from playground.playground_main import display_playground_tab
 from content.design_tab import display_design_tab
 from content.tech_tab import display_tech_tab
 from content.models_tab import display_models_tab
 from content.about_us_tab import display_about_us_tab
 from utils.footer import display_footer
-from playground_beta.playground_main import display_playground_beta_tab
+from playground.playground_main import display_playground_tab
 from plug_n_play.plug_n_play_main import display_plug_n_play_tab
 from content.why_agents_tab import display_why_agents_tab
 from content.privacy_policy import display_privacy_policy
@@ -280,11 +280,6 @@ def main():
     elif page == "terms_of_service":
         display_terms_of_service()
     else:
-        # tab1, tab2, tab3, tab4, tab5, tab6, tab7, tab8, tab9, tab10 = st.tabs([
-        #     "Home", "Why Agents", "Playground", "Playground Beta", 
-        #     "Plug-n-Play", "Design", "Tech", "Models", "About", "Admin"
-        # ])
-
         tab1, tab2, tab4, tab5, tab6, tab7, tab8, tab10 = st.tabs([
             "Home", "Why Agents", "Playground", 
             "Plug-n-Play", "Design", "Tech", "Models", "Admin"
@@ -298,18 +293,11 @@ def main():
             display_why_agents_tab()
             display_footer()
 
-        # with tab3:
-        #     if check_auth():
-        #         display_playground_tab()
-        #     else:
-        #         st.warning("Please log in to access the Playground tab.")
-        #     display_footer()
-
         with tab4:
             if check_auth():
-                display_playground_beta_tab()
+                display_playground_tab()
             else:
-                st.warning("Please log in to access the Playground Beta tab.")
+                st.warning("Please log in to access the Playground tab.")
             display_footer()
 
         with tab5:
@@ -331,10 +319,6 @@ def main():
             display_models_tab()
             display_footer()
 
-        # with tab9:
-        #     display_about_us_tab()
-        #     display_footer()
-        
         with tab10:
             # email = st.session_state.get('user', {}).get('email')
             email = st.session_state.get('user', {}).get('email') if st.session_state.get('user') else None

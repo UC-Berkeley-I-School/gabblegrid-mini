@@ -15,8 +15,8 @@ def render_sidebar(key_suffix=''):
     if 'sidebar_config' not in st.session_state:
         st.session_state.sidebar_config = {}
     
-    # Only render the sidebar for playground_beta
-    if key_suffix == 'playground_beta':
+    # Only render the sidebar for playground
+    if key_suffix == 'playground':
         with st.sidebar:
             st.header("Model Configuration")
             st.session_state.sidebar_config["model"] = st.selectbox("Model", MODELS, index=2, key=f'model_selectbox_{key_suffix}')

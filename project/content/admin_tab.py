@@ -4,15 +4,6 @@ from datetime import datetime
 import random
 import os
 
-# Temporary block to display the static image
-# plot_file_path = "/home/ubuntu/efs-w210-capstone-ebs/00.GabbleGrid/project/playground_beta/01.Experiments/01.Images/20240805090256_plot.png"
-# if os.path.exists(plot_file_path):
-#     with open(plot_file_path, "rb") as image_file:
-#         image_bytes = image_file.read()
-#     st.image(image_bytes, caption='Temperature Changes')
-# else:
-#     st.error(f"Plot file not found at {plots_file_path}")
-
 
 def generate_hex_id():
     return ''.join([random.choice('0123456789ABCDEF') for _ in range(6)])
@@ -46,29 +37,6 @@ def display_admin_tab():
         </div>
     """, unsafe_allow_html=True)
 
-
-#########
-
-    # # Split into two columns
-    # col1, col2 = st.columns([1, 1])
-
-    # with col1:
-    #     st.markdown("""
-    #         <div class='section'>
-    #             <h2>Experiment Templates</h2>
-    #             <p>Use this section to create and manage experiment templates with predefined parameter values.</p>
-    #         </div>
-    #     """, unsafe_allow_html=True)
-
-    # with col2:
-    #     st.video('/home/ubuntu/efs-w210-capstone-ebs/00.GabbleGrid/project/files/videos/20240805_Final_Playground_Beta.mp4')
-
-    # owner = "gaurav.narasimhan@gmail.com"
-    # timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-    
-
-
-#########
     
     owner = "gaurav.narasimhan@gmail.com"
     timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
