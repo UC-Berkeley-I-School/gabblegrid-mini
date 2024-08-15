@@ -108,25 +108,25 @@ def write_to_file(output_file, folder_structure, file_contents, base_path):
         f.write("----------------------------------------------------------------\n")
 
 
-        f.write("Once you have read through the contents of this message, please re-read the code\n\n")
-        f.write("in these two source files - Consider them as the framework on which we will develop now\n\n")
-        f.write("File1: playground_main.py\n\n")
-        f.write("File2: playground_weather_inference.py\n\n")
-        f.write("Once you have read both these reference files, you will re-read these two target files again: \n\n")
-        f.write("File1: REF_ONLY_Group3_Agent_A_Historical_Weather_Retriever_Notebook.txt\n\n")
-        f.write("File2: REF_ONLY_Group3_Agent_B_Historical_Weather_Plotter_Notebook.txt\n\n")
-        f.write("Both these target files is working code from a jupyter notebook\n\n")
-        f.write("The task is to translate the target code into two agents\n\n")
-        f.write("First Agent: Historical Weather Data Retriever \n\n")
-        f.write("Second Agent: Historical Weather Data Plotter\n\n")
-        f.write("For this I have created a new file 'playground_historical_weather_inference.py'\n\n")
-        f.write("which will be similar to the existing file File2: playground_weather_inference.py\n\n")
-        f.write("All the code you will give me now will go into playground_historical_weather_inference.py\n\n")
-        f.write("To make this work in the reference agent format, you will need to recast the target code\n\n")
-        f.write("Let us start by first generating the content for Historical Weather Retriever  \n\n")
-        f.write("Once complete, we will move on to the Historical Weather Data Plotter Agent code\n\n")
-        f.write("And Remember, please always give me targetted/specific code and not the full file\n\n")
-        f.write("I will expllicitely ask if I need code for the entire file\n\n")
+        # f.write("Once you have read through the contents of this message, please re-read the code\n\n")
+        # f.write("in these two source files - Consider them as the framework on which we will develop now\n\n")
+        # f.write("File1: playground_main.py\n\n")
+        # f.write("File2: playground_weather_inference.py\n\n")
+        # f.write("Once you have read both these reference files, you will re-read these two target files again: \n\n")
+        # f.write("File1: REF_ONLY_Group3_Agent_A_Historical_Weather_Retriever_Notebook.txt\n\n")
+        # f.write("File2: REF_ONLY_Group3_Agent_B_Historical_Weather_Plotter_Notebook.txt\n\n")
+        # f.write("Both these target files is working code from a jupyter notebook\n\n")
+        # f.write("The task is to translate the target code into two agents\n\n")
+        # f.write("First Agent: Historical Weather Data Retriever \n\n")
+        # f.write("Second Agent: Historical Weather Data Plotter\n\n")
+        # f.write("For this I have created a new file 'playground_historical_weather_inference.py'\n\n")
+        # f.write("which will be similar to the existing file File2: playground_weather_inference.py\n\n")
+        # f.write("All the code you will give me now will go into playground_historical_weather_inference.py\n\n")
+        # f.write("To make this work in the reference agent format, you will need to recast the target code\n\n")
+        # f.write("Let us start by first generating the content for Historical Weather Retriever  \n\n")
+        # f.write("Once complete, we will move on to the Historical Weather Data Plotter Agent code\n\n")
+        # f.write("And Remember, please always give me targetted/specific code and not the full file\n\n")
+        # f.write("I will expllicitely ask if I need code for the entire file\n\n")
 
 
 if __name__ == "__main__":
@@ -150,12 +150,12 @@ if __name__ == "__main__":
                 , 'backup_project_full.py'
                 , 'home_tab_backup.py'
                 , 'about_us_tab.py'
-                , 'design_tab.py'
+                # , 'design_tab.py'
                 # , 'playground_inference.py'
                 , 'playground_text.py'
-                , 'why_agents_tab.py'
-                , 'tech_tab.py'
-                , 'models_tab.py'
+                # , 'why_agents_tab.py'
+                # , 'tech_tab.py'
+                # , 'models_tab.py'
                 , 'terms_of_service.py'
                 , 'privacy_policy.py'
                 , 'plug_n_play_tab.py'
@@ -163,7 +163,7 @@ if __name__ == "__main__":
                 , 'parameter_sourcing.py'
                 , 'autogen_setup.py'
                 , 'data_processing.py'
-                 # , 'inference.py'
+                 , 'inference.py'
                 , 'REF_ONLY_nginx_sites-available_default.txt'
                 , 'REF_ONLY_nginx_conf.txt'
                 , 'REF_ONLY_gabblegrid_service.txt'
@@ -182,9 +182,10 @@ if __name__ == "__main__":
                 # , 'playground_ui.py'
                 # , 'main.py'
                 , 'playground_config.py'
-                , 'home_tab.py'
+                # , 'home_tab.py'
                 # , 'playground_log_inference.py'
                 , 'adhoc.txt'
+                , 'config_sample.yaml'
                  ]
     exclude_dirs = {'97.Archive'
                 , '94.Project_Transcript'
@@ -196,7 +197,7 @@ if __name__ == "__main__":
                 , '04.Local_Other_Files'
                 , '02.Local_Data_Files'
                 , '01.Local_Model_Files'
-                # , 'playground'
+                , 'playground'
                 , '96.Originals'
                 , 'files'
                 , '.cache'

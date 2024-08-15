@@ -30,17 +30,19 @@ st.markdown("""
 
 from content.home_tab import display_home_tab
 # from playground.playground_main import display_playground_tab
-from content.design_tab import display_design_tab
-from content.tech_tab import display_tech_tab
-from content.models_tab import display_models_tab
-from content.about_us_tab import display_about_us_tab
-from utils.footer import display_footer
-from playground.playground_main import display_playground_tab
-from plug_n_play.plug_n_play_main import display_plug_n_play_tab
 from content.why_agents_tab import display_why_agents_tab
+from content.documentation_tab import display_documentation_tab
 from content.privacy_policy import display_privacy_policy
 from content.terms_of_service import display_terms_of_service
 from content.admin_tab import display_admin_tab
+# from content.design_tab import display_design_tab
+# from content.tech_tab import display_tech_tab
+# from content.transformers_tab import display_transformers_tab
+from content.about_us_tab import display_about_us_tab
+
+from utils.footer import display_footer
+from playground.playground_main import display_playground_tab
+from plug_n_play.plug_n_play_main import display_plug_n_play_tab
 
 def load_css(file_path):
     with open(file_path) as f:
@@ -280,9 +282,10 @@ def main():
     elif page == "terms_of_service":
         display_terms_of_service()
     else:
-        tab1, tab2, tab4, tab5, tab6, tab7, tab8, tab10 = st.tabs([
+
+        tab1, tab2, tab4, tab5, tab6, tab10 = st.tabs([
             "Home", "Why Agents", "Playground", 
-            "Plug-n-Play", "Design", "Tech", "Models", "Admin"
+            "Models", "Documentation", "Admin"
         ])
 
         with tab1:
@@ -308,17 +311,9 @@ def main():
             display_footer()
 
         with tab6:
-            display_design_tab()
+            display_documentation_tab()
             display_footer()
-
-        with tab7:
-            display_tech_tab()
-            display_footer()
-
-        with tab8:
-            display_models_tab()
-            display_footer()
-
+                
         with tab10:
             # email = st.session_state.get('user', {}).get('email')
             email = st.session_state.get('user', {}).get('email') if st.session_state.get('user') else None
