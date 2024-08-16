@@ -1,0 +1,87 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+import matplotlib.dates as mdates
+
+# Load the Parquet file for weather data
+parquet_file_path_weather = '/home/ubuntu/efs-w210-capstone-ebs/00.GabbleGrid/04.Local_Other_Files/20240803_Historical_Weather_94550/openweathermap_livermore.parquet'
+df_weather_parquet = pd.read_parquet(parquet_file_path_weather)
+
+# Load the Parquet file for experiment data
+file_path = '/home/ubuntu/efs-w210-capstone-ebs/00.GabbleGrid/project/admin/01.Templates/A-Template_Detail.parquet'
+df_experiment = pd.read_parquet(file_path)
+
+# Filter for the specific experiment
+experiment_id = '20240804174433'
+df_experiment_filtered = df_experiment[df_experiment['Experiment'] == experiment_id].copy()
+
+# Focus on the relevant columns
+df_experiment_filtered = df_experiment_filtered[['Sample_Start_Time', 'Sample', 'Predicted', 'Actual']]
+
+# Convert Sample_Start_Time to datetime
+df_experiment_filtered['Sample_Start_Time'] = pd.to_datetime(df_experiment_filtered['Sample_Start_Time'])
+
+# Ensure 'Predicted' and 'Actual' columns are integers
+df_experiment_filtered['Predicted'] = df_experiment_filtered['Predicted'].astype(int)
+df_experiment_filtered['Actual'] = df_experiment_filtered['Actual'].astype(int)
+
+# Create a new column for categorizing TP and FP
+df_experiment_filtered['Category'] = 'Other'
+df_experiment_filtered.loc[(df_experiment_filtered['Predicted'] == 1) & (df_experiment_filtered['Actual'] == 1), 'Category'] = 'True Positive'
+df_experiment_filtered.loc[(df_experiment_filtered['Predicted'] == 1) & (df_experiment_filtered['Actual'] == 0), 'Category'] = 'False Positive'
+
+# Round Sample_Start_Time to the nearest hour
+df_experiment_filtered['Sample_Start_Time_Hour'] = df_experiment_filtered['Sample_Start_Time'].dt.round('h')
+
+# Ensure weather data is in the same timezone
+df_weather_parquet['gn_dt_pacific'] = pd.to_datetime(df_weather_parquet['gn_dt_pacific'], errors='coerce').dt.tz_localize(None).dt.round('h')
+
+# Print head of both DataFrames before merging
+# print("Experiment DataFrame head:")
+# # print(df_experiment_filtered.head())
+# # print("\nWeather DataFrame head:")
+# print(df_weather_parquet.head())
+
+# Merge the weather and experiment data on the date
+df_merged = pd.merge(df_weather_parquet, df_experiment_filtered, left_on='gn_dt_pacific', right_on='Sample_Start_Time_Hour', how='inner')
+
+# Check if the merged DataFrame is empty
+# print("\nMerged DataFrame head:")
+# print(df_merged.head())
+
+# Plotting
+if not df_merged.empty:
+    plt.figure(figsize=(14, 7))
+
+    # Line plot for temperature with thicker lines
+    plt.plot(df_merged['gn_dt_pacific'], df_merged['gn_temp_max'], label='Max Temperature (°F)', color='lightblue', linestyle='-', marker='', linewidth=3.5, zorder=1)
+
+    # Scatter plot for True Positives and False Positives
+    categories = ['True Positive', 'False Positive']
+    colors = {'True Positive': 'green', 'False Positive': 'tomato'}
+    sizes = {'True Positive': 150, 'False Positive': 150}  # Larger sizes for more visibility
+    opacities = {'True Positive': 1.0, 'False Positive': 1.0}  # Fully opaque
+
+    for category in categories:
+        subset = df_merged[df_merged['Category'] == category]
+        plt.scatter(subset['gn_dt_pacific'], subset['gn_temp_max'], label=category, color=colors[category], s=sizes[category], alpha=opacities[category], zorder=2)  # s for size, alpha for opacity
+
+    # Adding titles and labels
+    plt.title('Max Temperature Over Time with True and False Positives for Experiment 20240804040011')
+    plt.xlabel('Date')
+    plt.ylabel('Max Temperature (°F)')
+    plt.legend()
+
+    # Setting xticks for each day
+    plt.gca().xaxis.set_major_locator(mdates.DayLocator())
+    plt.gca().xaxis.set_major_formatter(mdates.DateFormatter('%Y-%m-%d'))
+    plt.xticks(rotation=45, ha='right')
+
+    # Light and almost invisible grid lines
+    plt.grid(True, which='both', color='lightgrey', linestyle='-', linewidth=0.5)
+
+    plt.tight_layout()
+
+    # Show plot
+    plt.show()
+else:
+    print("Merged DataFrame is empty. No data to plot.")

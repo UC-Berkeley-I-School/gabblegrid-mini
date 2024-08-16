@@ -4,6 +4,7 @@ from authlib.integrations.requests_client import OAuth2Session
 from google_auth_oauthlib.flow import Flow
 import requests
 import traceback
+from mindspace import display_mindspace  # Import the MindSpace function
 from utils.sidebar_utils import render_sidebar  # Add this import at the top
 import os
 
@@ -42,7 +43,7 @@ from content.about_us_tab import display_about_us_tab
 
 from utils.footer import display_footer
 from playground.playground_main import display_playground_tab
-from plug_n_play.plug_n_play_main import display_plug_n_play_tab
+from models.models_main import display_models_tab
 
 def load_css(file_path):
     with open(file_path) as f:
@@ -283,9 +284,9 @@ def main():
         display_terms_of_service()
     else:
 
-        tab1, tab2, tab4, tab5, tab6, tab10 = st.tabs([
-            "Home", "Why Agents", "Playground", 
-            "Models", "Documentation", "Admin"
+        tab1, tab2, tab3, tab4, tab5, tab6, tab10 = st.tabs([
+            "Home", "Why Agents", "Playground", "Models", "MindSpace", 
+            "Documentation", "Admin"
         ])
 
         with tab1:
@@ -296,20 +297,24 @@ def main():
             display_why_agents_tab()
             display_footer()
 
-        with tab4:
+        with tab3:
             if check_auth():
                 display_playground_tab()
             else:
                 st.warning("Please log in to access the Playground tab.")
             display_footer()
 
-        with tab5:
+        with tab4:
             if check_auth():
-                display_plug_n_play_tab()
+                display_models_tab()
             else:
-                st.warning("Please log in to access the Plug-n-Play tab.")
+                st.warning("Please log in to access the Models tab.")
             display_footer()
 
+        with tab5:
+            display_mindspace()
+            display_footer()
+        
         with tab6:
             display_documentation_tab()
             display_footer()

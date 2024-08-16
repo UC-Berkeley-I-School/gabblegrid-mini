@@ -5,34 +5,41 @@ def generate_project_structure(base_path, skip_files, exclude_dirs):
     folder_structure = []
     file_contents = {}
 
-    for root, dirs, files in os.walk(base_path):
-        # Filter out unwanted directories
-        dirs[:] = [d for d in dirs if d not in exclude_dirs]
-        
-        relative_path = os.path.relpath(root, base_path)
-        if any(folder in relative_path.split(os.sep) for folder in exclude_dirs):
-            continue
-
-        level = relative_path.count(os.sep)
-        indent = '\t' * level
-        folder_structure.append(f"{indent}{os.path.basename(root)}/")
-        subindent = '\t' * (level + 1)
-        for f in files:
-            if f in skip_files:
+    def add_to_structure(path, structure, level=0):
+        dirs = []
+        files = []
+        for item in os.listdir(path):
+            if item in exclude_dirs:
                 continue
-            if f.endswith(('.py', '.sh', '.yaml', '.txt')):
-                folder_structure.append(f"{subindent}{f}")
-                file_path = os.path.join(root, f)
-                try:
-                    with open(file_path, 'r', encoding='utf-8') as file:
-                        file_contents[file_path] = file.read()
-                except UnicodeDecodeError:
+            full_path = os.path.join(path, item)
+            if os.path.isdir(full_path):
+                dirs.append(item)
+            elif os.path.isfile(full_path) and item not in skip_files:
+                if item.endswith(('.py', '.sh', '.yaml', '.txt', '.css')):
+                    files.append(item)
                     try:
-                        with open(file_path, 'r', encoding='latin-1') as file:
-                            file_contents[file_path] = file.read()
-                    except Exception as e:
-                        print(f"Skipping file {file_path} due to encoding issues: {e}")
-    
+                        with open(full_path, 'r', encoding='utf-8') as file:
+                            file_contents[full_path] = file.read()
+                    except UnicodeDecodeError:
+                        try:
+                            with open(full_path, 'r', encoding='latin-1') as file:
+                                file_contents[full_path] = file.read()
+                        except Exception as e:
+                            print(f"Skipping file {full_path} due to encoding issues: {e}")
+
+        indent = '\t' * level
+        if level == 0:
+            structure.append(os.path.basename(path) + '/')
+        else:
+            structure.append(f"{indent}{os.path.basename(path)}/")
+
+        for file in sorted(files):
+            structure.append(f"{indent}\t{file}")
+
+        for dir in sorted(dirs):
+            add_to_structure(os.path.join(path, dir), structure, level + 1)
+
+    add_to_structure(base_path, folder_structure)
     return folder_structure, file_contents
 
 def write_to_file(output_file, folder_structure, file_contents, base_path):
@@ -94,12 +101,12 @@ def write_to_file(output_file, folder_structure, file_contents, base_path):
         # f.write("03B.{timestamp}_agent3_non_overlap_model2_consl.csv.\n\n")
         # f.write("Location: /home/ubuntu/efs-w210-capstone-ebs/00.GabbleGrid/05.Local_Results_Tracker\n\n")
 
-        f.write("\n----------------------------------------------------------------\n")
-        f.write("REF_ONLY_Group3_Agent_A_Historical_Weather_Retriever_Notebook.txt\n\n")
-        f.write("This is the notebook version of the Agent A in Group 3 whose task is the run inference and get the detailed results")
-        f.write("\n----------------------------------------------------------------\n")
-        f.write("REF_ONLY_Group3_Agent_B_Historical_Weather_Plotter_Notebook.txt\n\n")
-        f.write("This is the notebook version of the Agent B in Group 3 whose task is to plot the results from Agent A")
+        # f.write("\n----------------------------------------------------------------\n")
+        # f.write("REF_ONLY_Group3_Agent_A_Historical_Weather_Retriever_Notebook.txt\n\n")
+        # f.write("This is the notebook version of the Agent A in Group 3 whose task is the run inference and get the detailed results")
+        # f.write("\n----------------------------------------------------------------\n")
+        # f.write("REF_ONLY_Group3_Agent_B_Historical_Weather_Plotter_Notebook.txt\n\n")
+        # f.write("This is the notebook version of the Agent B in Group 3 whose task is to plot the results from Agent A")
 
         f.write("\n----------------------------------------------------------------\n")
         f.write("----------------------------------------------------------------\n")
@@ -132,7 +139,9 @@ def write_to_file(output_file, folder_structure, file_contents, base_path):
 if __name__ == "__main__":
     script_dir = os.path.dirname(os.path.realpath(__file__))
     base_path = script_dir  # Adjusted to the project directory
-    output_dir = os.path.join(script_dir, '94.Project_Transcript')
+    # output_dir = os.path.join(script_dir, '94.Project_Transcript')
+    output_dir = os.path.join(script_dir, '..', '94.Project_Transcript')
+
     os.makedirs(output_dir, exist_ok=True)
 
     timestamp = datetime.now().strftime('%Y%m%d%H%M%S')
@@ -140,79 +149,76 @@ if __name__ == "__main__":
 
     # Define files to skip and directories to exclude
     skip_files = [ 
-                '__init__.py'
-                , 'transcript_playground_brief.py'
-                , 'footer.py'
-                , 'transcript_playground_full.py'
-                , 'playground_main.py'
-                , 'generate_project_transcript.py'
-                , 'transcript_playground_full.py'
-                , 'backup_project_full.py'
-                , 'home_tab_backup.py'
-                , 'about_us_tab.py'
-                # , 'design_tab.py'
-                # , 'playground_inference.py'
-                , 'playground_text.py'
-                # , 'why_agents_tab.py'
-                # , 'tech_tab.py'
-                # , 'models_tab.py'
-                , 'terms_of_service.py'
-                , 'privacy_policy.py'
-                , 'plug_n_play_tab.py'
-                , 'plotting.py'
-                , 'parameter_sourcing.py'
-                , 'autogen_setup.py'
-                , 'data_processing.py'
-                 , 'inference.py'
-                , 'REF_ONLY_nginx_sites-available_default.txt'
-                , 'REF_ONLY_nginx_conf.txt'
-                , 'REF_ONLY_gabblegrid_service.txt'
-                , 'main-backup.py'
-                , 'config.yaml'
-                , 'REF_ONLY_03B.20240716_072206_orig_parquet_mapper_agents_parquet.txt'
-                , 'REF_ONLY_03.20240715_143154_orig_input_w_seq_info_FINAL_parquet.txt'
-                , 'REF_ONLY_AGENT3_CODE.txt'
-                , 'main_backup.py'
-                , 'admin_tab.py'
-                # , 'playground_config.py'
-                # , 'playground_utils.py'
-                , 'REF_ONLY_Group3_Agent_A_Historical_Weather_Retriever_Notebook.txt'
-                , 'REF_ONLY_Group3_Agent_B_Historical_Weather_Plotter_Notebook.txt'
-                , 'playground_weather_inference.py'
-                # , 'playground_ui.py'
-                # , 'main.py'
-                , 'playground_config.py'
-                # , 'home_tab.py'
-                # , 'playground_log_inference.py'
-                , 'adhoc.txt'
-                , 'config_sample.yaml'
-                 ]
-    exclude_dirs = {'97.Archive'
-                , '94.Project_Transcript'
-                , '.ipynb_checkpoints'
-                , '__pycache__'
-                , '00.Full_Project_Backups'
-                , '03.Local_Inference_Eval_Files'
-                , 'feature_dev'
-                , '04.Local_Other_Files'
-                , '02.Local_Data_Files'
-                , '01.Local_Model_Files'
-                , 'playground'
-                , '96.Originals'
-                , 'files'
-                , '.cache'
-                , 'group'
-                # , 'utils'
-                , 'model'
-                , 'models_tab.py'
-                , 'tech_tab.py'
-                , 'plug_n_play'
-                , '00.Key_REF_Notebooks'
-                , 'config'
-                , 'qa'
-                , 'admin'
-                , '00.KEY_ORIGINALS'
-                   }
+        '__init__.py',
+        'about_us_tab.py',
+        'admin_tab.py',
+        'adhoc.txt',
+        'autogen_setup.py',
+        'backup_project_full.py',
+        'config_sample.yaml',
+        'config.yaml',
+        'data_processing.py',
+        'design_tab.py',
+        'footer.py',
+        'generate_project_transcript.py',
+        'home_tab_backup.py',
+        'inference.py',
+        'main-backup.py',
+        'main_backup.py',
+        'models_tab.py',
+        'parameter_sourcing.py',
+        # 'playground_config.py',
+        # 'playground_inference.py',
+        # 'playground_log_inference.py',
+        # 'playground_main.py',
+        'playground_text.py',
+        # 'playground_ui.py',
+        # 'playground_utils.py',
+        # 'playground_weather_inference.py',
+        'plotting.py',
+        'privacy_policy.py',
+        'REF_ONLY_03.20240715_143154_orig_input_w_seq_info_FINAL_parquet.txt',
+        'REF_ONLY_03B.20240716_072206_orig_parquet_mapper_agents_parquet.txt',
+        'REF_ONLY_AGENT3_CODE.txt',
+        'REF_ONLY_gabblegrid_service.txt',
+        'REF_ONLY_Group3_Agent_A_Historical_Weather_Retriever_Notebook.txt',
+        'REF_ONLY_Group3_Agent_B_Historical_Weather_Plotter_Notebook.txt',
+        'REF_ONLY_nginx_conf.txt',
+        'REF_ONLY_nginx_sites-available_default.txt',
+        'terms_of_service.py',
+        'transcript_playground_brief.py',
+        'transcript_playground_full.py',
+        'why_agents_tab.py'
+    ]
+    exclude_dirs = {
+        '00.Full_Project_Backups',
+        '00.KEY_ORIGINALS',
+        '00.Key_REF_Notebooks',
+        '01.Experiments',
+        '01.Local_Model_Files',
+        '02.Local_Data_Files',
+        '03.Local_Inference_Eval_Files',
+        '04.Local_Other_Files',
+        '94.Project_Transcript',
+        '96.Original_Code_TXT',
+        '96.Originals',
+        '97.Archive',
+        '.cache',
+        '.ipynb_checkpoints',
+        '__pycache__',
+        'admin',
+        'config',
+        'content',
+        'feature_dev',
+        'files',
+        'group',
+        'models',
+        # 'playground',
+        'plug_n_play',
+        'qa',
+        'sidebar_utils.py',
+        # 'utils'
+    }
 
     folder_structure, file_contents = generate_project_structure(base_path, skip_files, exclude_dirs)
     write_to_file(output_file, folder_structure, file_contents, base_path)

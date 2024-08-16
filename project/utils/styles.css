@@ -101,3 +101,18 @@ div[data-testid="stTabs"] button div p {
     text-decoration: none;
     cursor: pointer;
 }
+
+
+/* Custom color classes for playground */
+.custom-tomato {
+    color: tomato !important;
+}
+.custom-grey {
+    color: grey !important;
+}
+.custom-teal {
+    color: teal !important;
+}
+.custom-cerulean {
+    color: cerulean !important;
+}
