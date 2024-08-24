@@ -7,6 +7,7 @@ from typing import Union
 from .data_processing import load_test_data, filter_data_by_start_time, prepare_data_for_model
 from ..model.load_model import load_model  # Update import path
 import logging
+import streamlit as st
 
 def send_log_data_and_get_model_results(start_time: str, num_tests: int, input_length: int, gap: int, prediction_period: int, max_events: int, csv_path: str) -> Union[dict, str]:
     try:
@@ -36,19 +37,45 @@ def send_log_data_and_get_model_results(start_time: str, num_tests: int, input_l
             nearest_time = all_times_df.iloc[(all_times_df['time_start'] - pd.to_datetime(start_time)).abs().argsort()[:1]]['time_start'].values[0]
             return f"Error: start_time {start_time} not found in the dataset. The nearest available time is: {nearest_time}"
 
-        start_seq_num = int(filtered_df['Seq_Num'].values[0])  # Ensure start_seq_num is an integer
-        
+        start_seq_num = int(filtered_df['Seq_Num'].values[0])
         num_records_per_test = input_length + gap + prediction_period
-        max_end_seq_num = int(original_df[original_df['Train_Test'] == 'Test']['Seq_Num'].max())  # Ensure max_end_seq_num is an integer
+        max_end_seq_num = int(original_df[original_df['Train_Test'] == 'Test']['Seq_Num'].max())
+
         expected_end_seq_num = start_seq_num + num_tests * num_records_per_test - 1
 
-        if expected_end_seq_num > max_end_seq_num:
-            max_allowed_runs = (max_end_seq_num - start_seq_num + 1) // num_records_per_test
-            num_tests = max_allowed_runs
-            expected_end_seq_num = start_seq_num + num_tests * num_records_per_test - 1
+        # Debug information
+        # st.write(f"start_seq_num: {start_seq_num}, max_end_seq_num: {max_end_seq_num}, expected_end_seq_num: {expected_end_seq_num}")
 
-        # Use the prepare_data_for_model function to process the test data
+        # Calculate the start index in X_test based on start_seq_num
+        start_index_x_test = (start_seq_num - original_df[original_df['Train_Test'] == 'Test']['Seq_Num'].min()) // num_records_per_test
+        
+        # Calculate the expected end index in X_test based on num_tests
+        expected_end_index_x_test = start_index_x_test + num_tests
+        
+        # First, ensure that num_tests does not exceed the available samples in X_test
+        if expected_end_index_x_test > len(X_test):
+            num_tests = len(X_test) - start_index_x_test
+            # st.write(f"Adjusted num_tests to {num_tests} to fit within the bounds of available data.")
+        
+        # Recalculate expected_end_seq_num with the adjusted num_tests
+        expected_end_seq_num = start_seq_num + num_tests * num_records_per_test - 1
+        
+        # Adjust the max_end_seq_num to account for the gap and prediction period
+        adjusted_max_end_seq_num = max_end_seq_num - (gap + prediction_period - 1)
+        
+        # Finally, adjust num_tests if the sequence number range is still too large
+        if expected_end_seq_num > adjusted_max_end_seq_num:
+            num_tests = (adjusted_max_end_seq_num - start_seq_num + 1) // num_records_per_test
+            # st.write(f"Further adjusted num_tests to {num_tests} based on the sequence number range.")
+            
+        # Recalculate end indices after final adjustments
+        expected_end_index_x_test = start_index_x_test + num_tests
+        end_index_x_test = start_index_x_test + num_tests
+
+
+        # Proceed with inference using the adjusted num_tests value
         X_test_tensor, start_index_x_test, end_index_x_test = prepare_data_for_model(X_test, start_seq_num, num_records_per_test, num_tests, original_df, max_events)
+
 
         with torch.no_grad():
             test_outputs = model(X_test_tensor)
@@ -79,8 +106,9 @@ def send_log_data_and_get_model_results(start_time: str, num_tests: int, input_l
             "Predicted", "Actual", "time_start"
         ])
 
-        timestamp = datetime.now().strftime('%Y%m%d%H%M%S')
-        final_file = f"{save_dir}/03B.{timestamp}_agent1_non_overlap_model2_consl.csv"
+        # timestamp = datetime.now().strftime('%Y%m%d%H%M%S')
+        # final_file = f"{save_dir}/03B.{timestamp}_agent1_non_overlap_model2_consl.csv"
+        final_file = f"{save_dir}/03B.agent1_non_overlap_model2_consl.csv"
         tracking_df.to_csv(final_file, index=False)
 
         conf_matrix = confusion_matrix(y_test[start_index_x_test:end_index_x_test], predictions, labels=[0, 1])
@@ -113,9 +141,6 @@ def send_log_data_and_get_model_results(start_time: str, num_tests: int, input_l
             "model_params": model_params
         }
 
-        # Log the model parameters and the selected model
-        logging.info(f"Model parameters: {model_params}")
-        
         return results
 
     except Exception as e:

@@ -61,30 +61,46 @@ def display_admin_tab():
     gap_options = [1, 2, 3, 4, 5]
     prediction_period_options = [1]
 
-    with st.form(key='template_form'):
+    with st.form(key=f'template_form_{datetime.now().strftime("%Y%m%d%H%M%S")}'):
         col1, col2, col3, col4 = st.columns(4)
         
         with col1:
-            start_date = st.date_input('Start Date', min_value=min_date, max_value=max_date, value=min_date, key='admin_start_date')
-            sliding_window = st.selectbox('Sliding Window', ['Sequential', 'Non-Sequential'], key='admin_sliding_window')
+            unique_key_start_date = f'admin_start_date_{datetime.now().strftime("%Y%m%d%H%M%S%f")}'
+            start_date = st.date_input('Start Date', min_value=min_date, max_value=max_date, value=min_date, key=unique_key_start_date)
+
+            unique_key_sliding_window = f'admin_sliding_window_{datetime.now().strftime("%Y%m%d%H%M%S%f")}'
+            sliding_window = st.selectbox('Sliding Window', ['Sequential', 'Non-Sequential'], key=unique_key_sliding_window)
+
         
         with col2:
-            auto_picker = st.selectbox('AutoPicker', ['Manual', 'Automatic'], key='admin_auto_picker')
-            num_tests = st.number_input('Number of Samples', min_value=1, value=10, key='admin_num_tests')
+            unique_key_auto_picker = f'admin_auto_picker_{datetime.now().strftime("%Y%m%d%H%M%S%f")}'
+            auto_picker = st.selectbox('AutoPicker', ['Manual', 'Automatic'], key=unique_key_auto_picker)
+
+            unique_key_num_tests = f'admin_num_tests_{datetime.now().strftime("%Y%m%d%H%M%S%f")}'
+            num_tests = st.number_input('Number of Samples', min_value=1, value=10, key=unique_key_num_tests)
         
         with col3:
-            input_length = st.selectbox('Observation Period', options=input_length_options, key='admin_input_length')
-            gap = st.selectbox('Gap Period', options=gap_options, key='admin_gap')
+            unique_key_input_length = f'admin_input_length_{datetime.now().strftime("%Y%m%d%H%M%S%f")}'
+            input_length = st.selectbox('Observation Period', options=input_length_options, key=unique_key_input_length)
+
+            unique_key_gap = f'admin_gap_{datetime.now().strftime("%Y%m%d%H%M%S%f")}'
+            gap = st.selectbox('Gap Period', options=gap_options, key=unique_key_gap)
         
         with col4:
-            prediction_period = st.selectbox('Prediction Period', options=prediction_period_options, key='admin_prediction_period')
-            max_events = st.selectbox('Max Events', options=max_events_options, key='admin_max_events')
+            unique_key_prediction_period = f'admin_prediction_period_{datetime.now().strftime("%Y%m%d%H%M%S%f")}'
+            prediction_period = st.selectbox('Prediction Period', options=prediction_period_options, key=unique_key_prediction_period)
+
+            unique_key_max_events = f'admin_max_events_{datetime.now().strftime("%Y%m%d%H%M%S%f")}'
+            max_events = st.selectbox('Max Events', options=max_events_options, key=unique_key_max_events)
         
         col5, col6 = st.columns([1, 3])
         with col5:
-            start_time = st.time_input('Start Time', key='admin_start_time')
+            unique_key_start_time = f'admin_start_time_{datetime.now().strftime("%Y%m%d%H%M%S%f")}'
+            start_time = st.time_input('Start Time', key=unique_key_start_time)
+
         with col6:
-            description = st.text_input('Description', key='admin_description')
+            unique_key_description = f'admin_description_{datetime.now().strftime("%Y%m%d%H%M%S%f")}'
+            description = st.text_input('Description', key=unique_key_description)
         
         submit_button = st.form_submit_button(label='Save Template')
 
@@ -147,7 +163,11 @@ def display_admin_tab():
         # Move description column to the first position
         columns = ['Description'] + [col for col in templates_df.columns if col != 'Description']
         templates_df = templates_df[columns]
-        templates_df = st.data_editor(templates_df, key='templates_editor', num_rows="dynamic")
+        # templates_df = st.data_editor(templates_df, key='templates_editor', num_rows="dynamic")
+        # Code snippet with the correction
+        unique_key_templates_editor = f'templates_editor_{datetime.now().strftime("%Y%m%d%H%M%S%f")}'
+        templates_df = st.data_editor(templates_df, key=unique_key_templates_editor, num_rows="dynamic")
+
         templates_df.to_csv(save_path, index=False)
     else:
         st.info("No templates found. Create your first template above.")

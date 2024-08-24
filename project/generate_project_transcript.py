@@ -1,5 +1,6 @@
 import os
 from datetime import datetime
+import streamlit as st
 
 def generate_project_structure(base_path, skip_files, exclude_dirs):
     folder_structure = []
@@ -76,7 +77,7 @@ def write_to_file(output_file, folder_structure, file_contents, base_path):
 
         f.write("\n----------------------------------------------------------------\n")
         f.write("----------------------------------------------------------------\n")
-        f.write("SECTION 3: INSTRUCTIONS\n")
+        f.write("SECTION 3: RULES\n")
         f.write("----------------------------------------------------------------\n")
         f.write("----------------------------------------------------------------\n")
 
@@ -87,14 +88,14 @@ def write_to_file(output_file, folder_structure, file_contents, base_path):
         f.write("Please DO NOT print/display the entire code unless asked for.\n\n")
         f.write("Please always give me the before and after for the code change you propose.\n\n")
         f.write("\n----------------------------------------------------------------\n")
-        f.write("Here are these key files\n\n")
-        # f.write("\n----------------------------------------------------------------\n")
-        # f.write("03.20240715_143154_orig_input_w_seq_info_FINAL.parquet.\n\n")
-        # f.write("Location: /home/ubuntu/efs-w210-capstone-ebs/04A.Local_Data_Files.\n\n")
-        # f.write("\n----------------------------------------------------------------\n")
-        # f.write("03B.20240716_072206_orig_parquet_mapper_agents.parquet.\n\n")
-        # f.write("Location: /home/ubuntu/efs-w210-capstone-ebs/04A.Local_Data_Files.\n\n")
-        # f.write("\n----------------------------------------------------------------\n")
+        f.write("To begin with, please follow these steps \n\n")
+        f.write("Step 1: describe the change you plan to make\n\n")
+        f.write("Step 2: Then give me the specific code changes you plan to make with snippts of before and after .\n\n")
+        f.write("Step 3: Await my response before proceeding further\n\n")
+        f.write("\n----------------------------------------------------------------\n")
+        f.write("FINALLY, PLEASE FOLLOW THIS IMPORTANT RULE\n\n")
+        f.write("IF YOUR ANSWER REFERENCES CURRENT CODE, PLEASE MENTION THE FILENAME, FUNCTION AND LOCATION.\n\n")
+        f.write("\n----------------------------------------------------------------\n")
         # f.write("08.20240716031626_event_ID_int_template_mapping.csv.\n\n")
         # f.write("Location: /home/ubuntu/efs-w210-capstone-ebs/04A.Local_Data_Files.\n\n")
         # f.write("\n----------------------------------------------------------------\n")
@@ -110,7 +111,17 @@ def write_to_file(output_file, folder_structure, file_contents, base_path):
 
         f.write("\n----------------------------------------------------------------\n")
         f.write("----------------------------------------------------------------\n")
-        f.write("SECTION 4: TASKS\n")
+        f.write("SECTION 4: INFERENCE RESULTS\n")
+        f.write("----------------------------------------------------------------\n")
+        f.write("----------------------------------------------------------------\n")
+        
+        f.write("This is the output when I click 'run inference on the streamlit app'\n\n")
+
+
+        
+        f.write("\n----------------------------------------------------------------\n")
+        f.write("----------------------------------------------------------------\n")
+        f.write("SECTION 5: INSTRUCTIONS\n")
         f.write("----------------------------------------------------------------\n")
         f.write("----------------------------------------------------------------\n")
 
@@ -151,44 +162,46 @@ if __name__ == "__main__":
     skip_files = [ 
         '__init__.py',
         'about_us_tab.py',
-        'admin_tab.py',
+        # 'admin_tab.py',
         'adhoc.txt',
+        # 'agent_communication.py',
+        # 'agent_initialization.py',
         'autogen_setup.py',
         'backup_project_full.py',
         'config_sample.yaml',
         'config.yaml',
-        'data_processing.py',
+        # 'data_processing.py',
+        # 'data_preparation.py',
         'design_tab.py',
+        'documentation_tab.py',
         'footer.py',
+        # 'function_registration.py',
         'generate_project_transcript.py',
-        'home_tab_backup.py',
-        'inference.py',
-        'main-backup.py',
-        'main_backup.py',
+        'home_tab.py',
+        # 'inference.py',
+        'main.py',
         'models_tab.py',
+        'mindspace.py',
         'parameter_sourcing.py',
-        # 'playground_config.py',
-        # 'playground_inference.py',
-        # 'playground_log_inference.py',
+        'playground_inference.py',
+        'playground_log_inference.py',
         # 'playground_main.py',
+        # 'playground_historical_weather_display.py',
+        # 'playground_historical_weather_main.py',
         'playground_text.py',
-        # 'playground_ui.py',
-        # 'playground_utils.py',
+        'playground_ui.py',
+        'playground_utils.py',
         # 'playground_weather_inference.py',
         'plotting.py',
         'privacy_policy.py',
-        'REF_ONLY_03.20240715_143154_orig_input_w_seq_info_FINAL_parquet.txt',
-        'REF_ONLY_03B.20240716_072206_orig_parquet_mapper_agents_parquet.txt',
-        'REF_ONLY_AGENT3_CODE.txt',
-        'REF_ONLY_gabblegrid_service.txt',
-        'REF_ONLY_Group3_Agent_A_Historical_Weather_Retriever_Notebook.txt',
-        'REF_ONLY_Group3_Agent_B_Historical_Weather_Plotter_Notebook.txt',
-        'REF_ONLY_nginx_conf.txt',
-        'REF_ONLY_nginx_sites-available_default.txt',
+        'styles.css',
+        'tech_tab.py',
         'terms_of_service.py',
         'transcript_playground_brief.py',
         'transcript_playground_full.py',
+        'transformers_tab.py',
         'why_agents_tab.py'
+        
     ]
     exclude_dirs = {
         '00.Full_Project_Backups',
@@ -207,16 +220,16 @@ if __name__ == "__main__":
         '.ipynb_checkpoints',
         '__pycache__',
         'admin',
+        # 'agents',
         'config',
         'content',
         'feature_dev',
         'files',
         'group',
         'models',
+        'model',
         # 'playground',
-        'plug_n_play',
         'qa',
-        'sidebar_utils.py',
         # 'utils'
     }
 

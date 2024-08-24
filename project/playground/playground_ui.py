@@ -1,10 +1,7 @@
 import streamlit as st
-import os
 import pandas as pd
 from datetime import datetime
-from .playground_utils import display_pdf_as_images
 from .playground_text import key_parameters, playground_intro, playground_intro_expanded
-from utils.sidebar_utils import MODELS, ESSENTIAL_READING_FOLDER
 
 def load_templates():
     try:
@@ -34,7 +31,6 @@ def render_main_content(min_time, max_time):
         template_data = None
         disabled = False
 
-    # Define the options for various parameters
     max_events_options = [5, 10, 20, 30, 40, 50]
     input_length_options = [20, 30]
     gap_options = [1, 2, 3, 4, 5]

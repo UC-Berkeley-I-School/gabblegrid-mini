@@ -9,6 +9,7 @@ input_file = "/home/ubuntu/efs-w210-capstone-ebs/00.GabbleGrid/02.Local_Data_Fil
 MODELS = ['gpt-3.5-turbo', 'gpt-4', 'gpt-4o']
 ESSENTIAL_READING_FOLDER = "/home/ubuntu/efs-w210-capstone-ebs/00.GabbleGrid/project/files/documents/essential_reading"
 BING_API_KEY = "7e534482ac5f46d3a2a979072b19e591"
+# BING_API_KEY = "Placeholder"
 OPENWEATHER_API_KEY = "864a9bb0b562e1c87e01b38880d5bee7"
 
 def render_sidebar(key_suffix=''):

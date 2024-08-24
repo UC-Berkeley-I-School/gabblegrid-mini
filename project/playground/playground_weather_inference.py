@@ -10,9 +10,11 @@ import autogen
 from .utils.autogen_setup import TrackableUserProxyAgent, TrackableAssistantAgent
 from autogen.agentchat.contrib.web_surfer import WebSurferAgent
 from typing import Annotated
-from utils.sidebar_utils import OPENWEATHER_API_KEY
+from utils.sidebar_utils import OPENWEATHER_API_KEY, BING_API_KEY
+import re
 
-def initialize_weather_agents(llm_config, bing_api_key):
+
+def initialize_weather_agents(llm_config):
     user_proxy = TrackableUserProxyAgent(
         name="user_proxy",
         is_termination_msg=lambda x: x.get("content", "").rstrip().endswith("TERMINATE"),
@@ -39,7 +41,7 @@ def initialize_weather_agents(llm_config, bing_api_key):
         "web_surfer",
         llm_config=llm_config,
         summarizer_llm_config=llm_config,
-        browser_config={"viewport_size": 4096, "bing_api_key": bing_api_key},
+        browser_config={"viewport_size": 4096, "bing_api_key": BING_API_KEY},
     )
 
     return {"user_proxy": user_proxy, "current_weather_data_retriever": current_weather_data_retriever, "engineer": engineer, "web_surfer": web_surfer}
@@ -109,13 +111,30 @@ def register_weather_functions(agents):
         except Exception as e:
             return f"Error: {e}"
 
+    @agents["user_proxy"].register_for_execution()
+    @agents["web_surfer"].register_for_llm(description="Search the web for recent news and information.")
+    def search_web(query: str) -> str:
+        try:
+            results = agents["web_surfer"].search(query)
+            summary = agents["web_surfer"].summarize_results(results)
+            return summary
+        except Exception as e:
+            return f"Error during web search: {str(e)}"
+
 def setup_weather_group_chat(agents, llm_config):
     groupchat = autogen.GroupChat(agents=list(agents.values()), messages=[], max_round=5)
     manager = autogen.GroupChatManager(groupchat=groupchat, llm_config=llm_config)
     return groupchat, manager
 
+
 async def run_chat_weather_agents(user_proxy, manager):
-    task = "Can you get the current weather information for Livermore, Zip Code 94550?, and plot the returned values in a table using the python tool available to you. Please answer this question only using the appropriate tool when required. For example, please use the weather tool for all weather related queries. Please use the search tool only if specifically asked to search the web for an answer."
+    task = """
+    1. Can you get the current weather information for Livermore, Zip Code 94550?, and plot the returned values in a table using the python tool available to you.
+    2. After that, please search the web for recent news about extreme weather events in California and summarize the findings.
+    Please use the appropriate tool for each task. Use the weather tool for weather-related queries and the web search tool for the news search.
+    """    
+# async def run_chat_weather_agents(user_proxy, manager):
+#     task = "Can you get the current weather information for Livermore, Zip Code 94550?, and plot the returned values in a table using the python tool available to you. Please answer this question only using the appropriate tool when required. For example, please use the weather tool for all weather related queries. Please use the search tool only if specifically asked to search the web for an answer."
 
     try:
         with Cache.disk() as cache:
@@ -145,11 +164,11 @@ async def run_chat_weather_agents(user_proxy, manager):
     
     return None
 
-async def run_weather_inference(llm_config, bing_api_key):
+async def run_weather_inference(llm_config):
     error_messages = []
 
     try:
-        agents = initialize_weather_agents(llm_config, bing_api_key)
+        agents = initialize_weather_agents(llm_config)
     except Exception as e:
         error_messages.append(f"Error initializing agents: {e}")
         return display_errors(error_messages)
@@ -187,7 +206,7 @@ def display_errors(error_messages):
 
 def display_weather_results(results, chat_messages):
     # st.markdown("<h2 style='color: teal;'>Weather Information</h2>", unsafe_allow_html=True)
-    st.markdown("<h5 style='color: teal;'>Team 2: Report on current weather conditions at datacenter (Livermore, CA) </h5>", unsafe_allow_html=True)
+    st.markdown("<h5 class='custom-teal' style='color: teal;'>Team 2: Report on current weather conditions at datacenter (Livermore, CA) </h5>", unsafe_allow_html=True)
     st.markdown("<p style='color: cerulean;'><em>This is the final output produced by the weather agents. For details of the process please see the section 'Agents & Interaction'.</em></p>", unsafe_allow_html=True)
     st.markdown('<hr>', unsafe_allow_html=True)
 
@@ -203,6 +222,66 @@ def display_weather_results(results, chat_messages):
         st.write("No weather information found.")
 
     st.markdown('<hr>', unsafe_allow_html=True)
+    
+#######################################################################################    
+    
+    st.subheader("Web Search Results")
+    st.markdown("<p style='font-size:14px; color:grey;'>Web Search Results</p>", unsafe_allow_html=True)
+    web_search_found = False
+    for message in chat_messages:
+        if isinstance(message, dict) and 'name' in message and 'content' in message:
+            if message['name'] == 'web_surfer':
+                # st.markdown(f"**Web Search Summary:** {message['content']}")
+                st.markdown(f"<p style='font-size:14px; color:grey;'>Web Search Summary: {message['content']}</p>", unsafe_allow_html=True)
+
+                web_search_found = True
+
+    # st.markdown("<p style='font-size:14px; color:grey;'>Web Search Results</p>", unsafe_allow_html=True)
+    # web_search_found = False
+    # for message in chat_messages:
+    #     if isinstance(message, dict) and 'name' in message and 'content' in message:
+    #         if message['name'] == 'web_surfer':
+    #             # Remove or replace headers in the content
+    #             content = message['content']
+    #             content = content.replace("Web Results", "").replace("News Results", "")
+    #             content = content.replace("=======================", "")
+    #             # Split the content by lines and format each line
+    #             lines = content.split('\n')
+    #             formatted_lines = [f"<p style='font-size:14px; color:grey;'>{line.strip()}</p>" for line in lines if line.strip()]
+    #             st.markdown("\n".join(formatted_lines), unsafe_allow_html=True)
+    #             web_search_found = True
+
+    # st.markdown("<p style='font-size:14px; color:grey;'>Web Search Results</p>", unsafe_allow_html=True)
+    # web_search_found = False
+    # for message in chat_messages:
+    #     if isinstance(message, dict) and 'name' in message and 'content' in message:
+    #         if message['name'] == 'web_surfer':
+    #             content = message['content']
+    #             # Remove or replace headers
+    #             content = re.sub(r'(Web Results|News Results|=======================)', '', content)
+                
+    #             # Format the content while preserving links
+    #             formatted_content = []
+    #             for line in content.split('\n'):
+    #                 line = line.strip()
+    #                 if line:
+    #                     # Preserve links
+    #                     link_match = re.match(r'(\d+\.\s*)?(\[.*?\]\((.*?)\))(.*)', line)
+    #                     if link_match:
+    #                         number, link_text, url, rest = link_match.groups()
+    #                         formatted_line = f"{number or ''}<a href='{url}' style='color: #4a4a4a; text-decoration: underline;'>{link_text[1:-1]}</a>{rest}"
+    #                     else:
+    #                         formatted_line = line
+    #                     formatted_content.append(f"<p style='font-size:14px; color:grey; margin: 0;'>{formatted_line}</p>")
+                
+    #             st.markdown("\n".join(formatted_content), unsafe_allow_html=True)
+    #             web_search_found = True    
+
+    
+#############################################################################################
+    
+    if not web_search_found:
+        st.markdown("No web search results found.")
     
     display_agent_interactions(chat_messages)
 

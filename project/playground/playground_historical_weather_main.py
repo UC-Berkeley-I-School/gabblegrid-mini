@@ -1,18 +1,30 @@
 import streamlit as st
 import asyncio
-import json
 import pandas as pd
 import numpy as np
 import torch
-from datetime import datetime
 from sklearn.metrics import confusion_matrix, precision_score, recall_score, accuracy_score, f1_score
 import re
 import os
 from typing import Annotated
-from autogen.cache import Cache
-import autogen
-from .utils.autogen_setup import TrackableUserProxyAgent, TrackableAssistantAgent
 from datetime import datetime
+from autogen.cache import Cache
+import numpy as np
+from .playground_historical_weather_display import display_weather_results
+from .playground_historical_weather_display import display_agent_interactions
+from .playground_historical_weather_display import display_errors
+from .agents.historical_weather.agent_initialization import initialize_historical_weather_agents
+from .agents.historical_weather.data_preparation import get_latest_experiment_id
+from .agents.historical_weather.function_registration import register_historical_weather_functions
+from .agents.historical_weather.agent_communication import (
+    run_chat_weather_agents,
+    generate_plot,
+    setup_weather_group_chat,
+)
+from .agents.historical_weather.data_preparation import (
+    prepare_data_for_model,
+    consolidate_events_to_text,
+)
 
 data_dir = '/home/ubuntu/efs-w210-capstone-ebs/00.GabbleGrid/02.Local_Data_Files'
 save_dir = '/home/ubuntu/efs-w210-capstone-ebs/00.GabbleGrid/project/admin/01.Templates'
@@ -21,133 +33,17 @@ file_prefix = "06.20240714_062624_non_overlap_full_test"
 weather_parquet = '/home/ubuntu/efs-w210-capstone-ebs/00.GabbleGrid/04.Local_Other_Files/20240803_Historical_Weather_94550/openweathermap_livermore.parquet'
 experiment_parquet = '/home/ubuntu/efs-w210-capstone-ebs/00.GabbleGrid/project/admin/01.Templates/A-Template_Detail.parquet'
 
-from .playground_historical_weather_agents import (
-    initialize_historical_weather_agents, 
-    register_historical_weather_functions, 
-    setup_weather_group_chat
-)
-
-from .playground_historical_weather_display import (
-    display_errors,
-    display_weather_results,
-    display_agent_interactions
-)
-
-def prepare_data_for_model(X_test, start_seq_num, num_records_per_test, num_tests, original_df, max_events):
-    start_index_x_test = (start_seq_num - original_df[original_df['Train_Test'] == 'Test']['Seq_Num'].min()) // num_records_per_test
-    end_index_x_test = min(start_index_x_test + num_tests, len(X_test))
-    X_test_limited = X_test[start_index_x_test:end_index_x_test]
-    X_test_limited = X_test_limited[:, :, 1:max_events + 16]
-    X_test_tensor = torch.tensor(X_test_limited, dtype=torch.float32)
-    return X_test_tensor, start_index_x_test, end_index_x_test
-
-def consolidate_events_to_text(df, start_col, end_col, col_name, master_tracking_df, eventid_to_template):
-    consolidated = []
-    for i, row in df.iterrows():
-        seen_events = set()
-        events = []
-        for seq_num in range(row[start_col], row[end_col] + 1):
-            if col_name in master_tracking_df.columns:
-                event_list = master_tracking_df[master_tracking_df['Seq_Num'] == seq_num][col_name].astype(str).tolist()
-                for event in event_list:
-                    for e in event.split(', '):
-                        if e not in seen_events:
-                            seen_events.add(e)
-                            if int(e) in eventid_to_template:
-                                cleaned_text = clean_text(eventid_to_template[int(e)])
-                                events.append(f'"{cleaned_text}"')
-                            else:
-                                events.append('"Unknown"')
-        consolidated.append(', '.join(events))
-    return consolidated
-
-def clean_text(text):
-    text = re.sub(r'<\*?>', '', text)
-    text = text.replace('<', '').replace('>', '')
-    return text
-
-async def run_chat_weather_agents(user_proxy, manager, inference_params):
-    task = f"""
-    Your task is to run the get_historical_weather_data function with these parameters:
-    max_events = {inference_params["max_events"]}
-    input_length = {inference_params["input_length"]}
-    gap = {inference_params["gap"]}
-    prediction_period = {inference_params["prediction_period"]}
-    selected_date = '{inference_params["selected_date"]}'
-    selected_time = '{inference_params["selected_time"]}'
-    num_tests = {inference_params["num_tests"]}
-    After running the function, please summarize the results in a concise email format.
-    """
-
-    try:
-        with Cache.disk() as cache:
-            await user_proxy.a_initiate_chat(
-                manager, message=task, summary_method="reflection_with_llm", cache=cache
-            )
-    except Exception as e:
-        st.error(f"Unexpected error: {e}")
-        return None
-
-    # Find the last message from log_historical_weather_writer
-    writer_message = next((msg for msg in reversed(user_proxy.chat_messages[manager]) 
-                           if isinstance(msg, dict) and msg.get('name') == 'log_historical_weather_writer'), None)
-
-    if writer_message and 'content' in writer_message:
-        results = writer_message['content']
-        return results
-    else:
-        return "No summary generated by log_historical_weather_writer"
-
-async def generate_plot(user_proxy, manager, plot_params):
-    plot_task = f"""
-    Your task is to run the plot_historical_weather_data function with this parameter:
-    experiment_id = '{plot_params["experiment_id"]}'
-    """
-
-    try:
-        with Cache.disk() as cache:
-            await user_proxy.a_initiate_chat(manager, message=plot_task, summary_method="reflection_with_llm", cache=cache)
-    except Exception as e:
-        st.error(f"Unexpected error in generate_plot: {e}")
-        return {"error": f"Unexpected error in generate_plot: {str(e)}"}
-
-    # Find the last message from log_historical_weather_plotter
-    plotter_message = next((msg for msg in reversed(user_proxy.chat_messages[manager]) 
-                            if isinstance(msg, dict) and msg.get('name') == 'log_historical_weather_plotter'), None)
-
-    if plotter_message and 'content' in plotter_message:
-        plot_content = plotter_message['content']
-        if isinstance(plot_content, dict) and 'plot_file_path' in plot_content:
-            plot_path = plot_content['plot_file_path']
-            if os.path.exists(plot_path):
-                return {"plot_file_path": plot_path}
-            else:
-                return {"error": f"Plot file not found at {plot_path}"}
-        else:
-            return {"error": f"Invalid plot content: {plot_content}"}
-    else:
-        return {"error": "No response from log_historical_weather_plotter"}
-
-    st.write("Debug - Plotter message:", plotter_message)
-
-def get_latest_experiment_id(parquet_file):
-    df = pd.read_parquet(parquet_file)
-    if 'Experiment' not in df.columns:
-        raise ValueError("'Experiment' column not found in the parquet file")
-    df['Experiment'] = pd.to_datetime(df['Experiment'], format='%Y%m%d%H%M%S')
-    latest_experiment = df['Experiment'].sort_values(ascending=False).iloc[0]
-    return latest_experiment.strftime('%Y%m%d%H%M%S')
-
-
-async def run_historical_weather_inference(model_config, inference_params, api_key):
-    st.write("API Key received:", api_key)  # Debug print
+async def run_historical_weather_inference(model_config, inference_params, api_key, experiment_id):
+    # st.write("API Key received:", api_key)  # Debug print
     error_messages = []
+
+    # Define image_dir before it is used
+    image_dir = '/home/ubuntu/efs-w210-capstone-ebs/00.GabbleGrid/project/playground/01.Experiments/01.Images'
 
     if not api_key:
         st.warning('Please provide a valid OpenAI API key', icon="⚠️")
         return
 
-    
     llm_config = {
         "config_list": [
             {
@@ -161,56 +57,87 @@ async def run_historical_weather_inference(model_config, inference_params, api_k
     }
     
     try:
+        # st.write("Initializing agents...")
         agents = initialize_historical_weather_agents(llm_config)
     except Exception as e:
         error_messages.append(f"Error initializing agents: {e}")
         return display_errors(error_messages)
+
     try:
+        # st.write("Registering functions...")
         register_historical_weather_functions(agents)
     except Exception as e:
         error_messages.append(f"Error registering functions: {e}")
         return display_errors(error_messages)
+
     try:
+        # st.write("Setting up group chat...")
         groupchat, manager = setup_weather_group_chat(agents, llm_config)
     except Exception as e:
         error_messages.append(f"Error setting up group chat: {e}")
         return display_errors(error_messages)
+
     try:
-        results = await run_chat_weather_agents(agents["user_proxy"], manager, inference_params)
+        # st.write("Running chat with weather agents...")
+        results = await run_chat_weather_agents(agents["user_proxy"], manager, inference_params, experiment_id)
+        # results = await run_chat_weather_agents(agents["user_proxy"], manager, inference_params, experiment_timestamp)
+        # # Debug: Log all messages received during the chat
+        # st.write("Debugging messages received during the chat:")
+        # for message in agents["user_proxy"].chat_messages[manager]:
+        #     if isinstance(message, dict) and 'name' in message:
+        #         st.write(f"Message from {message['name']}: {message.get('content', 'No content provided')}")
+        #     else:
+        #         st.write("Received a message without a 'name' attribute or message structure was unexpected:", message)
+
     except Exception as e:
         error_messages.append(f"Error during inference: {e}")
+        st.error(f"Error during inference: {e}")
         return display_errors(error_messages)
-    if results:
-        if isinstance(results, dict) and 'error' in results:
-            return display_errors([results['error']])
-        else:
-            try:
-                experiment_id = get_latest_experiment_id(experiment_parquet)
-            except Exception as e:
-                return display_errors([f"Failed to get latest experiment ID: {e}"])
-            
-            plot_params = {
-                "experiment_id": experiment_id
-            }
-            await generate_plot(agents["user_proxy"], manager, plot_params)
-            
-            # Dynamically display the latest image from the specified directory
-            image_dir = '/home/ubuntu/efs-w210-capstone-ebs/00.GabbleGrid/project/playground/01.Experiments/01.Images'
-            try:
-                files = [os.path.join(image_dir, f) for f in os.listdir(image_dir) if os.path.isfile(os.path.join(image_dir, f))]
-                files.sort(key=os.path.getmtime, reverse=True)
-                latest_file_path = files[0]
-                if os.path.exists(latest_file_path):
-                    with open(latest_file_path, "rb") as image_file:
-                        image_bytes = image_file.read()
-                    st.image(image_bytes, caption='Temperature Changes')
-                else:
-                    st.error(f"Latest plot file not found")
-            except Exception as e:
-                st.error(f"Error finding or displaying the latest plot file")
-            
-            display_weather_results(results)
-            display_agent_interactions(agents["user_proxy"].chat_messages[manager])
-            return results
-    else:
+
+    if not results:
+        st.error("No results were returned from the inference process.")
         return display_errors(["Failed to get results from the model"])
+    
+    if isinstance(results, dict) and 'error' in results:
+        return display_errors([results['error']])
+
+    # st.write("Inference results received:", results)
+
+    #################### Part that needs to be changed ###################################
+    
+    # At this point, results should be valid, so proceed with generating the plot
+    try:
+        # st.write("Getting latest experiment ID...")
+        experiment_id = get_latest_experiment_id(experiment_parquet)
+        # st.write(f"Latest experiment ID: {experiment_id}")
+    except Exception as e:
+        return display_errors([f"Failed to get latest experiment ID: {e}"])
+
+
+    ###########################################################################################
+
+    plot_params = {
+        "experiment_id": experiment_id,
+        "image_dir": image_dir  # Ensure this is included
+    }
+    await generate_plot(agents["user_proxy"], manager, plot_params)
+
+    
+    
+######### Code change to search based on experiment, not just by latest image ###############
+
+    # Dynamically display the image for the current experiment ID
+    try:
+        expected_image_file = f"{image_dir}/{experiment_id}_plot.png"
+        if os.path.exists(expected_image_file):
+            with open(expected_image_file, "rb") as image_file:
+                image_bytes = image_file.read()
+            st.image(image_bytes, caption=f'Temperature Changes for Experiment {experiment_id}')
+        else:
+            st.error(f"Plot file not found for Experiment ID: {experiment_id}")
+    except Exception as e:
+        st.error(f"Error finding or displaying the plot file for Experiment ID {experiment_id}: {e}")
+
+    display_weather_results(results)
+    display_agent_interactions(agents["user_proxy"].chat_messages[manager])
+    return results
