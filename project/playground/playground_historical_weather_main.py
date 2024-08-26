@@ -33,14 +33,14 @@ file_prefix = "06.20240714_062624_non_overlap_full_test"
 weather_parquet = '/home/ubuntu/efs-w210-capstone-ebs/00.GabbleGrid/04.Local_Other_Files/20240803_Historical_Weather_94550/openweathermap_livermore.parquet'
 experiment_parquet = '/home/ubuntu/efs-w210-capstone-ebs/00.GabbleGrid/project/admin/01.Templates/A-Template_Detail.parquet'
 
-async def run_historical_weather_inference(model_config, inference_params, api_key, experiment_id):
+async def run_historical_weather_inference(model_config, inference_params, openai_api_key, experiment_id):
     # st.write("API Key received:", api_key)  # Debug print
     error_messages = []
 
     # Define image_dir before it is used
     image_dir = '/home/ubuntu/efs-w210-capstone-ebs/00.GabbleGrid/project/playground/01.Experiments/01.Images'
 
-    if not api_key:
+    if not openai_api_key:
         st.warning('Please provide a valid OpenAI API key', icon="⚠️")
         return
 
@@ -48,7 +48,7 @@ async def run_historical_weather_inference(model_config, inference_params, api_k
         "config_list": [
             {
                 "model": model_config["model"],
-                "api_key": api_key,  # Use the api_key from parameter
+                "api_key": openai_api_key,  # Use the api_key from parameter
                 "temperature": model_config["temperature"],
                 "max_tokens": model_config["max_tokens"],
                 "top_p": model_config["top_p"]

@@ -10,9 +10,7 @@ import autogen
 from .utils.autogen_setup import TrackableUserProxyAgent, TrackableAssistantAgent
 from autogen.agentchat.contrib.web_surfer import WebSurferAgent
 from typing import Annotated
-from utils.sidebar_utils import OPENWEATHER_API_KEY, BING_API_KEY
 import re
-
 
 def initialize_weather_agents(llm_config):
     user_proxy = TrackableUserProxyAgent(
@@ -37,12 +35,24 @@ def initialize_weather_agents(llm_config):
         llm_config=llm_config,
     )
 
+    bing_api_key = st.session_state.get("bing_api_key", "")
+    if not bing_api_key:
+        raise ValueError("Bing API key is missing.")
+    
     web_surfer = WebSurferAgent(
         "web_surfer",
         llm_config=llm_config,
         summarizer_llm_config=llm_config,
-        browser_config={"viewport_size": 4096, "bing_api_key": BING_API_KEY},
+        browser_config={"viewport_size": 4096, "bing_api_key": bing_api_key},
     )
+
+    
+    # web_surfer = WebSurferAgent(
+    #     "web_surfer",
+    #     llm_config=llm_config,
+    #     summarizer_llm_config=llm_config,
+    #     browser_config={"viewport_size": 4096, "bing_api_key": BING_API_KEY},
+    # )
 
     return {"user_proxy": user_proxy, "current_weather_data_retriever": current_weather_data_retriever, "engineer": engineer, "web_surfer": web_surfer}
 
@@ -50,7 +60,11 @@ def register_weather_functions(agents):
     @agents["user_proxy"].register_for_execution()
     @agents["current_weather_data_retriever"].register_for_llm(description="function answering all queries related to the weather")
     def get_temperature_data(zipcode: str) -> dict:
-        api_key = OPENWEATHER_API_KEY
+        # api_key = OPENWEATHER_API_KEY
+        api_key = st.session_state.get("openweather_api_key", "")
+        if not api_key:
+            return {"error": "OpenWeather API key is missing."}
+
         geocoding_url = "http://api.openweathermap.org/geo/1.0/zip"
         one_call_url = "https://api.openweathermap.org/data/3.0/onecall"
         
@@ -164,11 +178,29 @@ async def run_chat_weather_agents(user_proxy, manager):
     
     return None
 
-async def run_weather_inference(llm_config):
+async def run_weather_inference(model_config, openai_api_key):
     error_messages = []
 
+    if not openai_api_key:
+        st.warning('Please provide a valid OpenAI API key', icon="⚠️")
+        return
+
+    # Create the llm_config with the OpenAI API key
+    llm_config = {
+        "config_list": [
+            {
+                "model": model_config["model"],
+                "api_key": openai_api_key,
+                "temperature": model_config["temperature"],
+                "max_tokens": model_config["max_tokens"],
+                "top_p": model_config["top_p"]
+            }
+        ]
+    }
+    
     try:
         agents = initialize_weather_agents(llm_config)
+        # agents = initialize_weather_agents(llm_config, openai_api_key)
     except Exception as e:
         error_messages.append(f"Error initializing agents: {e}")
         return display_errors(error_messages)
@@ -206,7 +238,7 @@ def display_errors(error_messages):
 
 def display_weather_results(results, chat_messages):
     # st.markdown("<h2 style='color: teal;'>Weather Information</h2>", unsafe_allow_html=True)
-    st.markdown("<h5 class='custom-teal' style='color: teal;'>Team 2: Report on current weather conditions at datacenter (Livermore, CA) </h5>", unsafe_allow_html=True)
+    st.markdown("<h3 class='custom-teal' style='color: teal;'>Team 2: Report on current weather conditions at datacenter (Livermore, CA) </h5>", unsafe_allow_html=True)
     st.markdown("<p style='color: cerulean;'><em>This is the final output produced by the weather agents. For details of the process please see the section 'Agents & Interaction'.</em></p>", unsafe_allow_html=True)
     st.markdown('<hr>', unsafe_allow_html=True)
 
@@ -225,78 +257,51 @@ def display_weather_results(results, chat_messages):
     
 #######################################################################################    
     
-    st.subheader("Web Search Results")
-    st.markdown("<p style='font-size:14px; color:grey;'>Web Search Results</p>", unsafe_allow_html=True)
+    st.markdown("<p style='font-size:22px; color:grey;'>Web Search Results</p>", unsafe_allow_html=True)
     web_search_found = False
     for message in chat_messages:
-        if isinstance(message, dict) and 'name' in message and 'content' in message:
+        if isinstance(message, dict) and 'name' in message and 'content':
             if message['name'] == 'web_surfer':
-                # st.markdown(f"**Web Search Summary:** {message['content']}")
-                st.markdown(f"<p style='font-size:14px; color:grey;'>Web Search Summary: {message['content']}</p>", unsafe_allow_html=True)
-
+                content = message['content']
+                # Remove or replace headers
+                content = re.sub(r'(Web Results|News Results|=======================)', '', content)
+                
+                # Format the content while preserving links
+                formatted_content = []
+                
+                for line in content.split('\n'):
+                    line = line.strip()
+                    if line:
+                        # Preserve links
+                        link_match = re.match(r'(\d+\.\s*)?(\[.*?\]\((.*?)\))(.*)', line)
+                        if link_match:
+                            number, link_text, url, rest = link_match.groups()
+                            # Set hyperlink color to blue and underline
+                            formatted_line = f"{number or ''}<a href='{url}' style='color: blue; text-decoration: underline;'>{link_text[1:-1]}</a>{rest}"
+                        else:
+                            formatted_line = line
+                        # Increase the font size for the content
+                        formatted_content.append(f"<p style='font-size:16px; color:grey; margin: 0;'>{formatted_line}</p>")
+                
+                st.markdown("\n".join(formatted_content), unsafe_allow_html=True)
                 web_search_found = True
 
-    # st.markdown("<p style='font-size:14px; color:grey;'>Web Search Results</p>", unsafe_allow_html=True)
-    # web_search_found = False
-    # for message in chat_messages:
-    #     if isinstance(message, dict) and 'name' in message and 'content' in message:
-    #         if message['name'] == 'web_surfer':
-    #             # Remove or replace headers in the content
-    #             content = message['content']
-    #             content = content.replace("Web Results", "").replace("News Results", "")
-    #             content = content.replace("=======================", "")
-    #             # Split the content by lines and format each line
-    #             lines = content.split('\n')
-    #             formatted_lines = [f"<p style='font-size:14px; color:grey;'>{line.strip()}</p>" for line in lines if line.strip()]
-    #             st.markdown("\n".join(formatted_lines), unsafe_allow_html=True)
-    #             web_search_found = True
-
-    # st.markdown("<p style='font-size:14px; color:grey;'>Web Search Results</p>", unsafe_allow_html=True)
-    # web_search_found = False
-    # for message in chat_messages:
-    #     if isinstance(message, dict) and 'name' in message and 'content' in message:
-    #         if message['name'] == 'web_surfer':
-    #             content = message['content']
-    #             # Remove or replace headers
-    #             content = re.sub(r'(Web Results|News Results|=======================)', '', content)
-                
-    #             # Format the content while preserving links
-    #             formatted_content = []
-    #             for line in content.split('\n'):
-    #                 line = line.strip()
-    #                 if line:
-    #                     # Preserve links
-    #                     link_match = re.match(r'(\d+\.\s*)?(\[.*?\]\((.*?)\))(.*)', line)
-    #                     if link_match:
-    #                         number, link_text, url, rest = link_match.groups()
-    #                         formatted_line = f"{number or ''}<a href='{url}' style='color: #4a4a4a; text-decoration: underline;'>{link_text[1:-1]}</a>{rest}"
-    #                     else:
-    #                         formatted_line = line
-    #                     formatted_content.append(f"<p style='font-size:14px; color:grey; margin: 0;'>{formatted_line}</p>")
-                
-    #             st.markdown("\n".join(formatted_content), unsafe_allow_html=True)
-    #             web_search_found = True    
-
-    
-#############################################################################################
-    
     if not web_search_found:
         st.markdown("No web search results found.")
     
     display_agent_interactions(chat_messages)
 
-def display_agent_interactions(chat_messages):
-    # st.subheader('Agents & Interaction')
-    st.markdown("<h5 style='color: grey;'>Agents & Interaction</h5>", unsafe_allow_html=True)
-    conversation_transcript = []
+#############################################################################################
 
+def display_agent_interactions(chat_messages):
+    st.markdown("<h4 style='color: grey;'>Agents & Interaction</h4>", unsafe_allow_html=True)
+    conversation_transcript = []
     for message in chat_messages:
         if isinstance(message, dict):
             speaker = message.get('name', 'Unknown')
             if speaker == 'Unknown':
                 speaker = 'user_proxy'
             content = message.get('content', '')
-
             if not content and 'tool_calls' in message:
                 tool_calls = message['tool_calls']
                 for call in tool_calls:
@@ -304,9 +309,18 @@ def display_agent_interactions(chat_messages):
                         function_name = call['function']['name']
                         arguments = call['function']['arguments']
                         content = f"***** Suggested tool call: {function_name} *****\nArguments:\n{arguments}\n****************************************************************************************************"
-
-            conversation_transcript.append("--------------------------------------------------------------------------------")
-            conversation_transcript.append(f"<span style='color: blue;'>{speaker} (to chat_manager):</span>\n\n{content}")
-
-    conversation_transcript.append("--------------------------------------------------------------------------------")
+            # Process content to style headers differently
+            processed_content = re.sub(
+                r'^(.*Results:?)$',  # Matches lines that end with "Results" or "Results:"
+                r'<span style="font-size:18px; font-weight:bold;">\1</span>',
+                content,
+                flags=re.MULTILINE
+            )
+            # Apply a consistent style to all interaction text
+            conversation_transcript.append(
+                f"<div style='font-size:16px; color: grey; margin-bottom:14px; font-weight: normal;'>"
+                f"<span style='color: blue; font-weight:normal;'>{speaker} (to chat_manager):</span><br>"
+                f"{processed_content}"
+                f"</div>"
+            )
     st.markdown('\n\n'.join(conversation_transcript), unsafe_allow_html=True)

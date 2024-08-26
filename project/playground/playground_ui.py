@@ -11,7 +11,7 @@ def load_templates():
         return pd.DataFrame()
 
 def render_main_content(min_time, max_time):
-    st.markdown("<h2 style='color: grey;'>Parameters</h2>", unsafe_allow_html=True)
+    # st.markdown("<h4 style='color: grey;'>Parameters</h4>", unsafe_allow_html=True)
     
     with st.expander("Parameters Explained"):
         st.image('/home/ubuntu/efs-w210-capstone-ebs/00.GabbleGrid/project/files/images/Fundamentals_08.png', use_column_width=True)
@@ -103,3 +103,23 @@ def render_main_content(min_time, max_time):
         "prediction_period": prediction_period,
         "max_events": max_events
     }
+
+def render_agent_team_selection():
+    # st.markdown("<h4 style='color: grey;'>Select Teams with specific goals</h4>", unsafe_allow_html=True)
+
+    team_selection = st.multiselect(
+        # "Select Teams to Run Inference",
+        "",
+        options=[
+            "Team 1: Basic Log Inference",
+            "Team 2: Current Weather and Search",
+            "Team 3: Historical Weather Trends"
+        ],
+        default=[
+            "Team 1: Basic Log Inference",
+            "Team 2: Current Weather and Search",
+            "Team 3: Historical Weather Trends"
+        ]
+    )
+
+    return team_selection

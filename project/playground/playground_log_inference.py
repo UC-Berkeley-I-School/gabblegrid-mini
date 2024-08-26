@@ -107,11 +107,11 @@ async def run_chat_log_agents(user_proxy, manager, start_time, inference_params)
     return None
 
 
-async def run_log_inference(model_config, inference_params, api_key):
+async def run_log_inference(model_config, inference_params, openai_api_key):
     # st.write("API Key received:", api_key)  # Debug print
     error_messages = []
 
-    if not api_key:
+    if not openai_api_key:
         st.warning('Please provide a valid OpenAI API key', icon="⚠️")
         return
 
@@ -119,7 +119,7 @@ async def run_log_inference(model_config, inference_params, api_key):
         "config_list": [
             {
                 "model": model_config["model"],
-                "api_key": api_key,  # Use the api_key from parameter
+                "api_key": openai_api_key,  # Use the api_key from parameter
                 "temperature": model_config["temperature"],
                 "max_tokens": model_config["max_tokens"],
                 "top_p": model_config["top_p"]
