@@ -9,7 +9,12 @@ from playground.utils.parameter_sourcing import get_time_range
 from .playground_text import playground_intro, playground_intro_expanded
 from .playground_historical_weather_main import run_historical_weather_inference
 from .utils.experiments import create_experiment_id
-from typing import Dict, List, Any
+from typing import Dict, List, Any, Tuple
+import random
+import colorsys
+import base64
+from PIL import Image
+import io
 
 def get_team_steps() -> Dict[str, List[str]]:
     return {
@@ -40,47 +45,112 @@ def get_team_steps() -> Dict[str, List[str]]:
         ]
     }
 
-def create_combined_progress_bar(selected_teams: List[str]) -> Dict[str, Any]:
-    progress_container = st.empty()
-    log_container = st.empty()
-    return {
-        "progress": progress_container,
-        "log": log_container,
-        "team_progress": {team: 0 for team in selected_teams}
-    }
 
-def update_combined_progress(team: str, step: str, progress_data: Dict[str, Any], team_steps: Dict[str, List[str]]):
-    steps = team_steps[team]
-    step_index = steps.index(step)
-    progress_data["team_progress"][team] = (step_index + 1) / len(steps)
-    
-    total_progress = sum(progress_data["team_progress"].values()) / len(progress_data["team_progress"])
-    
-    # Update progress bar
-    progress_bar_html = create_stacked_progress_bar(progress_data["team_progress"])
-    progress_data["progress"].markdown(progress_bar_html, unsafe_allow_html=True)
-    
-    # Update log
-    log_html = create_step_log(team, step, progress_data["team_progress"], team_steps)
-    progress_data["log"].markdown(log_html, unsafe_allow_html=True)
+def generate_contrasting_colors(num_colors):
+    colors = []
+    hue_step = 1.0 / num_colors
+    for i in range(num_colors):
+        hue = i * hue_step
+        saturation = 0.7  # Increased saturation for more contrast
+        lightness = 0.5  # Mid-range lightness
+        r, g, b = colorsys.hls_to_rgb(hue, lightness, saturation)
+        colors.append(f"#{int(r*255):02x}{int(g*255):02x}{int(b*255):02x}")
+    return colors
 
-def create_stacked_progress_bar(team_progress: Dict[str, float]) -> str:
+def create_running_girl_base64(height: int = 40):
+    image_path = "/home/ubuntu/efs-w210-capstone-ebs/00.GabbleGrid/project/files/images/11.Progress_Bar/20240828_running_girl.png"
+    with Image.open(image_path) as img:
+        aspect_ratio = img.width / img.height
+        new_width = int(height * aspect_ratio)
+        img = img.resize((new_width, height))
+        buffered = io.BytesIO()
+        img.save(buffered, format="PNG")
+        return base64.b64encode(buffered.getvalue()).decode()
+
+def create_stacked_progress_bar(team_progress: dict, team_colors: dict, runner_height: int = 40) -> str:
     total_width = 100
-    team_colors = {"Team 1: Basic Log Inference": "#FF9999", "Team 2: Current Weather and Search": "#66B2FF", "Team 3: Historical Weather Trends": "#99FF99"}
     bars = []
+    overall_progress = sum(team_progress.values()) / len(team_progress)
+    runner_position = overall_progress * total_width
+
     for team, progress in team_progress.items():
         width = progress * (total_width / len(team_progress))
         bars.append(f'<div style="width:{width}%;height:20px;background-color:{team_colors[team]};float:left;"></div>')
-    return f'<div style="width:100%;background-color:#eee;">{"".join(bars)}</div>'
 
-def create_step_log(current_team: str, current_step: str, team_progress: Dict[str, float], team_steps: Dict[str, List[str]]) -> str:
+    running_girl_base64 = create_running_girl_base64(runner_height)
+    
+    return f'''
+    <div style="width:100%;background-color:#eee;position:relative;height:20px;">
+        {"".join(bars)}
+        <div style="position:relative;height:0px;">
+            <img src="data:image/png;base64,{running_girl_base64}" 
+                 style="position:absolute;left:{runner_position}%;bottom:0;
+                        transform:translateX(-50%);height:{runner_height}px;" />
+        </div>
+    </div>
+    '''
+
+def create_combined_progress_bar(selected_teams: list, runner_height: int = 40) -> dict:
+    progress_container = st.empty()
+    log_container = st.empty()
+    team_colors = dict(zip(selected_teams, generate_contrasting_colors(len(selected_teams))))
+    return {
+        "progress": progress_container,
+        "log": log_container,
+        "team_progress": {team: 0 for team in selected_teams},
+        "current_step": None,
+        "team_colors": team_colors,
+        "runner_height": runner_height
+    }
+
+async def update_combined_progress(team: str, step: str, progress_data: dict, team_steps: dict):
+    steps = team_steps[team]
+    step_index = steps.index(step)
+
+    # Update progress to show the current step as in progress
+    progress_data["team_progress"][team] = step_index / len(steps)
+    progress_data["current_step"] = (team, step)
+
+    # Update progress bar
+    progress_bar_html = create_stacked_progress_bar(
+        progress_data["team_progress"], 
+        progress_data["team_colors"], 
+        progress_data["runner_height"]
+    )
+    progress_data["progress"].markdown(progress_bar_html, unsafe_allow_html=True)
+
+
+    # Update log with in-progress icon
+    log_html = create_step_log(progress_data["team_progress"], team_steps, progress_data["current_step"])
+    progress_data["log"].markdown(log_html, unsafe_allow_html=True)
+
+    # Simulate step completion
+    await asyncio.sleep(0.5)  # Add a small delay for visual effect
+
+    # Update progress to show the step as completed
+    progress_data["team_progress"][team] = (step_index + 1) / len(steps)
+    progress_data["current_step"] = None
+
+    # Update log with completed icon
+    log_html = create_step_log(progress_data["team_progress"], team_steps, progress_data["current_step"])
+    progress_data["log"].markdown(log_html, unsafe_allow_html=True)
+
+    # If this is the last step, ensure the progress bar reaches 100%
+    if step_index == len(steps) - 1:
+        progress_data["team_progress"][team] = 1.0
+        progress_bar_html = create_stacked_progress_bar(progress_data["team_progress"], progress_data["team_colors"])
+        progress_data["progress"].markdown(progress_bar_html, unsafe_allow_html=True)
+
+
+
+def create_step_log(team_progress: Dict[str, float], team_steps: Dict[str, List[str]], current_step: Tuple[str, str] = None) -> str:
     log_entries = []
     for team, progress in team_progress.items():
         completed_steps = int(progress * len(team_steps[team]))
         for i, step in enumerate(team_steps[team]):
             if i < completed_steps:
                 status = "✅"  # Checkmark for completed steps
-            elif i == completed_steps and team == current_team and step == current_step:
+            elif current_step and current_step == (team, step):
                 status = "🔄"  # In progress for current step
             else:
                 status = "⬜"  # Empty square for future steps
@@ -100,7 +170,7 @@ def display_playground_tab():
 
     # Create a centralized experiment ID
     experiment_id = create_experiment_id()
-    
+
     st.markdown("""
         <style>
             .section p, .section li, .section h2, .hardcoded-param p {
@@ -118,7 +188,7 @@ def display_playground_tab():
 
     with col1:
         st.markdown(playground_intro, unsafe_allow_html=True)
-    
+
     with col2:
         st.video('/home/ubuntu/efs-w210-capstone-ebs/00.GabbleGrid/project/files/videos/20240805_Final.mp4')
 
@@ -133,23 +203,27 @@ def display_playground_tab():
         # Render Agent Teams Selection with a card-like boundary
         with st.expander("Select Teams with specific goals", expanded=True):
             team_selection = render_agent_team_selection()
-    
+
         # Render an h4 header for Parameters
         st.markdown("<h4 style='color: grey;'>Parameters Selection</h4>", unsafe_allow_html=True)
-        
+
         # Render Parameters (this part remains unchanged)
         inference_params = render_main_content(min_time, max_time)
-        
+
         # Move the submit button to the form
         submitted = st.form_submit_button("Run Inference")
-    
+
     # Handle form submission
     if submitted:
         st.session_state['run_inference'] = True
 
+    # if inference_params and st.session_state.run_inference:
+    #     team_steps = get_team_steps()
+    #     progress_data = create_combined_progress_bar(team_selection)
+
     if inference_params and st.session_state.run_inference:
         team_steps = get_team_steps()
-        progress_data = create_combined_progress_bar(team_selection)
+        progress_data = create_combined_progress_bar(team_selection, runner_height=40)  # Set your desired height here
 
         async def run_all():
             try:
@@ -167,7 +241,7 @@ def display_playground_tab():
                     with tab_dict[team]:
                         if team == "Team 1: Basic Log Inference":
                             for step in team_steps[team]:
-                                update_combined_progress(team, step, progress_data, team_steps)
+                                await update_combined_progress(team, step, progress_data, team_steps)
                                 if step == "Running log inference":
                                     log_results = await run_log_inference(model_config, inference_params, openai_api_key)
                                 elif step == "Displaying log results":
@@ -175,11 +249,10 @@ def display_playground_tab():
                                         st.error(f"Error in log inference: {log_results['error']}")
                                     else:
                                         st.write(f"Log inference results: {log_results}")
-                                await asyncio.sleep(0.5)  # Add a small delay for visual effect
 
                         elif team == "Team 2: Current Weather and Search":
                             for step in team_steps[team]:
-                                update_combined_progress(team, step, progress_data, team_steps)
+                                await update_combined_progress(team, step, progress_data, team_steps)
                                 if step == "Running weather inference":
                                     weather_results = await run_weather_inference(model_config, openai_api_key)
                                 elif step == "Displaying weather results":
@@ -187,11 +260,10 @@ def display_playground_tab():
                                         st.error(f"Error in weather inference: {weather_results['error']}")
                                     else:
                                         st.write(f"Weather inference results: {weather_results}")
-                                await asyncio.sleep(0.5)  # Add a small delay for visual effect
 
                         elif team == "Team 3: Historical Weather Trends":
                             for step in team_steps[team]:
-                                update_combined_progress(team, step, progress_data, team_steps)
+                                await update_combined_progress(team, step, progress_data, team_steps)
                                 if step == "Running historical weather inference":
                                     historical_weather_results = await run_historical_weather_inference(model_config, inference_params, openai_api_key, experiment_id)
                                 elif step == "Displaying historical weather results":
@@ -200,7 +272,6 @@ def display_playground_tab():
                                     else:
                                         st.write(f"Historical weather inference results: {historical_weather_results}")
                                         st.write("---> Process completed and records inserted ..")
-                                await asyncio.sleep(0.5)  # Add a small delay for visual effect
 
             except Exception as e:
                 st.error(f"An unexpected error occurred: {str(e)}")

@@ -18,7 +18,7 @@ def display_errors(error_messages):
 
 def display_weather_results(results):
     # st.markdown("<h2 style='color: teal;'>Historical Trends: Logs & Max Temp</h2>", unsafe_allow_html=True)
-    st.markdown("<h5 class='custom-teal' style='color: teal;'>Team 3: Compare log inference data (logs) with historical weather trends at datacenter (Livermore, CA) </h5>", unsafe_allow_html=True)
+    st.markdown("<h3 class='custom-teal' style='color: teal;'>Team 3: Compare log inference data (logs) with historical weather trends at datacenter (Livermore, CA) </h3>", unsafe_allow_html=True)
     if isinstance(results, dict):
         if 'content' in results:
             st.markdown(results['content'])
