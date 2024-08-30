@@ -1,9 +1,8 @@
 import streamlit as st
-from streamlit_quill import st_quill  # Importing the rich-text editor
 import sqlite3
 from datetime import datetime
+from streamlit_quill import st_quill
 
-# Function to initialize the SQLite database
 def init_db():
     conn = sqlite3.connect('mindspace_blog.db')
     c = conn.cursor()
@@ -19,7 +18,6 @@ def init_db():
     conn.commit()
     conn.close()
 
-# Function to save post content to a database
 def save_post_to_db(title, content, author):
     conn = sqlite3.connect('mindspace_blog.db')
     c = conn.cursor()
@@ -28,7 +26,6 @@ def save_post_to_db(title, content, author):
     conn.commit()
     conn.close()
 
-# Function to retrieve all posts from the database
 def get_all_posts():
     conn = sqlite3.connect('mindspace_blog.db')
     c = conn.cursor()
@@ -37,7 +34,6 @@ def get_all_posts():
     conn.close()
     return posts
 
-# Function to retrieve a single post by ID
 def get_post_by_id(post_id):
     conn = sqlite3.connect('mindspace_blog.db')
     c = conn.cursor()
@@ -46,59 +42,23 @@ def get_post_by_id(post_id):
     conn.close()
     return post
 
-# Display the main MindSpace content
-def display_mindspace():
-    # Initialize the session state variables
+def display_blog():
+    # Initialize session state variables
     if 'page' not in st.session_state:
         st.session_state.page = "mindspace"
-
+    
     if 'selected_post_id' not in st.session_state:
         posts = get_all_posts()
         if posts:
             st.session_state.selected_post_id = posts[0][0]  # Automatically select the latest blog post
 
-    # Apply custom styles
-    st.markdown("""
-        <style>
-            body {
-                font-family: 'Arial', sans-serif;
-                background-color: #f4f4f9;
-                color: grey;
-            }
-            h1, h2, h3, h4, h5, h6 {
-                color: grey !important;
-            }
-            .section p, .section li, .section h2, .section table, .section td, .section th {
-                color: grey;
-            }
-            .grey-text {
-                color: grey;
-            }
-        </style>
-    """, unsafe_allow_html=True)
-
-    # Introduction section with collapsible "Read more"
-    st.markdown("""
-        <div class='section'>
-            <p>Welcome to MindSpace! A personal space for your thoughts, readings, and more.</p>
-        </div>
-    """, unsafe_allow_html=True)
-
-    with st.expander("Read more"):
-        st.markdown("""
-            <p class='grey-text'>
-            Placeholder for additional information about MindSpace. You can add details or explanations here to help users understand what this section is about.
-            </p>
-        """, unsafe_allow_html=True)
-
-    # Initialize the database
+    st.markdown("<h4>Blog</h4>", unsafe_allow_html=True)
+    
     init_db()
 
-    # Create a two-column layout
     col1, col2 = st.columns([1, 3])
 
     with col1:
-        # st.header("Published Blogs")
         st.markdown("<h5>Published Blogs</h5>", unsafe_allow_html=True)
         posts = get_all_posts()
         if posts:
@@ -110,7 +70,6 @@ def display_mindspace():
         else:
             st.write("No blog posts published yet.")
 
-        # Button to navigate to the blog writing section (only for the admin)
         st.markdown("---")
         email = st.session_state.get('user', {}).get('email') if st.session_state.get('user') else None
         if email in ["gaurav.narasimhan@gmail.com", "gaurav.narasimhan@berkeley.edu"]:
@@ -118,7 +77,6 @@ def display_mindspace():
                 st.session_state.page = "write_blog"
 
     with col2:
-        # Display the selected blog post
         if st.session_state.page == "view_post" and st.session_state.selected_post_id:
             post = get_post_by_id(st.session_state.selected_post_id)
             if post:
@@ -138,11 +96,9 @@ def display_mindspace():
                 st.write(content)
                 st.markdown("---")
 
-# Display the blog writing page
 def display_write_blog():
     st.title("Write a New Blog Post")
 
-    # Check if user is authenticated and is the admin
     email = st.session_state.get('user', {}).get('email') if st.session_state.get('user') else None
     if email not in ["gaurav.narasimhan@gmail.com", "gaurav.narasimhan@berkeley.edu"]:
         st.warning("You do not have permission to write a blog post.")
@@ -161,10 +117,3 @@ def display_write_blog():
             st.experimental_rerun()  # Rerun to show the newly added blog
         else:
             st.error("Title and content cannot be empty.")
-
-# Main application logic
-def main():
-    display_mindspace()
-
-if __name__ == '__main__':
-    main()

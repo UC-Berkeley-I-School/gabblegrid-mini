@@ -4,31 +4,11 @@ from authlib.integrations.requests_client import OAuth2Session
 from google_auth_oauthlib.flow import Flow
 import requests
 import traceback
-from mindspace import display_mindspace  # Import the MindSpace function
+# from mindspace import display_mindspace  # Import the MindSpace function
+from mindspace_main import display_mindspace_main  # Updated import to reflect the new structure
 from utils.sidebar_utils import render_sidebar  # Add this import at the top
 import os
-
-
-# Set the page configuration as the first Streamlit command
-st.set_page_config(
-    page_title="GabbleGrid",
-    page_icon="🔍",
-    layout="wide",
-    initial_sidebar_state='collapsed'
-    # initial_sidebar_state='expanded'
-)
-
-# Render the sidebar immediately after setting the page configuration
-# render_sidebar('playground')
-# render_sidebar()
-
-# Add cache-control headers
-st.markdown("""
-    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-    <meta http-equiv="Pragma" content="no-cache">
-    <meta http-equiv="Expires" content="0">
-""", unsafe_allow_html=True)
-
+import base64
 from content.home_tab import display_home_tab
 # from playground.playground_main import display_playground_tab
 from content.why_agents_tab import display_why_agents_tab
@@ -44,6 +24,35 @@ from content.about_us_tab import display_about_us_tab
 from utils.footer import display_footer
 from playground.playground_main import display_playground_tab
 from models.models_main import display_models_tab
+
+# Set the page configuration as the first Streamlit command
+st.set_page_config(
+    page_title="GabbleGrid",
+    page_icon="🔍",
+    layout="wide",
+    initial_sidebar_state='collapsed'
+    # initial_sidebar_state='expanded'
+)
+
+# def handle_pdf_request():
+#     if 'pdf_request' in st.session_state and st.session_state.pdf_request:
+#         pdf_path = st.session_state.pdf_request
+#         try:
+#             with open(pdf_path, "rb") as f:
+#                 pdf_content = base64.b64encode(f.read()).decode('utf-8')
+#             st.session_state.pdf_request = None
+#             return {"content": pdf_content}
+#         except Exception as e:
+#             return {"error": str(e)}
+#     return {"error": "No PDF request found"}
+
+# Add cache-control headers
+st.markdown("""
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+""", unsafe_allow_html=True)
+
 
 def load_css(file_path):
     with open(file_path) as f:
@@ -312,7 +321,7 @@ def main():
             display_footer()
 
         with tab5:
-            display_mindspace()
+            display_mindspace_main()
             display_footer()
         
         with tab6:
@@ -326,6 +335,33 @@ def main():
                 display_admin_tab()
             else:
                 st.warning("You do not have access to this tab.")
+    # Add this at the end of the main function
+    if st.session_state.get('pdf_request'):
+        pdf_data = handle_pdf_request()
+        if "content" in pdf_data:
+            pdf_content = pdf_data["content"]
+            pdf_base64 = f"data:application/pdf;base64,{pdf_content}"
+            st.markdown(f"<iframe src='{pdf_base64}' width='100%' height='800px'></iframe>", unsafe_allow_html=True)
+        else:
+            st.error(pdf_data.get("error", "An unknown error occurred."))
+
+
+
+# # Add this JavaScript snippet just before the __name__ check
+# st.components.v1.html("""
+# <script>
+# window.addEventListener('message', function(e) {
+#     if (e.data.type === 'openPDF') {
+#         const url = `/get_pdf_content?path=${encodeURIComponent(e.data.path)}&name=${encodeURIComponent(e.data.name)}`;
+#         window.open(url, '_blank');
+#     }
+# });
+# </script>
+# """, height=0)
 
 if __name__ == '__main__':
     main()
+
+    # # Add this section to handle PDF requests
+    # if st.button('Get PDF Content', key='get_pdf_content'):
+    #     st.json(handle_pdf_request())

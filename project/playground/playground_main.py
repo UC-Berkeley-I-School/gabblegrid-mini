@@ -51,8 +51,8 @@ def generate_contrasting_colors(num_colors):
     hue_step = 1.0 / num_colors
     for i in range(num_colors):
         hue = i * hue_step
-        saturation = 0.7  # Increased saturation for more contrast
-        lightness = 0.5  # Mid-range lightness
+        saturation = 0.4  # Lower saturation for pastel colors
+        lightness = 0.8  # Higher lightness for pastel colors
         r, g, b = colorsys.hls_to_rgb(hue, lightness, saturation)
         colors.append(f"#{int(r*255):02x}{int(g*255):02x}{int(b*255):02x}")
     return colors

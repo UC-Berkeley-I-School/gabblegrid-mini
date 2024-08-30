@@ -15,7 +15,7 @@ def generate_project_structure(base_path, skip_files, exclude_dirs):
             full_path = os.path.join(path, item)
             if os.path.isdir(full_path):
                 dirs.append(item)
-            elif os.path.isfile(full_path) and item not in skip_files:
+            if os.path.isfile(full_path) and item not in skip_files:
                 if item.endswith(('.py', '.sh', '.yaml', '.txt', '.css')):
                     files.append(item)
                     try:
@@ -27,6 +27,9 @@ def generate_project_structure(base_path, skip_files, exclude_dirs):
                                 file_contents[full_path] = file.read()
                         except Exception as e:
                             print(f"Skipping file {full_path} due to encoding issues: {e}")
+                elif item.endswith('.pdf'):
+                    files.append(item)
+                    file_contents[full_path] = "[PDF content not displayed]"
 
         indent = '\t' * level
         if level == 0:
@@ -44,6 +47,7 @@ def generate_project_structure(base_path, skip_files, exclude_dirs):
     return folder_structure, file_contents
 
 def write_to_file(output_file, folder_structure, file_contents, base_path):
+    
     with open(output_file, 'w', encoding='utf-8') as f:
         f.write("About\n")
         f.write("-----\n")
@@ -59,6 +63,7 @@ def write_to_file(output_file, folder_structure, file_contents, base_path):
         f.write("SECTION 1: FOLDER STRUCTURE WITH FILES\n")
         f.write("----------------------------------------------------------------\n")
         f.write("----------------------------------------------------------------\n")
+        
         for item in folder_structure:
             f.write(f"{item}\n")
         
@@ -67,13 +72,15 @@ def write_to_file(output_file, folder_structure, file_contents, base_path):
         f.write("SECTION 2: SECTION, FOLDER, FILE ---> CODE FOR EACH FILE\n")
         f.write("----------------------------------------------------------------\n")
         f.write("----------------------------------------------------------------\n")
+        
         for file_path, content in file_contents.items():
-            relative_path = os.path.relpath(file_path, base_path)
-            f.write(f"\n###################################################################\n")
-            f.write(f"############## File: {relative_path} ##############################\n")
-            f.write(f"###################################################################\n\n")
-            f.write(content)
-            f.write("\n\n")
+            if not file_path.lower().endswith('.pdf'):
+                relative_path = os.path.relpath(file_path, base_path)
+                f.write(f"\n###################################################################\n")
+                f.write(f"############## File: {relative_path} ##############################\n")
+                f.write(f"###################################################################\n\n")
+                f.write(content)
+                f.write("\n\n")
 
         f.write("\n----------------------------------------------------------------\n")
         f.write("----------------------------------------------------------------\n")
@@ -184,25 +191,25 @@ if __name__ == "__main__":
         # 'main.py',
         'main_Dummy_Test_Only.py',
         'models_tab.py',
-        'mindspace.py',
+        # 'mindspace.py',
         'parameter_sourcing.py',
         'playground_inference.py',
         # 'playground_log_inference.py',
         # 'playground_main.py',
         'playground_historical_weather_display.py',
-        # 'playground_historical_weather_main.py',
+        'playground_historical_weather_main.py',
         'playground_text.py',
-        # 'playground_ui.py',
+        'playground_ui.py',
         'playground_utils.py',
-        # 'playground_weather_inference.py',
+        'playground_weather_inference.py',
         'plotting.py',
         'privacy_policy.py',
-        'styles.css',
+        # 'styles.css',
         'tech_tab.py',
         'terms_of_service.py',
         'transcript_playground_brief.py',
         'transcript_playground_full.py',
-        'transformers_tab.py'
+        # 'transformers_tab.py'
         # 'why_agents_tab.py'
         
     ]
@@ -225,14 +232,14 @@ if __name__ == "__main__":
         'admin',
         # 'agents',
         'config',
-        # 'content',
+        'content',
         'historical_weather',
         'feature_dev',
         'files',
         'group',
         'models',
         'model',
-        # 'playground',
+        'playground',
         'qa',
         # 'utils'
     }
