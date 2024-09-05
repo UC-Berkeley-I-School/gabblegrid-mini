@@ -1,0 +1,18 @@
+[Unit]
+Description=GabbleGrid Streamlit App (DEV)
+After=network.target
+
+[Service]
+User=ubuntu
+WorkingDirectory=/home/ubuntu/efs-w210-capstone-ebs/00.GabbleGrid/project
+ExecStart=/opt/conda/envs/20240815_MindSpace_Blog/bin/streamlit run main.py --server.port 8502
+Restart=always
+RestartSec=5
+Environment="PATH=/opt/conda/envs/20240815_MindSpace_Blog/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+Environment="GABBLEGRID_ENV=dev"
+
+
+[Install]
+WantedBy=multi-user.target
+
+~                                              

@@ -34,18 +34,6 @@ st.set_page_config(
     # initial_sidebar_state='expanded'
 )
 
-# def handle_pdf_request():
-#     if 'pdf_request' in st.session_state and st.session_state.pdf_request:
-#         pdf_path = st.session_state.pdf_request
-#         try:
-#             with open(pdf_path, "rb") as f:
-#                 pdf_content = base64.b64encode(f.read()).decode('utf-8')
-#             st.session_state.pdf_request = None
-#             return {"content": pdf_content}
-#         except Exception as e:
-#             return {"error": str(e)}
-#     return {"error": "No PDF request found"}
-
 # Add cache-control headers
 st.markdown("""
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
@@ -157,8 +145,8 @@ def main():
     
     # Determine the environment based on a custom environment variable
     if "GABBLEGRID_ENV" in os.environ and os.environ["GABBLEGRID_ENV"] == "dev":
-        redirect_uri = "https://dev.gabblegrid.com"
-        google_redirect_uri = "https://dev.gabblegrid.com"
+        redirect_uri = "https://dev.mindmesh.io"
+        google_redirect_uri = "https://dev.mindmesh.io"
     else:
         redirect_uri = "https://gabblegrid.com"
         google_redirect_uri = "https://gabblegrid.com"
@@ -293,9 +281,9 @@ def main():
         display_terms_of_service()
     else:
 
-        tab1, tab2, tab3, tab4, tab5, tab6, tab10 = st.tabs([
+        tab1, tab2, tab3, tab4, tab5, tab6, tab9, tab10 = st.tabs([
             "Home", "Why Agents", "Playground", "Models", "MindSpace", 
-            "Documentation", "Admin"
+            "Documentation", "About Us", "Admin"
         ])
 
         with tab1:
@@ -328,6 +316,10 @@ def main():
             display_documentation_tab()
             display_footer()
                 
+        with tab9:
+            display_about_us_tab()
+            display_footer()        
+            
         with tab10:
             # email = st.session_state.get('user', {}).get('email')
             email = st.session_state.get('user', {}).get('email') if st.session_state.get('user') else None
@@ -365,3 +357,46 @@ if __name__ == '__main__':
     # # Add this section to handle PDF requests
     # if st.button('Get PDF Content', key='get_pdf_content'):
     #     st.json(handle_pdf_request())
+
+
+
+# #################### ORIG ###################
+    
+#     # # Determine the environment based on a custom environment variable
+#     if "GABBLEGRID_ENV" in os.environ and os.environ["GABBLEGRID_ENV"] == "dev":
+#         redirect_uri = "https://dev.gabblegrid.com"
+#         google_redirect_uri = "https://dev.gabblegrid.com"
+#     else:
+#         redirect_uri = "https://gabblegrid.com"
+#         google_redirect_uri = "https://gabblegrid.com"
+
+# ##########################################################################################
+
+
+#     # Determine the environment based on a custom environment variable
+#     # if "GABBLEGRID_ENV" in os.environ and os.environ["GABBLEGRID_ENV"] == "dev":
+#     #     redirect_uri = "https://dev.mindmesh.io"
+#     #     google_redirect_uri = "https://dev.mindmesh.io"
+#     # else:
+#     #     redirect_uri = "https://mindmesh.io"
+#     #     google_redirect_uri = "https://mindmesh.io"
+
+# ##########################################################################################
+
+#     # # Determine the environment and starting domain to set the appropriate redirect URI
+#     # if "GABBLEGRID_ENV" in os.environ and os.environ["GABBLEGRID_ENV"] == "dev":
+#     #     query_params = st.query_params
+#     #     current_host = query_params.get("host", [""])[0]
+        
+#     #     if "dev.mindmesh.io" in current_host:
+#     #         redirect_uri = "https://dev.mindmesh.io"
+#     #         google_redirect_uri = "https://dev.mindmesh.io"
+#     #     else:
+#     #         redirect_uri = "https://dev.gabblegrid.com"
+#     #         google_redirect_uri = "https://dev.gabblegrid.com"
+#     # else:
+#     #     redirect_uri = "https://gabblegrid.com"
+#     #     google_redirect_uri = "https://gabblegrid.com"
+
+
+# ##########################################################################################

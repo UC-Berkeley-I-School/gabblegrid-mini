@@ -15,50 +15,39 @@ def display_about_us_tab():
 
     st.markdown("""
         <div class='section'>
-            <h2>About Me</h2>
+            <h2>About Us</h2>
             <p>
-            Hey there! I'm Gaurav Narasimhan, the founder-engineer behind GabbleGrid. I lead a team of rockstar data scientists and AI engineers who are all about building autonomous agents to predict and prevent failures in SaaS cloud services. Oh, and I'm making this an open-source platform soon—so stay tuned!
+            Welcome to GabbleGrid! We are a team of dedicated professionals committed to revolutionizing cloud service management through autonomous agents and advanced AI technologies. Our mission is to enhance service reliability, uptime, and user experience by predicting and preventing failures in cloud environments. Meet the people behind GabbleGrid:
             </p>
         </div>
     """, unsafe_allow_html=True)
 
-    st.image('/home/ubuntu/efs-w210-capstone-ebs/00.GabbleGrid/project/files/images/about_us_photo_1.png', use_column_width=True)
-    st.markdown("""
-        <div class='section'>
-            <h2>Gaurav Narasimhan</h2>
-            <p><strong>Title:</strong> Founder-Engineer</p>
-            <p>
-            I’m currently juggling a full-time leadership role while pursuing a graduate degree in Data Science at UC Berkeley. I'm into Natural Language Processing and love balancing my time between being a student and a leader. It's all about pushing boundaries and having fun with tech.
-            </p>
-            <p>
-            <strong>About Me:</strong><br>
-            ► Always challenging the status quo and looking for ways to improve.<br>
-            ► Balancing a grad program at UC Berkeley with leading a kickass team focused on AI Autonomous Agents.<br>
-            ► My capstone project at UC Berkeley is all about developing these cool Autonomous Agents, perfectly aligning with my work.<br>
-            ► Finding the sweet spot between academic life and professional leadership.
-            </p>
-            <p>
-            <strong>Technical Focus and Achievements:</strong><br>
-            ► Bringing Large Language Models (LLMs) into the mix to create autonomous solutions for SaaS Engineering.<br>
-            ► Steering the ship on using LLMs to boost the product features.<br>
-            ► Driving innovation and making sure we stick to industry standards.<br>
-            ► Working with transformers like BERT, LLaMA, MPT, Falcon, Flan, and T5. Also, having fun with Langchain and Huggingface for some cool AI applications.<br>
-            ► Building Visual Document Scanning solutions with LayoutLM for various needs.<br>
-            ► Creating AI chatbots to enhance Employee Experience and Engineering Productivity, hitting a 20% improvement in issue resolution.<br>
-            ► Teaming up with folks across disciplines to make products more efficient and competitive.
-            </p>
-            <p>
-            <strong>Professional Insights and Contributions:</strong><br>
-            ► Constantly diving into AI and ML to apply new insights to real-world problems.<br>
-            ► Sharing my knowledge through technical and strategic content within the AI community.
-            </p>
-            <p>
-            <strong>Skills & Expertise:</strong><br>
-            ► Expertise in Large Language Models (LLM), Machine Learning, and Autonomous Agents.<br>
-            ► Leading teams in applying AI and ML to create impactful business solutions.
-            </p>
-        </div>
-    """, unsafe_allow_html=True)
+    col1, col2 = st.columns(2)
 
-if __name__ == "__main__":
-    display_about_me_tab()
+    with col1:
+        st.image('/home/ubuntu/efs-w210-capstone-ebs/00.GabbleGrid/project/files/images/about_us_photo_1.png', use_column_width=True)
+        st.markdown("""
+            <div class='section'>
+                <h2>Gaurav Narasimhan</h2>
+                <p><strong>Title:</strong> Founder/Engineer</p>
+                <p>
+I lead a team of data scientists and AI engineers focused on building AI Autonomous Agents for failure prediction in SaaS cloud services. With a recent graduate degree in Data Science from UC Berkeley, my work bridges the gap between practical AI applications and academic research. My experience includes integrating Large Language Models (LLMs) like BERT and GPT to tackle complex challenges, enhancing product capabilities, and developing solutions that drive efficiency and innovation in SaaS engineering.
+
+Throughout my career, I’ve been passionate about the potential of AI and machine learning to transform industries. I’ve worked on projects ranging from autonomous agents to visual document scanning, consistently applying advanced NLP techniques and fostering interdisciplinary collaboration to deliver impactful business solutions. My expertise spans LLMs, machine learning, and autonomous systems, and I continue to explore new ways to apply these technologies to real-world challenges.
+                </p>
+            </div>
+        """, unsafe_allow_html=True)
+
+    with col2:
+        st.image('/home/ubuntu/efs-w210-capstone-ebs/00.GabbleGrid/project/files/images/about_us_photo_2.png', use_column_width=True)
+        st.markdown("""
+            <div class='section'>
+                <h2>Mark Butler</h2>
+                <p><strong>Title:</strong> Advisor</p>
+                <p>
+                Senior leader and seasoned Engineering executive with experience in designing and building language-based computer systems. I have extensive experience with automatic classification, information extraction and retrieval, metadata creation, and language generation. I've had the good fortune to spend the last three decades working with various aspects of getting computers to process language to help humans do their work. In these three decades I've watched the fields of computational linguistics and natural language processing make incredible advances from the rule-based Brill Part of Speech Tagger to CRF based statistical SRL parsers to today's neural net language models like BERT and GPT. Because of the length of my experience, I understand the strengths of each of these technological innovations in NLP -- rule-based, statistical, and deep learning. Human language and the ability of computers to process it continue to fascinate me every day.
+
+Specialties: text analytics; text mining; machine learning; information extraction; syntactic/semantic modeling; automated taxonomy development; metadata extraction and systems; information retrieval; open source natural language processing software and system architecture.
+                </p>
+            </div>
+        """, unsafe_allow_html=True)

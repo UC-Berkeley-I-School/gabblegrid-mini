@@ -169,7 +169,7 @@ if __name__ == "__main__":
     skip_files = [ 
         '__init__.py',
         'about_us_tab.py',
-        'admin_tab.py',
+        # 'admin_tab.py',
         'adhoc.txt',
         # 'agent_communication.py',
         # 'agent_initialization.py',
@@ -194,7 +194,7 @@ if __name__ == "__main__":
         # 'mindspace.py',
         'parameter_sourcing.py',
         'playground_inference.py',
-        # 'playground_log_inference.py',
+        'playground_log_inference.py',
         # 'playground_main.py',
         'playground_historical_weather_display.py',
         'playground_historical_weather_main.py',
@@ -204,13 +204,14 @@ if __name__ == "__main__":
         'playground_weather_inference.py',
         'plotting.py',
         'privacy_policy.py',
+        # 'sidebar_utils.py',
         # 'styles.css',
         'tech_tab.py',
         'terms_of_service.py',
         'transcript_playground_brief.py',
         'transcript_playground_full.py',
-        # 'transformers_tab.py'
-        # 'why_agents_tab.py'
+        'transformers_tab.py',
+        'why_agents_tab.py'
         
     ]
     exclude_dirs = {
@@ -221,7 +222,9 @@ if __name__ == "__main__":
         '01.Local_Model_Files',
         '02.Local_Data_Files',
         '03.Local_Inference_Eval_Files',
+        '03.Placeholder',
         '04.Local_Other_Files',
+        '04.Placeholder',
         '94.Project_Transcript',
         '96.Original_Code_TXT',
         '96.Originals',
@@ -230,16 +233,17 @@ if __name__ == "__main__":
         '.ipynb_checkpoints',
         '__pycache__',
         'admin',
-        # 'agents',
+        'agents',
         'config',
-        'content',
+        # 'content',
         'historical_weather',
         'feature_dev',
         'files',
         'group',
         'models',
         'model',
-        'playground',
+        'mindspace',
+        # 'playground',
         'qa',
         # 'utils'
     }

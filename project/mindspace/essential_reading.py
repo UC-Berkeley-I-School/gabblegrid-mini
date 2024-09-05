@@ -25,10 +25,10 @@ def display_folder_tiles(base_dir):
     st.markdown("""
     <style>
     .stButton > button {
-        height: 200px;
-        width: 100%;
-        color: #808080;  /* Changed to grey */
-        border: 2px solid #CCCCCC;
+        height: 60px;
+        width: 200px;
+        color: #808080;
+        border: none;
         border-radius: 10px;
         text-align: center;
         word-wrap: break-word;
@@ -37,12 +37,17 @@ def display_folder_tiles(base_dir):
         display: flex;
         align-items: center;
         justify-content: center;
-        background-color: transparent;
-        font-size: 18px;
+        font-size: 10px;
+        transition: all 0.3s ease;
     }
     .stButton > button:hover {
         filter: brightness(90%);
+        transform: scale(1.05);
     }
+    .stButton:nth-of-type(4n+1) > button { background-color: #E6F3FF; }  /* Red */
+    .stButton:nth-of-type(4n+2) > button { background-color: #E6F3FF; }  /* Teal */
+    .stButton:nth-of-type(4n+3) > button { background-color: #E6F3FF; }  /* Blue */
+    .stButton:nth-of-type(4n+4) > button { background-color: #E6F3FF; }  /* Light Salmon */
     </style>
     """, unsafe_allow_html=True)
     cols = st.columns(4)
