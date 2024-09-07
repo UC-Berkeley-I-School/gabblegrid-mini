@@ -27,9 +27,9 @@ def generate_project_structure(base_path, skip_files, exclude_dirs):
                                 file_contents[full_path] = file.read()
                         except Exception as e:
                             print(f"Skipping file {full_path} due to encoding issues: {e}")
-                elif item.endswith('.pdf'):
-                    files.append(item)
-                    file_contents[full_path] = "[PDF content not displayed]"
+                # elif item.endswith('.pdf'):
+                #     files.append(item)
+                #     file_contents[full_path] = "[PDF content not displayed]"
 
         indent = '\t' * level
         if level == 0:
@@ -220,6 +220,7 @@ if __name__ == "__main__":
         '00.Key_REF_Notebooks',
         '01.Experiments',
         '01.Local_Model_Files',
+        '01.Papers',
         '02.Local_Data_Files',
         '03.Local_Inference_Eval_Files',
         '03.Placeholder',
@@ -242,7 +243,7 @@ if __name__ == "__main__":
         'group',
         'models',
         'model',
-        'mindspace',
+        # 'mindspace',
         # 'playground',
         'qa',
         # 'utils'

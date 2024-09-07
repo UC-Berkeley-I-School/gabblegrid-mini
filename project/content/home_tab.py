@@ -2,8 +2,7 @@ import streamlit as st
 
 def display_home_tab():
     # Add the news headline image collage at the top
-    st.image('/home/ubuntu/efs-w210-capstone-ebs/00.GabbleGrid/project/files/images/01.Banner/banner_05.png', caption='', use_column_width=True)
-
+    st.image('/home/ubuntu/efs-w210-capstone-ebs/00.GabbleGrid/11.Site_Content_Files/11.Images/01.Banner/Logo1.png', caption='', use_column_width=True)
     st.markdown("""
         <style>
             .section p, .section li, .section h2, .section h5, .section table, .section td, .section th {
@@ -24,82 +23,83 @@ def display_home_tab():
     """, unsafe_allow_html=True)
 
     st.markdown("""
+        <hr>
         <div class='section'>
             <p>
-                Developed as a UC Berkeley graduate capstone initiative, GabbleGrid transforms cloud service management with autonomous AI agents that:
+                Developed as a UC Berkeley graduate capstone initiative, mindmesh.io transforms cloud service management with autonomous AI agents that:
                 <ol>
                     <li>Analyze vast amounts of log data in real-time</li>
                     <li>Select and optimize machine learning models for precise anomaly detection</li>
                     <li>Execute proactive measures to prevent service disruptions</li>
                 </ol>
             </p>
-            <p class='grey-text'>GabbleGrid addresses the challenges of service outages in complex IT infrastructures by leveraging the latest advancements in AI and machine learning. Our autonomous agents perform real-time monitoring, predictive maintenance, and proactive anomaly detection, significantly reducing the frequency and impact of service disruptions, thereby ensuring continuous and reliable operations.</p>
+            <p class='grey-text'>Mindmesh addresses the challenges of service outages in complex IT infrastructures by leveraging the latest advancements in AI and machine learning. Our autonomous agents perform real-time monitoring, predictive maintenance, and proactive anomaly detection, significantly reducing the frequency and impact of service disruptions, thereby ensuring continuous and reliable operations.</p>
         </div>
     """, unsafe_allow_html=True)
     
     st.markdown("""
         <div class='section'>
-            <h2>The Cost of Cloud</h2>
+            <h2>The Cost of Service Outages</h2>
     """, unsafe_allow_html=True)
     
     st.markdown("<div class='center'>", unsafe_allow_html=True)
-    st.image('/home/ubuntu/efs-w210-capstone-ebs/00.GabbleGrid/project/files/images/Business_Case_0.png', use_column_width=True)
-    st.markdown("</div>", unsafe_allow_html=True)
+    st.image('/home/ubuntu/efs-w210-capstone-ebs/00.GabbleGrid/11.Site_Content_Files/11.Images/03.gifs/business_case_1.gif', use_column_width=True)
+    st.markdown("""
+    <div class='center'>
+        <a href="https://storyset.com/business">Business illustrations by Storyset</a>
+    </div>
+""", unsafe_allow_html=True)
     
+    st.markdown("</div>", unsafe_allow_html=True)
+
     st.markdown("""
             <p class='grey-text'>
             In a cloud-native world, containerized applications and microservices are the norm. While they offer benefits like flexibility and scalability, they're also far more dynamic and complex. Unplanned downtime is significant and pervasive, affecting 80% of organizations within the last three years, with 76% enduring downtime that led to data loss in 2021 alone. The costs associated with these outages include lost productivity, reputational damage, and direct revenue loss.
             </p>
         </div>
     """, unsafe_allow_html=True)
-    
-    st.markdown("""
-        <div class='section'>
-            <h2>Use Case</h2>
-            <p>
-            A typical use case involves monitoring system logs in real-time to detect anomalies and predict potential outages. Our AI agents analyze log data, identify unusual patterns, and alert relevant teams before an issue escalates, ensuring minimal disruption to services.
-            </p>
-        </div>
-    """, unsafe_allow_html=True)
 
-    # New MVP Concept section
+    # Challenges and Solution section
     st.markdown("""
         <hr>
         <div class='section'>
-            <h2>MVP Concept</h2>
-            <hr>
-            <div>
-                <h5>Challenges</h5>
-                <p>Managing modern cloud environments presents numerous challenges, including the unstructured and unreliable nature of log data, the absence of pretrained models for rapid deployment, and the lack of a comprehensive framework for efficient model testing. Additionally, remediation processes are often manual, making them time-consuming and error-prone.</p>
-                <div class='center'>
+            <h2>Challenges facing IT Admins</h2>
+            <p>IT administrators face several critical challenges when managing service reliability. One of the top concerns is the uncertainty in choosing the right machine learning model and how to evaluate them. With the vast amount of data generated, particularly from system logs, determining the most effective model for anomaly detection can be daunting.
+    
+    Another significant challenge is the need for selecting and automating actions. Given the complexity of modern IT environments, automating responses to detected anomalies is crucial to maintaining service reliability. Mindmesh addresses these concerns by providing a comprehensive platform for model selection, evaluation, and automation, specifically focusing on processing and analyzing system logs.</p>
+            <div class='center'>
     """, unsafe_allow_html=True)
-    st.image('/home/ubuntu/efs-w210-capstone-ebs/00.GabbleGrid/project/files/images/MVP_1.png', use_column_width=True)
+    st.image('/home/ubuntu/efs-w210-capstone-ebs/00.GabbleGrid/11.Site_Content_Files/11.Images/04.storyset_images/business_case_1.png', use_column_width=True)
     st.markdown("""
-                </div>
+    <div class='center'>
+        <a href="https://storyset.com/business">Business illustrations by Storyset</a>
+    </div>
+""", unsafe_allow_html=True)
+    
+    st.markdown("""
             </div>
-            <hr>
-            <div class='section'>
-                <h5>Solution</h5>
-                <p>GabbleGrid addresses these challenges by introducing automated parsing with 'Drain', providing a full suite of pre-trained transformer models, and offering a plug-n-play test harness. This combination enhances reliability, reduces downtime, and streamlines the entire process. Our solution leverages AI-driven insights to automate remediation tasks, reducing the reliance on manual interventions and ensuring faster resolution times.</p>
-                <div class='center'>
+        </div>
+        <hr>
+        <div class='section'>
+            <h2>Solution: Mindmesh AI Agents</h2>
+            <p>Mindmesh provides a comprehensive solution to the challenges faced by IT administrators. First, it serves as a platform for model selection and evaluation. This addresses the uncertainty of choosing the right machine learning model by providing tools to assess and select the most appropriate models for specific use cases.
+    
+    Second, Mindmesh is a platform for deploying teams of agents. These autonomous AI agents work together to monitor system logs, detect anomalies, and take proactive actions. By automating these processes, Mindmesh helps ensure continuous and reliable service operations, reducing the burden on IT administrators and minimizing the risk of service disruptions.</p>
+            <div class='center'>
     """, unsafe_allow_html=True)
-    st.image('/home/ubuntu/efs-w210-capstone-ebs/00.GabbleGrid/project/files/images/MVP_2.png', use_column_width=True)
+    st.image('/home/ubuntu/efs-w210-capstone-ebs/00.GabbleGrid/11.Site_Content_Files/11.Images/04.storyset_images/business_case_2.png', use_column_width=True)
     st.markdown("""
-                </div>
-            </div>
-            <hr>
-            <div class='section'>
-                <h5>MVP+</h5>
-                <p>Building on the initial solution, MVP+ integrates 324 pre-trained model variants, enabling more robust and diverse model selection. It ensures parsed data is readily available for inference, facilitating real-time decision-making. The GabbleGrid Plug-n-Play system simplifies deployment, allowing for seamless integration into existing infrastructures. Additionally, our agents not only detect anomalies but also generate actionable insights and notifications, working collaboratively with teams to maintain optimal system performance.</p>
-                <div class='center'>
-    """, unsafe_allow_html=True)
-    st.image('/home/ubuntu/efs-w210-capstone-ebs/00.GabbleGrid/project/files/images/MVP_3.png', use_column_width=True)
+    <div class='center'>
+        <a href="https://storyset.com/business">Business illustrations by Storyset</a>
+    </div>
+""", unsafe_allow_html=True)
+    
     st.markdown("""
-                </div>
             </div>
         </div>
     """, unsafe_allow_html=True)
-
+    
+    # Future Vision section
     st.markdown("""
         <hr>
         <div class='section'>
