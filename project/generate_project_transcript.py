@@ -27,9 +27,9 @@ def generate_project_structure(base_path, skip_files, exclude_dirs):
                                 file_contents[full_path] = file.read()
                         except Exception as e:
                             print(f"Skipping file {full_path} due to encoding issues: {e}")
-                # elif item.endswith('.pdf'):
-                #     files.append(item)
-                #     file_contents[full_path] = "[PDF content not displayed]"
+                elif item.endswith('.pdf'):
+                    files.append(item)
+                    file_contents[full_path] = "[PDF content not displayed]"
 
         indent = '\t' * level
         if level == 0:
@@ -169,7 +169,7 @@ if __name__ == "__main__":
     skip_files = [ 
         '__init__.py',
         'about_us_tab.py',
-        # 'admin_tab.py',
+        'admin_tab.py',
         'adhoc.txt',
         # 'agent_communication.py',
         # 'agent_initialization.py',
@@ -177,19 +177,22 @@ if __name__ == "__main__":
         'api_keys_private.py',
         'autogen_setup.py',
         'backup_project_full.py',
+        'blog.py',
+        # 'contextual_example_tab.py',
         'config_sample.yaml',
         'config.yaml',
         'data_processing.py',
-        'design_tab.py',
-        'documentation_tab.py',
+        # 'design_tab.py',
+        # 'documentation_tab.py',
         'experiments.py',
         'footer.py',
         # 'function_registration.py',
         'generate_project_transcript.py',
         'home_tab.py',
         'inference.py',
-        # 'main.py',
+        'main.py',
         'main_Dummy_Test_Only.py',
+        'mindspace_main.py',
         'models_tab.py',
         # 'mindspace.py',
         'parameter_sourcing.py',
@@ -204,13 +207,16 @@ if __name__ == "__main__":
         'playground_weather_inference.py',
         'plotting.py',
         'privacy_policy.py',
+        'product_vision_tab.py',
         # 'sidebar_utils.py',
         # 'styles.css',
-        'tech_tab.py',
+        # 'tech_tab.py',
+        'REF_ONLY_gabblegrid_service.txt',
+        'REF_ONLY_nginx_sites-available_default.txt',
         'terms_of_service.py',
         'transcript_playground_brief.py',
         'transcript_playground_full.py',
-        'transformers_tab.py',
+        # 'transformers_tab.py',
         'why_agents_tab.py'
         
     ]
@@ -243,10 +249,10 @@ if __name__ == "__main__":
         'group',
         'models',
         'model',
-        # 'mindspace',
-        # 'playground',
+        'mindspace',
+        'playground',
         'qa',
-        # 'utils'
+        'utils'
     }
 
     folder_structure, file_contents = generate_project_structure(base_path, skip_files, exclude_dirs)

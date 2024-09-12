@@ -1,45 +1,41 @@
-# mindspace_main.py
+import streamlit as st
 
 import streamlit as st
 from mindspace.essential_reading import display_essential_reading
 from mindspace.blog import display_blog
 
-def display_why_reading_matters():
+def display_research_insights():
     st.markdown("""
         <style>
             .grey-text { color: grey !important; }
         </style>
     """, unsafe_allow_html=True)
 
-    st.markdown("<h3 class='grey-text'>Why Reading Matters</h3>", unsafe_allow_html=True)
-    
-    st.markdown("<p class='grey-text'>In the rapidly evolving field of Artificial Intelligence, staying current with research is not just beneficial—it's essential. The MindSpace tab is designed to facilitate this crucial aspect of AI development and understanding.</p>", unsafe_allow_html=True)
+    # Create two-column layout
+    col1, col2 = st.columns([1, 1])
 
-    # Wrap Essential Reading, Blog, and The Importance of Research in AI in a single expander
-    with st.expander("Learn More"):
-        st.markdown("<h5 class='grey-text'>Essential Reading</h5>", unsafe_allow_html=True)
-        st.markdown("<p class='grey-text'>The Essential Reading section contains a curated collection of research papers, organized into different topics. These papers represent the cornerstone of modern AI development and are either part of my completed reading list or are high-priority items on my to-read list.</p>", unsafe_allow_html=True)
+    # Left column: display image
+    with col1:
+        st.image("/home/ubuntu/efs-w210-capstone-ebs/00.GabbleGrid/project/files/images/03.Mindspace/mindspace-research-01.gif", use_column_width=True)
 
-        st.markdown("<h5 class='grey-text'>Blog</h5>", unsafe_allow_html=True)
-        st.markdown("<p class='grey-text'>The Blog section offers insights, reflections, and discussions on various AI topics, serving as a platform for deeper exploration of concepts encountered in the research papers.</p>", unsafe_allow_html=True)
-
-        st.markdown("<h5 class='grey-text'>The Importance of Research in AI</h5>", unsafe_allow_html=True)
-        st.markdown("<p class='grey-text'>AI is fundamentally a research-driven field. The pace of innovation is incredibly rapid, with new techniques, models, and paradigms emerging constantly. Staying abreast of these developments is crucial for several reasons:</p>", unsafe_allow_html=True)
+    # Right column: display text
+    with col2:
+        st.markdown("<h3 class='grey-text'>Research Insights & Reflections</h3>", unsafe_allow_html=True)
+        
+        st.markdown("<p class='grey-text'>In the fast-paced world of Artificial Intelligence, staying up to date with cutting-edge research is key to innovation and progress. This section highlights essential readings and my reflections on key AI advancements and trends.</p>", unsafe_allow_html=True)
 
         st.markdown("""
         <ul class='grey-text'>
-            <li><strong>Understanding State-of-the-Art:</strong> Research papers provide insight into the most advanced techniques and models currently available.</li>
-            <li><strong>Identifying Trends:</strong> Regular reading helps in recognizing emerging trends and potential future directions in AI.</li>
-            <li><strong>Problem-Solving:</strong> Many papers present novel solutions to complex problems, which can inspire new approaches in your own work.</li>
-            <li><strong>Avoiding Reinvention:</strong> Knowledge of existing research prevents unnecessary duplication of efforts.</li>
-            <li><strong>Interdisciplinary Insights:</strong> AI research often intersects with other fields, offering valuable cross-disciplinary perspectives.</li>
+            <li><strong>Stay Current:</strong> Research keeps you informed about the latest breakthroughs in AI models and methodologies.</li>
+            <li><strong>Track Trends:</strong> Regular reading helps identify emerging technologies and new areas of growth in AI.</li>
+            <li><strong>Gain Perspective:</strong> Understanding recent innovations prevents duplication and sparks fresh approaches in problem-solving.</li>
         </ul>
         """, unsafe_allow_html=True)
 
-        st.markdown("<p class='grey-text'>By engaging with this content, you're not just consuming information—you're participating in the global conversation that's shaping the future of AI.</p>", unsafe_allow_html=True)
+        st.markdown("<p class='grey-text'>Engaging with research drives informed action and fosters innovation in the AI landscape.</p>", unsafe_allow_html=True)
 
 def display_mindspace_main():
-    display_why_reading_matters()
+    display_research_insights()
 
     tab1, tab2 = st.tabs(["Essential Reading", "Blog"])
 

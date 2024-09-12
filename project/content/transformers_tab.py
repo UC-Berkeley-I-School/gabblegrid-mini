@@ -1,5 +1,6 @@
 import streamlit as st
 
+
 def display_transformers_tab():
     st.markdown("""
         <style>
@@ -19,16 +20,44 @@ def display_transformers_tab():
         </style>
     """, unsafe_allow_html=True)
 
-    # Transformer
-    st.markdown("""
-        <div class='section'>
-            <h2>Transformers</h2>
-            <p>
-                The encoder-only transformer with a binary classification head is particularly suitable for the use case. It focuses on capturing long-range dependencies in log sequences while simplifying the model by excluding the decoder. This reduces complexity and enhances the model's ability to process large-scale log data efficiently.
-            </p>
-        </div>
-        <hr>
-    """, unsafe_allow_html=True)
+    # Create two columns: text on the left, image on the right
+    col1, col2 = st.columns([2, 1])
+
+    with col1:
+        st.markdown("""
+            <div class='section'>
+                <h2>Current Standard: Transformers</h2>
+                <p>
+                    The encoder-only transformer with a binary classification head is particularly suitable for the use case. 
+                    It focuses on capturing long-range dependencies in log sequences while simplifying the model by excluding the decoder. 
+                    This reduces complexity and enhances the model's ability to process large-scale log data efficiently.
+                </p>
+                <p>
+                    Several other architectures have also been evaluated, including LSTMs (Long Short-Term Memory networks) and GRUs (Gated Recurrent Units), 
+                    both of which are effective in capturing sequential dependencies. Isolation Forest and LogBERT are additional methods specifically 
+                    designed for anomaly detection in time series data. Each of these architectures offers unique strengths, such as the ability of 
+                    LSTMs and GRUs to capture temporal dynamics and the ability of LogBERT to handle complex log patterns.
+                </p>
+                <p>
+                    The decision to use Transformers is not final, and we are currently re-evaluating other architectures in our ongoing efforts 
+                    to optimize model performance. Techniques such as Autoencoders, CNNs, and newer attention-based models are also under consideration. 
+                    The goal remains to find the most effective architecture that balances performance, scalability, and ease of deployment in production.
+                </p>
+            </div>
+        """, unsafe_allow_html=True)    
+
+
+    
+    # Right column for the image and attribution
+    with col2:
+        st.image('/home/ubuntu/efs-w210-capstone-ebs/00.GabbleGrid/project/files/images/04.Documentation/documentation_transformer_1.gif', use_column_width=True)
+        st.markdown("""
+            <div class='center'>
+                <a href="https://storyset.com/business">Business illustrations by Storyset</a>
+            </div>
+        """, unsafe_allow_html=True)
+
+    st.markdown("<hr>", unsafe_allow_html=True)
 
     # Placeholder 1
     st.markdown("""
@@ -140,40 +169,77 @@ def display_transformers_tab():
 
     
     # Future Enhancements
+    # st.markdown("""
+    #     <div class='section'>
+    #         <h2>Upcoming: A Journey of Continuous Improvement</h2>
+    #         <p>
+    #         This marks the beginning of GabbleGrid's journey to address critical business needs in anomaly detection. My primary focus remains on enhancing precision while maintaining high recall, building upon the foundational work with Transformers.
+    #         </p>
+    #         <details>
+    #             <summary>Read more</summary>
+    #             <p>
+    #             The roadmap for future enhancements includes:
+    #             <ul>
+    #                 <li>Improving Model Performance: 
+    #                     <ul>
+    #                         <li>Fine-tuning Transformer hyperparameters</li>
+    #                         <li>Incorporating additional relevant features</li>
+    #                         <li>Exploring complementary model architectures:
+    #                             <ul>
+    #                                 <li>RNNs (Recurrent Neural Networks): Effective for sequential data processing</li>
+    #                                 <li>CNNs (Convolutional Neural Networks): Useful for detecting local patterns in data</li>
+    #                                 <li>GRUs (Gated Recurrent Units): Efficient at capturing long-term dependencies</li>
+    #                             </ul>
+    #                         </li>
+    #                     </ul>
+    #                 </li>
+    #                 <li>Practical Implementation:
+    #                     <ul>
+    #                         <li>Developing additional tools for seamless integration</li>
+    #                         <li>Building an Agent Team to manage and respond to alerts effectively</li>
+    #                     </ul>
+    #                 </li>
+    #             </ul>
+    #             </p>
+    #         </details>
+    #     </div>
+    #     <hr>
+    #     <hr>
+    # """, unsafe_allow_html=True)
+
+
     st.markdown("""
         <div class='section'>
             <h2>Upcoming: A Journey of Continuous Improvement</h2>
             <p>
-            This marks the beginning of GabbleGrid's journey to address critical business needs in anomaly detection. My primary focus remains on enhancing precision while maintaining high recall, building upon the foundational work with Transformers.
+            This marks the beginning of GabbleGrid's journey to address critical business needs in anomaly detection. Our focus remains on enhancing precision while maintaining high recall, building upon the foundational work with Transformers.
             </p>
-            <details>
-                <summary>Read more</summary>
-                <p>
-                The roadmap for future enhancements includes:
-                <ul>
-                    <li>Improving Model Performance: 
-                        <ul>
-                            <li>Fine-tuning Transformer hyperparameters</li>
-                            <li>Incorporating additional relevant features</li>
-                            <li>Exploring complementary model architectures:
-                                <ul>
-                                    <li>RNNs (Recurrent Neural Networks): Effective for sequential data processing</li>
-                                    <li>CNNs (Convolutional Neural Networks): Useful for detecting local patterns in data</li>
-                                    <li>GRUs (Gated Recurrent Units): Efficient at capturing long-term dependencies</li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>Practical Implementation:
-                        <ul>
-                            <li>Developing additional tools for seamless integration</li>
-                            <li>Building an Agent Team to manage and respond to alerts effectively</li>
-                        </ul>
-                    </li>
-                </ul>
-                </p>
-            </details>
+            <p>
+            Some of the roadmap items under consideration are:
+            <ul>
+                <li>Improving Model Performance: 
+                    <ul>
+                        <li>Fine-tuning Transformer hyperparameters</li>
+                        <li>Incorporating additional relevant features</li>
+                    </ul>
+                </li>
+                <li>Exploring Complementary Model Architectures:
+                    <ul>
+                        <li>RNNs (Recurrent Neural Networks): Effective for sequential data processing</li>
+                        <li>CNNs (Convolutional Neural Networks): Useful for detecting local patterns in data</li>
+                        <li>GRUs (Gated Recurrent Units): Efficient at capturing long-term dependencies</li>
+                    </ul>
+                </li>
+                <li>Practical Implementation:
+                    <ul>
+                        <li>Developing additional tools for seamless integration</li>
+                        <li>Building an Agent Team to manage and respond to alerts effectively</li>
+                    </ul>
+                </li>
+            </ul>
+            </p>
         </div>
         <hr>
-        <hr>
     """, unsafe_allow_html=True)
+
+

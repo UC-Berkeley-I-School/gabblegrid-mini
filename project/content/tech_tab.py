@@ -13,14 +13,34 @@ def display_tech_tab():
         </style>
     """, unsafe_allow_html=True)
 
-    st.markdown("""
-        <div class='section'>
-            <h2>Technical Architecture</h2>
-            <p>
-            The GabbleGrid solution is built upon a robust technical architecture designed to ensure high availability, scalability, and resilience. This architecture leverages the capabilities of autonomous AI agents to manage and enhance service reliability in cloud environments. The core components of the architecture are:
-            </p>
-        </div>
-    """, unsafe_allow_html=True)
+    # Create two columns with a 1:1 ratio for image and text
+    col1, col2 = st.columns([1, 1])
+
+    # Left column for the image and attribution
+    with col1:
+        st.image('/home/ubuntu/efs-w210-capstone-ebs/00.GabbleGrid/project/files/images/04.Documentation/system_arch_1.gif', use_column_width=True)
+        st.markdown("""
+            <div class='center'>
+                <a href="https://storyset.com/business">Business illustrations by Storyset</a>
+            </div>
+        """, unsafe_allow_html=True)
+
+    # Right column for the text content
+    with col2:
+        st.markdown("""
+            <div class='section'>
+                <h2>Tech Stack</h2>
+                <p>
+                The GabbleGrid solution is built upon a robust technical architecture designed to ensure high availability, scalability, and resilience. 
+                This architecture leverages the capabilities of autonomous AI agents to manage and enhance service reliability in cloud environments. 
+                The core components of the architecture are utlined in the two sections below:
+                </p>
+                <p>
+                The first section outlines the different foundational elements involved in the GabbleGrid architecture, including preprocessing tools (Apache Spark, Hadoop), modeling tools (Amazon EC2, SageMaker), and deployment components (S3, EFS, Jupyter). 
+                The second image focuses on the basis for the Agent framework - i.e. Autogen. Example agents agents are shown for illustration only; the premise being that we develop teams of agents that work together to achieve an objective with interaction and management within the environment.
+                </p>
+            </div>
+        """, unsafe_allow_html=True)
 
     st.markdown("""
         <div class='section'>
@@ -57,11 +77,11 @@ def display_tech_tab():
 
     st.image('/home/ubuntu/efs-w210-capstone-ebs/00.GabbleGrid/project/files/images/Architecture_Agents.png', use_column_width=True)
 
-    st.markdown("""
-        <div class='section'>
-            <h2>Future Enhancements</h2>
-            <p>
-            My vision for GabbleGrid includes continuous improvements to the technical architecture. Future enhancements will focus on expanding the capabilities of the AI agents, integrating more advanced machine learning models, and refining the data processing pipelines to handle even larger and more complex datasets.
-            </p>
-        </div>
-    """, unsafe_allow_html=True)
+    # st.markdown("""
+    #     <div class='section'>
+    #         <h2>Future Enhancements</h2>
+    #         <p>
+    #         My vision for GabbleGrid includes continuous improvements to the technical architecture. Future enhancements will focus on expanding the capabilities of the AI agents, integrating more advanced machine learning models, and refining the data processing pipelines to handle even larger and more complex datasets.
+    #         </p>
+    #     </div>
+    # """, unsafe_allow_html=True)
