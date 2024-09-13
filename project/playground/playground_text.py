@@ -4,6 +4,8 @@ playground_intro = """
 <div class='section'>
     <p>Welcome to the Playground! This is where the magic happens. Here, you can test the anomaly detection process and see our AI agents in action. 
     The GabbleGrid solution leverages a powerful Transformer model designed specifically for anomaly detection in cloud services.</p>
+    <p>The playground takes you through the anomaly detection process, allowing you to see model performance and agents in action. Explore the Playground and witness how our AI agents keep the cloud running smoothly!
+    </p>
 </div>
 """
 

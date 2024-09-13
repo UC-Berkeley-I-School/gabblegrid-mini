@@ -108,7 +108,7 @@ def display_why_agents_tab():
     # Subsection: Reflection
     st.markdown("""
         <div class='section'>
-            <h4 style='color: grey;'>Reflection</h4>
+            <h4 style='color: grey;'>1. Reflection</h4>
             <p>
                 Reflection involves iterative refinement, allowing agents to improve over time. This process can happen through self-feedback, where agents review their own actions, or through multi-agent feedback, where multiple agents collaborate and provide feedback to each other.
             </p>
@@ -137,7 +137,7 @@ def display_why_agents_tab():
     # Subsection: Tool Use
     st.markdown("""
         <div class='section'>
-            <h4 style='color: grey;'>Tool Use</h4>
+            <h4 style='color: grey;'>2. Tool Use</h4>
             <p>
                 Tool use is an essential design pattern where agents interact with external systems through APIs and large language models (LLMs). Agents leverage these tools to perform tasks, gather information, and execute actions that go beyond the confines of their initial programming.
             </p>
@@ -166,7 +166,7 @@ def display_why_agents_tab():
     # Subsection: Planning
     st.markdown("""
         <div class='section'>
-            <h4 style='color: grey;'>Planning</h4>
+            <h4 style='color: grey;'>3. Planning</h4>
             <p>
                 Planning enables agents to break down complex user requests into smaller, manageable tasks. Agents can employ reasoning techniques like Chain-of-Thought (CoT) to decide the best way to accomplish a goal by selecting the right tools or models for each task.
             </p>
@@ -196,7 +196,7 @@ def display_why_agents_tab():
     # Subsection: Collaboration
     st.markdown("""
         <div class='section'>
-            <h4 style='color: grey;'>Collaboration</h4>
+            <h4 style='color: grey;'>4. Collaboration</h4>
             <p>
                 Collaboration design patterns focus on teamwork between multiple agents. Agents collaborate to solve tasks more efficiently, and they can pool their capabilities to achieve more complex goals. In this case, teamwork really does make the dream work.
             </p>

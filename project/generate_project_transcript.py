@@ -201,8 +201,8 @@ if __name__ == "__main__":
         # 'playground_main.py',
         'playground_historical_weather_display.py',
         'playground_historical_weather_main.py',
-        'playground_text.py',
-        'playground_ui.py',
+        # 'playground_text.py',
+        # 'playground_ui.py',
         'playground_utils.py',
         'playground_weather_inference.py',
         'plotting.py',
@@ -242,7 +242,7 @@ if __name__ == "__main__":
         'admin',
         'agents',
         'config',
-        # 'content',
+        'content',
         'historical_weather',
         'feature_dev',
         'files',
@@ -250,7 +250,7 @@ if __name__ == "__main__":
         'models',
         'model',
         'mindspace',
-        'playground',
+        # 'playground',
         'qa',
         'utils'
     }
