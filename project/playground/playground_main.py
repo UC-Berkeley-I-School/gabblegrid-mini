@@ -361,6 +361,10 @@ def display_playground_tab():
                 color: white; /* White text on hover */
                 transform: scale(1.1); /* Button enlarges by 10% when hovered */
             }
+            .stButton button:active {
+                background-color: lightgreen; /* Same as initial state */
+                color: black; /* Same as initial state */
+            }
         </style>
     """, unsafe_allow_html=True)
 
