@@ -27,9 +27,13 @@ def generate_project_structure(base_path, skip_files, exclude_dirs):
                                 file_contents[full_path] = file.read()
                         except Exception as e:
                             print(f"Skipping file {full_path} due to encoding issues: {e}")
-                elif item.endswith('.pdf'):
+                # elif item.endswith('.pdf'):
+                #     files.append(item)
+                #     file_contents[full_path] = "[PDF content not displayed]"
+
+                elif item.endswith(('.pdf', '.db')):
                     files.append(item)
-                    file_contents[full_path] = "[PDF content not displayed]"
+                    file_contents[full_path] = "[Content not displayed for .pdf or .db files]"
 
         indent = '\t' * level
         if level == 0:
@@ -177,7 +181,7 @@ if __name__ == "__main__":
         'api_keys_private.py',
         'autogen_setup.py',
         'backup_project_full.py',
-        'blog.py',
+        # 'blog.py',
         # 'contextual_example_tab.py',
         'config_sample.yaml',
         'config.yaml',
@@ -190,9 +194,9 @@ if __name__ == "__main__":
         'generate_project_transcript.py',
         'home_tab.py',
         'inference.py',
-        'main.py',
+        # 'main.py',
         'main_Dummy_Test_Only.py',
-        'mindspace_main.py',
+        # 'mindspace_main.py',
         'models_tab.py',
         # 'mindspace.py',
         'parameter_sourcing.py',
@@ -249,8 +253,8 @@ if __name__ == "__main__":
         'group',
         'models',
         'model',
-        'mindspace',
-        # 'playground',
+        # 'mindspace',
+        'playground',
         'qa',
         'utils'
     }

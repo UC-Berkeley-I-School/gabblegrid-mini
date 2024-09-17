@@ -23,13 +23,15 @@ def render_main_content(min_time, max_time):
     template_options = ["No template"] + templates['ID_Description'].tolist()
     selected_template = st.selectbox("Select a template or enter parameters manually", template_options)
 
-    if selected_template != "No template":
+    # if selected_template != "No template":
+    if selected_template != "No template" and st.session_state['run_inference']:
         template_id = selected_template.split(' - ')[0]
         template_data = templates[templates['ID'] == template_id].iloc[0]
         disabled = True
+        # disabled = st.session_state['run_inference']  # Disable only if inference is running
     else:
         template_data = None
-        disabled = False
+        disabled = False  # Ensure the fields are editable when reset is clicked
 
     max_events_options = [5, 10, 20, 30, 40, 50]
     input_length_options = [20, 30]
@@ -44,6 +46,7 @@ def render_main_content(min_time, max_time):
                                       value=pd.to_datetime(template_data['Start Date']).date() if template_data is not None else min_time.date(),
                                       disabled=disabled,
                                       key='start_date_input')
+        
     with col2:
         selected_time = st.time_input('Start Time', 
                                       value=pd.to_datetime(template_data['Start Time']).time() if template_data is not None else min_time.time(),
