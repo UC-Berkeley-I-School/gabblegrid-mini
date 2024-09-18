@@ -31,7 +31,7 @@ def generate_project_structure(base_path, skip_files, exclude_dirs):
                 #     files.append(item)
                 #     file_contents[full_path] = "[PDF content not displayed]"
 
-                elif item.endswith(('.pdf', '.db')):
+                elif item.endswith(('.pdf', '.db', '.png')):
                     files.append(item)
                     file_contents[full_path] = "[Content not displayed for .pdf or .db files]"
 
