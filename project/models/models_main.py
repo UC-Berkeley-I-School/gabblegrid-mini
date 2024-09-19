@@ -58,13 +58,13 @@ def display_models_tab():
                 <ul>
                     <li><strong>Sequential Windows</strong>
                         <ul>
-                            <li><strong>Seeded/Open Source:</strong> Pre-trained models provided by GabbleGrid.</li>
+                            <li><strong>Seeded/Open Source:</strong> Pre-trained models provided by MindMesh.</li>
                             <li><strong>User Created/Uploaded:</strong> Models uploaded by users.</li>
                         </ul>
                     </li>
                     <li><strong>Overlapping Windows</strong>
                         <ul>
-                            <li><strong>Seeded/Open Source:</strong> Pre-trained models provided by GabbleGrid.</li>
+                            <li><strong>Seeded/Open Source:</strong> Pre-trained models provided by MindMesh.</li>
                             <li><strong>User Created/Uploaded:</strong> Models uploaded by users.</li>
                         </ul>
                     </li>

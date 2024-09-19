@@ -4,35 +4,47 @@ from authlib.integrations.requests_client import OAuth2Session
 from google_auth_oauthlib.flow import Flow
 import requests
 import traceback
-# from mindspace import display_mindspace  # Import the MindSpace function
 from mindspace_main import display_mindspace_main  # Updated import to reflect the new structure
 from utils.sidebar_utils import render_sidebar  # Add this import at the top
 import os
 import base64
 from content.home_tab import display_home_tab
-# from playground.playground_main import display_playground_tab
 from content.why_agents_tab import display_why_agents_tab
 from content.documentation_tab import display_documentation_tab
 from content.privacy_policy import display_privacy_policy
 from content.terms_of_service import display_terms_of_service
 from content.admin_tab import display_admin_tab
-# from content.design_tab import display_design_tab
-# from content.tech_tab import display_tech_tab
-# from content.transformers_tab import display_transformers_tab
 from content.about_us_tab import display_about_us_tab
-
+from mindspace.blog import display_blog, display_single_post
 from utils.footer import display_footer
 from playground.playground_main import display_playground_tab
 from models.models_main import display_models_tab
 
 # Set the page configuration as the first Streamlit command
 st.set_page_config(
-    page_title="GabbleGrid",
+    page_title="MindMesh",
     page_icon="🔍",
     layout="wide",
     initial_sidebar_state='collapsed'
     # initial_sidebar_state='expanded'
 )
+
+# # Add Open Graph meta tags for social media previews (LinkedIn, Facebook, etc.)
+# st.markdown("""
+#     <meta property="og:title" content="MindMesh: Self-Healing Clouds with AI Agents" />
+#     <meta property="og:description" content="Explore how autonomous agents are revolutionizing cloud service reliability through AI-powered log anomaly detection." />
+#     <meta property="og:image" content="https://i.imgur.com/mromMaj.jpeg" />
+#     <meta property="og:url" content="https://dev.mindmesh.io" />
+#     <meta name="twitter:card" content="summary_large_image" />
+# """, unsafe_allow_html=True)
+
+st.markdown("""
+    <meta property="og:title" content="MindMesh: Self-Healing Clouds with AI Agents" />
+    <meta property="og:description" content="Explore how autonomous agents are revolutionizing cloud service reliability through AI-powered log anomaly detection." />
+    <meta property="og:image" content="https://i.imgur.com/x5zGiuY.png" />
+    <meta property="og:url" content="https://dev.mindmesh.io" />
+    <meta name="twitter:card" content="summary_large_image" />
+""", unsafe_allow_html=True)
 
 # Add cache-control headers
 st.markdown("""
@@ -200,7 +212,8 @@ def main():
 
     col1, col2 = st.columns([1, 2])
     with col1:
-        st.image('/home/ubuntu/efs-w210-capstone-ebs/00.GabbleGrid/project/files/images/02.Logo/20240731_Primary.png', use_column_width=True)
+        # st.image('/home/ubuntu/efs-w210-capstone-ebs/00.GabbleGrid/project/files/images/02.Logo/20240731_Primary.png', use_column_width=True)
+        st.image('/home/ubuntu/efs-w210-capstone-ebs/00.GabbleGrid/project/files/images/02.Logo/20240919_primary_main.png', use_column_width=True)
 
     with col2:
         st.markdown(f"""
@@ -275,7 +288,9 @@ def main():
     else:
         page = "home"
 
-    if page == "privacy_policy":
+    if "post" in st.query_params:
+        display_single_post(st.query_params["post"])
+    elif page == "privacy_policy":
         display_privacy_policy()
     elif page == "terms_of_service":
         display_terms_of_service()
@@ -337,66 +352,5 @@ def main():
         else:
             st.error(pdf_data.get("error", "An unknown error occurred."))
 
-
-
-# # Add this JavaScript snippet just before the __name__ check
-# st.components.v1.html("""
-# <script>
-# window.addEventListener('message', function(e) {
-#     if (e.data.type === 'openPDF') {
-#         const url = `/get_pdf_content?path=${encodeURIComponent(e.data.path)}&name=${encodeURIComponent(e.data.name)}`;
-#         window.open(url, '_blank');
-#     }
-# });
-# </script>
-# """, height=0)
-
 if __name__ == '__main__':
     main()
-
-    # # Add this section to handle PDF requests
-    # if st.button('Get PDF Content', key='get_pdf_content'):
-    #     st.json(handle_pdf_request())
-
-
-
-# #################### ORIG ###################
-    
-#     # # Determine the environment based on a custom environment variable
-#     if "GABBLEGRID_ENV" in os.environ and os.environ["GABBLEGRID_ENV"] == "dev":
-#         redirect_uri = "https://dev.gabblegrid.com"
-#         google_redirect_uri = "https://dev.gabblegrid.com"
-#     else:
-#         redirect_uri = "https://gabblegrid.com"
-#         google_redirect_uri = "https://gabblegrid.com"
-
-# ##########################################################################################
-
-
-#     # Determine the environment based on a custom environment variable
-#     # if "GABBLEGRID_ENV" in os.environ and os.environ["GABBLEGRID_ENV"] == "dev":
-#     #     redirect_uri = "https://dev.mindmesh.io"
-#     #     google_redirect_uri = "https://dev.mindmesh.io"
-#     # else:
-#     #     redirect_uri = "https://mindmesh.io"
-#     #     google_redirect_uri = "https://mindmesh.io"
-
-# ##########################################################################################
-
-#     # # Determine the environment and starting domain to set the appropriate redirect URI
-#     # if "GABBLEGRID_ENV" in os.environ and os.environ["GABBLEGRID_ENV"] == "dev":
-#     #     query_params = st.query_params
-#     #     current_host = query_params.get("host", [""])[0]
-        
-#     #     if "dev.mindmesh.io" in current_host:
-#     #         redirect_uri = "https://dev.mindmesh.io"
-#     #         google_redirect_uri = "https://dev.mindmesh.io"
-#     #     else:
-#     #         redirect_uri = "https://dev.gabblegrid.com"
-#     #         google_redirect_uri = "https://dev.gabblegrid.com"
-#     # else:
-#     #     redirect_uri = "https://gabblegrid.com"
-#     #     google_redirect_uri = "https://gabblegrid.com"
-
-
-# ##########################################################################################

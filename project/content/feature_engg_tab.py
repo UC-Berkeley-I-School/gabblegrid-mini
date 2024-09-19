@@ -1,30 +1,5 @@
 import streamlit as st
 
-# def display_feature_engg_tab():
-#     st.markdown("""
-#         <style>
-#             .section p, .section li, .section h2 {
-#                 color: grey; /* Change text color to grey */
-#             }
-#             /* Remove grey background from slider end labels */
-#             .stSlider .stMarkdown {
-#                 background: transparent !important;
-#             }
-#         </style>
-#     """, unsafe_allow_html=True)
-
-#     st.markdown("""
-#         <div class='section'>
-#             <h2>About</h2>
-#             <p>
-#             Data and feature engineering is a crucial step in the data preprocessing pipeline. It involves creating new features or transforming existing ones to enhance the performance of machine learning models. In this section, I will walk through the key steps involved in the feature engineering process, which is designed to handle the complexity of log data and extract meaningful patterns for anomaly detection.
-#             </p>
-#         </div>
-#     """, unsafe_allow_html=True)
-
-
-import streamlit as st
-
 def display_feature_engg_tab():
     st.markdown("""
         <style>

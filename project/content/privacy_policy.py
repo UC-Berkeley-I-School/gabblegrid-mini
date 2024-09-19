@@ -14,7 +14,7 @@ def display_privacy_policy():
         <p><strong>Effective Date:</strong> July 31, 2024</p>
 
         <p><strong>Introduction</strong></p>
-        <p>Welcome to GabbleGrid. We are committed to protecting your privacy and ensuring you have a positive experience using our services. This Privacy Policy outlines how we collect, use, and share your personal information when you use our cloud services, including our website and applications.</p>
+        <p>Welcome to MindMesh. We are committed to protecting your privacy and ensuring you have a positive experience using our services. This Privacy Policy outlines how we collect, use, and share your personal information when you use our cloud services, including our website and applications.</p>
         
         <p><strong>1. Information We Collect</strong></p>
         <p>We collect various types of information in connection with the services we provide, including:</p>

@@ -31,7 +31,8 @@ def generate_project_structure(base_path, skip_files, exclude_dirs):
                 #     files.append(item)
                 #     file_contents[full_path] = "[PDF content not displayed]"
 
-                elif item.endswith(('.pdf', '.db', '.png')):
+                elif item.endswith(('.pdf', '.db', '.png', '.md')):
+                # elif item.endswith(('.pdf', '.db', '.png', '.md')):
                     files.append(item)
                     file_contents[full_path] = "[Content not displayed for .pdf or .db files]"
 
@@ -171,6 +172,30 @@ if __name__ == "__main__":
 
     # Define files to skip and directories to exclude
     skip_files = [ 
+        # '20240917_062638_My_First_Blog.md',
+        # '20240917_062755_My_Second_Blog.md',
+        # '20240917_063433_My_Third_Blog.md',
+        # '20240917_075416_My_Fourth_Blog.md',
+        # '20240917_083443_My_Fifth_Blog.md',
+        # '20240917_231320_My_Sixth_Blog.md',
+        # '20240917_232517_My_Seventh_Blog.md',
+        # '20240918_030845_My_eighth_blog.md',
+        # '20240918_033513_My_Ninth_Blog.md',
+        # '20240918_035905_My_Tenth_Blog_Post_.md',
+        # '20240918_041811_My_Eleventh_Blog_.md',
+        # '20240918_171631_20240918_01.md',
+        # '20240918_171713_20240918_01.md',
+        # '20240918_172250_20240918_01.md',
+        # '20240918_01.md',
+        # '20240918_02.md',
+        # '20240918_181213_20240918_03.md',
+        # '20240918_181414_20240918_03.md',
+        # '20240918_181820_20240918_04.md',
+        # '20240918_181839_20240918_04.md',
+        # '20240918_195516_20240918_Final_02.md',
+        # '20240918_194459_20240918_Final_01.md',
+        # '20240918_194459_20240918_Final_02.md',
+        '20240917_231320_20240918_Ref_src_01.md',
         '__init__.py',
         'about_us_tab.py',
         'admin_tab.py',
@@ -188,6 +213,7 @@ if __name__ == "__main__":
         'data_processing.py',
         # 'design_tab.py',
         # 'documentation_tab.py',
+        'essential_reading.py',
         'experiments.py',
         'footer.py',
         # 'function_registration.py',
@@ -199,6 +225,7 @@ if __name__ == "__main__":
         # 'mindspace_main.py',
         'models_tab.py',
         # 'mindspace.py',
+        'mindspace_blog.db',
         'parameter_sourcing.py',
         'playground_inference.py',
         'playground_log_inference.py',
@@ -256,6 +283,7 @@ if __name__ == "__main__":
         # 'mindspace',
         'playground',
         'qa',
+        'static',
         'utils'
     }
 

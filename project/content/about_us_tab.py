@@ -17,7 +17,7 @@ def display_about_us_tab():
         <div class='section'>
             <h2>About Us</h2>
             <p>
-            Welcome to GabbleGrid! We are a team of dedicated professionals committed to revolutionizing cloud service management through autonomous agents and advanced AI technologies. Our mission is to enhance service reliability, uptime, and user experience by predicting and preventing failures in cloud environments. Meet the people behind GabbleGrid:
+            Welcome to MindMesh! We are a team of dedicated professionals committed to revolutionizing cloud service management through autonomous agents and advanced AI technologies. Our mission is to enhance service reliability, uptime, and user experience by predicting and preventing failures in cloud environments. Meet the people behind MindMesh:
             </p>
         </div>
     """, unsafe_allow_html=True)

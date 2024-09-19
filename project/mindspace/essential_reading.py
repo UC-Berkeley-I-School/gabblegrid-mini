@@ -35,6 +35,11 @@ def display_essential_reading():
     # Right column: display image
     with col2:
         st.image("/home/ubuntu/efs-w210-capstone-ebs/00.GabbleGrid/project/files/images/03.Mindspace/mindspace-essential-reading-01.gif", use_column_width=True)
+        st.markdown("""
+        <div class='center'>
+            <a href="https://storyset.com/business">Business illustrations by Storyset</a>
+        </div>
+    """, unsafe_allow_html=True)
 
     display_main_page(base_dir)
 

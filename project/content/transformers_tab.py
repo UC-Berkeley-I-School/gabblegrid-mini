@@ -168,51 +168,11 @@ def display_transformers_tab():
     st.markdown("<hr>", unsafe_allow_html=True)
 
     
-    # Future Enhancements
-    # st.markdown("""
-    #     <div class='section'>
-    #         <h2>Upcoming: A Journey of Continuous Improvement</h2>
-    #         <p>
-    #         This marks the beginning of GabbleGrid's journey to address critical business needs in anomaly detection. My primary focus remains on enhancing precision while maintaining high recall, building upon the foundational work with Transformers.
-    #         </p>
-    #         <details>
-    #             <summary>Read more</summary>
-    #             <p>
-    #             The roadmap for future enhancements includes:
-    #             <ul>
-    #                 <li>Improving Model Performance: 
-    #                     <ul>
-    #                         <li>Fine-tuning Transformer hyperparameters</li>
-    #                         <li>Incorporating additional relevant features</li>
-    #                         <li>Exploring complementary model architectures:
-    #                             <ul>
-    #                                 <li>RNNs (Recurrent Neural Networks): Effective for sequential data processing</li>
-    #                                 <li>CNNs (Convolutional Neural Networks): Useful for detecting local patterns in data</li>
-    #                                 <li>GRUs (Gated Recurrent Units): Efficient at capturing long-term dependencies</li>
-    #                             </ul>
-    #                         </li>
-    #                     </ul>
-    #                 </li>
-    #                 <li>Practical Implementation:
-    #                     <ul>
-    #                         <li>Developing additional tools for seamless integration</li>
-    #                         <li>Building an Agent Team to manage and respond to alerts effectively</li>
-    #                     </ul>
-    #                 </li>
-    #             </ul>
-    #             </p>
-    #         </details>
-    #     </div>
-    #     <hr>
-    #     <hr>
-    # """, unsafe_allow_html=True)
-
-
     st.markdown("""
         <div class='section'>
             <h2>Upcoming: A Journey of Continuous Improvement</h2>
             <p>
-            This marks the beginning of GabbleGrid's journey to address critical business needs in anomaly detection. Our focus remains on enhancing precision while maintaining high recall, building upon the foundational work with Transformers.
+            This marks the beginning of MindMesh's journey to address critical business needs in anomaly detection. Our focus remains on enhancing precision while maintaining high recall, building upon the foundational work with Transformers.
             </p>
             <p>
             Some of the roadmap items under consideration are:

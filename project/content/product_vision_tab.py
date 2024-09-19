@@ -31,7 +31,7 @@ def display_product_vision_tab():
             <div class='section'>
                 <h2>Vision</h2>
                 <p>
-                    GabbleGrid aims to reduce the impact of service outages by deploying autonomous AI agents to enhance service resiliency. Our system proactively detects and resolves issues, ensuring continuous operations.
+                    MindMesh aims to reduce the impact of service outages by deploying autonomous AI agents to enhance service resiliency. Our system proactively detects and resolves issues, ensuring continuous operations.
                 </p>
                 <p>
                     These AI agents autonomously monitor logs, analyze data, and make real-time decisions. By detecting anomalies and taking proactive actions, they maintain service availability while reducing the need for human intervention.

@@ -78,19 +78,3 @@ def render_sidebar(key_suffix=''):
 
 def render_essential_reading(key_suffix=''):
     pass
-    # st.header("Essential Reading")
-    # st.markdown('<div class="essential-reading">', unsafe_allow_html=True)
-    # if os.path.exists(ESSENTIAL_READING_FOLDER):
-    #     files = sorted([f for f in os.listdir(ESSENTIAL_READING_FOLDER) if not f.startswith('.')])
-    #     if files:
-    #         for idx, file in enumerate(files):
-    #             file_path = os.path.join(ESSENTIAL_READING_FOLDER, file)
-    #             display_name = os.path.splitext(os.path.basename(file))[0]
-    #             with st.expander(display_name):
-    #                 # display_pdf_as_images(file_path, display_name, key_prefix=f"essential_reading_{idx}_{key_suffix}")
-    #                 st.markdown(f"PDF file: {display_name}", unsafe_allow_html=True)
-    #     else:
-    #         st.markdown("No documents found.")
-    # else:
-    #     st.markdown("The specified folder does not exist.")
-    # st.markdown('</div>', unsafe_allow_html=True)

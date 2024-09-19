@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta property="og:title" content="MindMesh: Self-Healing Clouds with AI Agents" />
+    <meta property="og:description" content="Explore how autonomous agents are revolutionizing cloud service reliability through AI-powered log anomaly detection." />
+    <meta property="og:image" content="https://i.imgur.com/x5zGiuY.png" />
+    <meta property="og:url" content="https://dev.mindmesh.io" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <!-- Delay redirect by 1 second -->
+    <script>
+        // Check if the URL has a query parameter
+        var params = new URLSearchParams(window.location.search);
+        var post = params.get("post");
+        if (post) {
+            // Redirect to the specific blog post after a 1-second delay
+            setTimeout(function() {
+                window.location.href = "https://dev.mindmesh.io/?post=" + post;
+            }, 1000);
+        } else {
+            // Redirect to the main site if no post is specified after a 1-second delay
+            setTimeout(function() {
+                window.location.href = "https://dev.mindmesh.io";
+            }, 1000);
+        }
+    </script>
+    <title>Redirecting to MindMesh</title>
+</head>
+<body>
+    <p>Redirecting to MindMesh now...</p>
+</body>
+</html>
+
+
+########################### Context for LinkedIn Post ###################
+
+netlify
+format for linkedin post: https://incomparable-mochi-f46614.netlify.app?post=20240919_033016_20240918_Final_6
+
+---> this is the filename of the blogpost: 20240919_033016_20240918_Final_6
+
+There are multiple redirects -- form linkedin, to imgur, to opentags, --- finally to the blog itself
+
+---> for context, here is the direct blog URL
+https://dev.mindmesh.io/?post=20240919_033016_20240918_Final_6
+
+
+https://incomparable-mochi-f46614.netlify.app?post=20240918_230529_20240918_Final_05

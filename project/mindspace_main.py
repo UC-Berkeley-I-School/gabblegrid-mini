@@ -17,6 +17,12 @@ def display_research_insights():
     # Left column: display image
     with col1:
         st.image("/home/ubuntu/efs-w210-capstone-ebs/00.GabbleGrid/project/files/images/03.Mindspace/mindspace-research-01.gif", use_column_width=True)
+        st.markdown("""
+        <div class='center'>
+            <a href="https://storyset.com/business">Business illustrations by Storyset</a>
+        </div>
+    """, unsafe_allow_html=True)
+    
 
     # Right column: display text
     with col2:
