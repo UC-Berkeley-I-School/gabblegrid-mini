@@ -128,6 +128,7 @@ def write_to_file(output_file, folder_structure, file_contents, base_path):
         f.write("----------------------------------------------------------------\n")
         
         f.write("This is the output when I click 'run inference on the streamlit app'\n\n")
+        f.write("Please Ignore - Not Applicable in this instruction'\n\n")
 
 
         
@@ -215,14 +216,15 @@ if __name__ == "__main__":
         # 'documentation_tab.py',
         'essential_reading.py',
         'experiments.py',
+        'feature_engg_tab.py',
         'footer.py',
         # 'function_registration.py',
         'generate_project_transcript.py',
         'home_tab.py',
         'inference.py',
-        # 'main.py',
+        'main.py',
         'main_Dummy_Test_Only.py',
-        # 'mindspace_main.py',
+        'mindspace_main.py',
         'models_tab.py',
         # 'mindspace.py',
         'mindspace_blog.db',
@@ -232,8 +234,8 @@ if __name__ == "__main__":
         # 'playground_main.py',
         'playground_historical_weather_display.py',
         'playground_historical_weather_main.py',
-        # 'playground_text.py',
-        # 'playground_ui.py',
+        'playground_text.py',
+        'playground_ui.py',
         'playground_utils.py',
         'playground_weather_inference.py',
         'plotting.py',
@@ -244,10 +246,12 @@ if __name__ == "__main__":
         # 'tech_tab.py',
         'REF_ONLY_gabblegrid_service.txt',
         'REF_ONLY_nginx_sites-available_default.txt',
+        'REF_Netlify_index.html.txt',
+        'tech_tab.py',
         'terms_of_service.py',
         'transcript_playground_brief.py',
         'transcript_playground_full.py',
-        # 'transformers_tab.py',
+        'transformers_tab.py',
         'why_agents_tab.py'
         
     ]
@@ -273,15 +277,15 @@ if __name__ == "__main__":
         'admin',
         'agents',
         'config',
-        'content',
+        # 'content',
         'historical_weather',
         'feature_dev',
         'files',
         'group',
         'models',
         'model',
-        # 'mindspace',
-        'playground',
+        'mindspace',
+        # 'playground',
         'qa',
         'static',
         'utils'

@@ -245,19 +245,20 @@ def display_playground_tab():
         col1, col2 = st.columns(2)
     
         with col1:
-            st.markdown("<h5 style='color: grey;'>Tutorial 1</h5>", unsafe_allow_html=True)
-            st.video('/home/ubuntu/efs-w210-capstone-ebs/00.GabbleGrid/project/files/videos/20240805_Final.mp4')
-            
-            st.markdown("<h5 style='color: grey;'>Tutorial 2</h5>", unsafe_allow_html=True)
-            st.video('/home/ubuntu/efs-w210-capstone-ebs/00.GabbleGrid/project/files/videos/20240805_Final.mp4')
+            st.markdown("<h5 style='color: grey;'>Playground 1</h5>", unsafe_allow_html=True)
+            st.video('/home/ubuntu/efs-w210-capstone-ebs/00.GabbleGrid/project/files/videos/playground_01.mp4')
+    
+            st.markdown("<h5 style='color: grey;'>Playground 3</h5>", unsafe_allow_html=True)
+            st.video('/home/ubuntu/efs-w210-capstone-ebs/00.GabbleGrid/project/files/videos/playground_03.mp4')
     
         with col2:
-            st.markdown("<h5 style='color: grey;'>Tutorial 3</h5>", unsafe_allow_html=True)
-            st.video('/home/ubuntu/efs-w210-capstone-ebs/00.GabbleGrid/project/files/videos/20240805_Final.mp4')
-            
-            st.markdown("<h5 style='color: grey;'>Tutorial 4</h5>", unsafe_allow_html=True)
-            st.video('/home/ubuntu/efs-w210-capstone-ebs/00.GabbleGrid/project/files/videos/20240805_Final.mp4')
+    
+            st.markdown("<h5 style='color: grey;'>Playground 2</h5>", unsafe_allow_html=True)
+            st.video('/home/ubuntu/efs-w210-capstone-ebs/00.GabbleGrid/project/files/videos/playground_02.mp4')
 
+
+
+    
     # Begin form to avoid re-executing app unnecessarily
     with st.form(key='inference_form'):
         # Render an h4 header for Agent Teams Selection

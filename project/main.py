@@ -267,7 +267,7 @@ def main():
                 }}
             </style>
             <div class="header-container">
-                <div class="header-text">
+                <div class="header-text" style="color: #F5A623;">
                     Self-Healing Clouds with AI Agents
                 </div>
                 <div class="login-buttons">
