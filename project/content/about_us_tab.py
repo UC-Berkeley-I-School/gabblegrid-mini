@@ -74,6 +74,14 @@ Specialties: text analytics; text mining; machine learning; information extracti
             </div>
         """, unsafe_allow_html=True)
 
+        st.markdown("""
+            <a href="https://www.linkedin.com/in/mark-butler-9a40a51/" target="_blank">
+                <button style="background-color: #0077B5; color: white; padding: 10px 20px; border: none; border-radius: 20px; cursor: pointer;">
+                    Connect on LinkedIn
+                </button>
+            </a>
+        """, unsafe_allow_html=True)
+
 ########################## Placeholder ##########################################################################
     
     # with col2:
