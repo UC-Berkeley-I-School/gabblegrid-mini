@@ -1,0 +1,14 @@
+[Unit]
+Description=Gunicorn instance to serve flask app
+After=network.target
+
+[Service]
+User=ubuntu
+Group=www-data
+Environment="PATH=/opt/conda/envs/20240717_Autogen_Nginx/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+Environment="PYTHONPATH=/home/ubuntu/efs-w210-capstone-ebs/06.Inference_and_Deployment/14.First_Streaming_App"
+WorkingDirectory=/home/ubuntu/efs-w210-capstone-ebs/06.Inference_and_Deployment/14.First_Streaming_App
+ExecStart=/bin/bash -c 'source /opt/conda/etc/profile.d/conda.sh && conda activate 20240717_Autogen_Nginx && exec /opt/conda/envs/20240717_Autogen_Nginx/bin/gunicorn --workers 3 --bind 127.0.0.1:8000 wsgi:app'
+
+[Install]
+WantedBy=multi-user.target

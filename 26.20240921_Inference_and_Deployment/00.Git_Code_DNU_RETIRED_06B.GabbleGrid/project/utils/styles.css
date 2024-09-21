@@ -1,0 +1,57 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+}
+.title {
+    color: grey; /* Change header font color to grey */
+    font-size: 34px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+.section {
+    background-color: #ffffff;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.section img {
+    margin-bottom: 10px;
+    border-radius: 8px;
+}
+.section h2 {
+    font-size: 28px;
+    margin-bottom: 10px;
+    color: grey !important; /* Change header font color to light grey */
+}
+.section p {
+    font-size: 16px;
+    line-height: 1.6;
+}
+.section ol {
+    margin-left: 20px;
+}
+.section input, .section select {
+    margin-bottom: 10px;
+}
+.header {
+    margin-bottom: 30px;
+}
+.footer {
+    margin-top: 20px;
+    text-align: center;
+}
+/* New styles for Essential Reading */
+.essential-reading a {
+    color: blue;
+    text-decoration: underline;
+    font-size: 0.9em;
+    line-height: 1.0;
+    display: block;
+    margin-bottom: 1px;
+}
+/* Increase tab font size */
+div[data-testid="stTabs"] button div p {
+    font-size: 17px !important;
+}

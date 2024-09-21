@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Inference Results</title>
+    <style>
+        .transcript {
+            background-color: #f0f0f0;
+            padding: 10px;
+            margin-top: 20px;
+            white-space: pre-wrap;
+            font-family: monospace;
+        }
+    </style>
+</head>
+<body>
+    <h1>Inference Results</h1>
+    <h2>Metrics:</h2>
+    <ul>
+    {% for key, value in metrics.items() %}
+        <li>{{ key }}: {{ value }}</li>
+    {% endfor %}
+    </ul>
+    
+    <h2>Confusion Matrix:</h2>
+    <table border="1">
+    {% for row in confusion_matrix %}
+        <tr>
+        {% for cell in row %}
+            <td>{{ cell }}</td>
+        {% endfor %}
+        </tr>
+    {% endfor %}
+    </table>
+    
+    <p>Output file saved as: {{ output_file }}</p>
+    
+    <h2>Conversation Transcript:</h2>
+    <div class="transcript">
+{% for line in conversation_transcript %}
+{{ line }}
+{% endfor %}
+    </div>
+    
+    <a href="/">Run Another Inference</a>
+</body>
+</html>

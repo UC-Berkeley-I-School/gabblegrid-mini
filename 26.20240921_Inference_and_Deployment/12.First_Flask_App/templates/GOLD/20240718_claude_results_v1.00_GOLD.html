@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Inference Results</title>
+</head>
+<body>
+    <h1>Inference Results</h1>
+    <h2>Metrics:</h2>
+    <ul>
+    {% for key, value in metrics.items() %}
+        <li>{{ key }}: {{ value }}</li>
+    {% endfor %}
+    </ul>
+    
+    <h2>Confusion Matrix:</h2>
+    <table border="1">
+    {% for row in confusion_matrix %}
+        <tr>
+        {% for cell in row %}
+            <td>{{ cell }}</td>
+        {% endfor %}
+        </tr>
+    {% endfor %}
+    </table>
+    
+    <p>Output file saved as: {{ output_file }}</p>
+    
+    <a href="/">Run Another Inference</a>
+</body>
+</html>

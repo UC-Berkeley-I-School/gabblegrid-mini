@@ -1,0 +1,22 @@
+[0;1;32m●[0m flaskapp.service - Gunicorn instance to serve flask app
+     Loaded: loaded (/etc/systemd/system/flaskapp.service; enabled; vendor preset: enabled)
+     Active: [0;1;32mactive (running)[0m since Thu 2024-07-18 21:45:22 UTC; 9s ago
+   Main PID: 43316 (gunicorn)
+      Tasks: 58 (limit: 37934)
+     Memory: 1.0G
+     CGroup: /system.slice/flaskapp.service
+             ├─43316 /opt/conda/envs/20240717_Autogen_Nginx/bin/python3.10 /opt/conda/envs/20240717_Autogen_Nginx/bin/gunicorn --workers 3 --bind 127.0.0.1:8000 wsgi:app
+             ├─43321 /opt/conda/envs/20240717_Autogen_Nginx/bin/python3.10 /opt/conda/envs/20240717_Autogen_Nginx/bin/gunicorn --workers 3 --bind 127.0.0.1:8000 wsgi:app
+             ├─43322 /opt/conda/envs/20240717_Autogen_Nginx/bin/python3.10 /opt/conda/envs/20240717_Autogen_Nginx/bin/gunicorn --workers 3 --bind 127.0.0.1:8000 wsgi:app
+             └─43323 /opt/conda/envs/20240717_Autogen_Nginx/bin/python3.10 /opt/conda/envs/20240717_Autogen_Nginx/bin/gunicorn --workers 3 --bind 127.0.0.1:8000 wsgi:app
+
+Jul 18 21:45:23 ip-10-0-14-85 bash[43316]: [2024-07-18 21:45:23 +0000] [43316] [INFO] Using worker: sync
+Jul 18 21:45:23 ip-10-0-14-85 bash[43321]: [2024-07-18 21:45:23 +0000] [43321] [INFO] Booting worker with pid: 43321
+Jul 18 21:45:23 ip-10-0-14-85 bash[43322]: [2024-07-18 21:45:23 +0000] [43322] [INFO] Booting worker with pid: 43322
+Jul 18 21:45:23 ip-10-0-14-85 bash[43323]: [2024-07-18 21:45:23 +0000] [43323] [INFO] Booting worker with pid: 43323
+Jul 18 21:45:26 ip-10-0-14-85 bash[43321]: /opt/conda/envs/20240717_Autogen_Nginx/lib/python3.10/site-packages/torch/nn/modules/transformer.py:306: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.self_attn.batch_first was not True(use batch_first for better inference performance)
+Jul 18 21:45:26 ip-10-0-14-85 bash[43321]:   warnings.warn(f"enable_nested_tensor is True, but self.use_nested_tensor is False because {why_not_sparsity_fast_path}")
+Jul 18 21:45:27 ip-10-0-14-85 bash[43322]: /opt/conda/envs/20240717_Autogen_Nginx/lib/python3.10/site-packages/torch/nn/modules/transformer.py:306: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.self_attn.batch_first was not True(use batch_first for better inference performance)
+Jul 18 21:45:27 ip-10-0-14-85 bash[43322]:   warnings.warn(f"enable_nested_tensor is True, but self.use_nested_tensor is False because {why_not_sparsity_fast_path}")
+Jul 18 21:45:27 ip-10-0-14-85 bash[43323]: /opt/conda/envs/20240717_Autogen_Nginx/lib/python3.10/site-packages/torch/nn/modules/transformer.py:306: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.self_attn.batch_first was not True(use batch_first for better inference performance)
+Jul 18 21:45:27 ip-10-0-14-85 bash[43323]:   warnings.warn(f"enable_nested_tensor is True, but self.use_nested_tensor is False because {why_not_sparsity_fast_path}")

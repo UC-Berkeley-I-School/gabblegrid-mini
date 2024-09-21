@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Inference Results</title>
+    <style>
+        .transcript {
+            background-color: #f0f0f0;
+            padding: 10px;
+            margin-top: 20px;
+            white-space: pre-wrap;
+            font-family: monospace;
+        }
+        .error {
+            color: red;
+            font-weight: bold;
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            var transcript = document.getElementById('transcript');
+            var metrics = document.getElementById('metrics');
+            var confusionMatrix = document.getElementById('confusion-matrix');
+            var outputFile = document.getElementById('output-file');
+            var task = "{{ task|safe }}";
+            var eventSource = new EventSource('/stream?task=' + encodeURIComponent(task));
+            
+            transcript.innerHTML = '<p>Processing, please wait...</p>';
+            eventSource.onmessage = function(e) {
+                var data = JSON.parse(e.data);
+                if (data.speaker && data.content) {
+                    transcript.innerHTML += `<p><strong>${data.speaker}:</strong> ${data.content}</p>`;
+                } else if (data.content) {
+                    transcript.innerHTML += `<p>${data.content}</p>`;
+                } else if (data.results) {
+                    var results = data.results;
+                    metrics.innerHTML = '<h2>Metrics:</h2><ul>' + 
+                        Object.entries(results.metrics).map(([key, value]) => `<li>${key}: ${value}</li>`).join('') +
+                        '</ul>';
+                    confusionMatrix.innerHTML = '<h2>Confusion Matrix:</h2><table border="1">' +
+                        results.confusion_matrix.map(row => '<tr>' + row.map(cell => `<td>${cell}</td>`).join('') + '</tr>').join('') +
+                        '</table>';
+                    outputFile.innerHTML = `<p>Output file saved as: ${results.output_file}</p>`;
+                    eventSource.close();
+                } else if (data.error) {
+                    transcript.innerHTML = `<p class="error">Error: ${data.error}</p>`;
+                    eventSource.close();
+                }
+                window.scrollTo(0, document.body.scrollHeight);
+            };
+            eventSource.onerror = function(e) {
+                console.error('EventSource failed:', e);
+                transcript.innerHTML += '<p class="error">Connection to server lost. Please refresh the page.</p>';
+                eventSource.close();
+            };
+        });
+    </script>
+</head>
+<body>
+    <h1>Inference Results</h1>
+    <div id="transcript" class="transcript"></div>
+    <div id="metrics"></div>
+    <div id="confusion-matrix"></div>
+    <div id="output-file"></div>
+    <a href="/">Run Another Inference</a>
+</body>
+</html>

@@ -8,6 +8,8 @@ config.yaml
 /etc/nginx/sites-available/default
 /etc/nginx/sites-available/dev.gabblegrid.com
 
+# Exclude private keys
+utils/api_keys_private.py
 
 
 # Byte-compiled / optimized / DLL files
@@ -73,6 +75,8 @@ project/.cache/
 04.Local_Other_Files/
 05.Local_Results_Tracker/
 95.Admin/
+96.Original_Code
+96.Original_Data
 97.Archive/
 94.Project_Transcript/
 03.Local_Inference_Eval_Files/

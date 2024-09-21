@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Inference Results</title>
+    <script src="https://cdn.socket.io/4.0.0/socket.io.min.js"></script>
+    <script>
+        var socket = io.connect('http://' + document.domain + ':' + location.port);
+
+        socket.on('metrics_update', function(data) {
+            var metricsDiv = document.getElementById('metrics');
+            metricsDiv.innerHTML = '';
+            for (var key in data.metrics) {
+                metricsDiv.innerHTML += '<li>' + key + ': ' + data.metrics[key] + '</li>';
+            }
+        });
+
+        socket.on('confusion_matrix_update', function(data) {
+            var confusionMatrixDiv = document.getElementById('confusion_matrix');
+            confusionMatrixDiv.innerHTML = '';
+            for (var i = 0; i < data.confusion_matrix.length; i++) {
+                var row = '<tr>';
+                for (var j = 0; j < data.confusion_matrix[i].length; j++) {
+                    row += '<td>' + data.confusion_matrix[i][j] + '</td>';
+                }
+                row += '</tr>';
+                confusionMatrixDiv.innerHTML += row;
+            }
+        });
+    </script>
+</head>
+<body>
+    <h1>Inference Results</h1>
+    <h2>Metrics:</h2>
+    <ul id="metrics"></ul>
+    
+    <h2>Confusion Matrix:</h2>
+    <table border="1" id="confusion_matrix"></table>
+    
+    <p>Output file saved as: {{ output_file }}</p>
+    
+    <h2>Conversation Transcript:</h2>
+    <div class="transcript">
+{% for line in conversation_transcript %}
+{{ line }}
+{% endfor %}
+    </div>
+    
+    <a href="/">Run Another Inference</a>
+</body>
+</html>

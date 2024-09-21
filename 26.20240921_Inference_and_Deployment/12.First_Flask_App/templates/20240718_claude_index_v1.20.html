@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Log Anomaly Detection</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"></script>
+    <style>
+        #results {
+            margin-top: 20px;
+            border: 1px solid #ccc;
+            padding: 10px;
+            height: 400px;
+            overflow-y: scroll;
+        }
+        .transcript {
+            background-color: #f0f0f0;
+            padding: 5px;
+            margin-bottom: 5px;
+        }
+        .error {
+            color: red;
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var socket = io({
+                transports: ['websocket'],
+                upgrade: false
+            });
+            
+            socket.on('connect', function() {
+                console.log('Connected to server');
+                document.getElementById('status').textContent = 'Connected to server';
+            });
+
+            socket.on('disconnect', function() {
+                console.log('Disconnected from server');
+                document.getElementById('status').textContent = 'Disconnected from server';
+            });
+
+            socket.on('my_response', function(msg) {
+                console.log('Received:', msg.data);
+                addToResults('Server: ' + msg.data);
+            });
+
+            socket.on('update', function(data) {
+                console.log('Received update:', data);
+                addToResults(data.content);
+            });
+            
+            socket.on('results', function(data) {
+                console.log('Received results:', data);
+                var resultsHtml = '<h2>Final Results:</h2>';
+                resultsHtml += '<h3>Metrics:</h3>';
+                for (var key in data.metrics) {
+                    resultsHtml += '<p>' + key + ': ' + data.metrics[key] + '</p>';
+                }
+                resultsHtml += '<h3>Confusion Matrix:</h3>';
+                resultsHtml += '<table border="1">';
+                for (var i = 0; i < data.confusion_matrix.length; i++) {
+                    resultsHtml += '<tr>';
+                    for (var j = 0; j < data.confusion_matrix[i].length; j++) {
+                        resultsHtml += '<td>' + data.confusion_matrix[i][j] + '</td>';
+                    }
+                    resultsHtml += '</tr>';
+                }
+                resultsHtml += '</table>';
+                resultsHtml += '<p>Output file: ' + data.output_file + '</p>';
+                addToResults(resultsHtml);
+            });
+            
+            socket.on('error', function(data) {
+                console.log('Received error:', data);
+                addToResults('Error: ' + data.message, 'error');
+            });
+
+            window.startInference = function() {
+                var startTime = document.getElementById('start_time').value;
+                var numTests = document.getElementById('num_tests').value;
+                console.log('Emitting start_inference:', {start_time: startTime, num_tests: numTests});
+                socket.emit('start_inference', {start_time: startTime, num_tests: numTests});
+                addToResults('Processing...');
+            }
+
+            function addToResults(content, className) {
+                var resultsDiv = document.getElementById('results');
+                var newElement = document.createElement('div');
+                if (className) {
+                    newElement.className = className;
+                }
+                newElement.innerHTML = content;
+                resultsDiv.appendChild(newElement);
+                resultsDiv.scrollTop = resultsDiv.scrollHeight;
+            }
+        });
+    </script>
+</head>
+<body>
+    <h1>Log Anomaly Detection</h1>
+    <div id="status">Connecting to server...</div>
+    <label for="start_time">Start Time:</label>
+    <input type="text" id="start_time" required><br><br>
+    <label for="num_tests">Number of Tests:</label>
+    <input type="number" id="num_tests" required><br><br>
+    <button onclick="startInference()">Run Inference</button>
+    <div id="results"></div>
+</body>
+</html>
