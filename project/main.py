@@ -15,6 +15,7 @@ from content.privacy_policy import display_privacy_policy
 from content.terms_of_service import display_terms_of_service
 from content.admin_tab import display_admin_tab
 from content.about_us_tab import display_about_us_tab
+from content.contact_us_tab import display_contact_us_tab
 from mindspace.blog import display_blog, display_single_post
 from utils.footer import display_footer
 from playground.playground_main import display_playground_tab
@@ -296,11 +297,16 @@ def main():
         display_terms_of_service()
     else:
 
-        tab1, tab2, tab3, tab4, tab5, tab6, tab9, tab10 = st.tabs([
-            "Home", "Why Agents", "Playground", "Models", "MindSpace", 
-            "Documentation", "About Us", "Admin"
-        ])
+        # tab1, tab2, tab3, tab4, tab5, tab6, tab9, tab10 = st.tabs([
+        #     "Home", "Why Agents", "Playground", "Models", "MindSpace", 
+        #     "Documentation", "About Us", "Admin"
+        # ])
 
+        tab1, tab2, tab3, tab4, tab5, tab6, tab9, tab10, tab11 = st.tabs([
+            "Home", "Why Agents", "Playground", "Models", "MindSpace", 
+            "Documentation", "About Us", "Admin", "Contact Us"
+        ])
+        
         with tab1:
             display_home_tab()
             display_footer()
@@ -342,6 +348,11 @@ def main():
                 display_admin_tab()
             else:
                 st.warning("You do not have access to this tab.")
+
+        with tab11:
+            display_contact_us_tab()
+            display_footer()
+    
     # Add this at the end of the main function
     if st.session_state.get('pdf_request'):
         pdf_data = handle_pdf_request()

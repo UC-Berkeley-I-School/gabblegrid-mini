@@ -81,6 +81,11 @@ def display_models_tab():
 
     # Upload models
     def upload_model(upload_dir, tracker_path, category, model_type, key):
+        # Check if the user is authorized
+        if st.session_state.get('user', {}).get('email') != "gaurav.narasimhan@berkeley.edu":
+            st.warning("You do not have permission to upload models. Please contact the administrator for access.")
+            return
+    
         uploaded_file = st.file_uploader(f"Upload your {category} - {model_type} model", type=['pt', 'pth'], key=key)
         if uploaded_file:
             file_size = len(uploaded_file.getvalue())
@@ -88,24 +93,24 @@ def display_models_tab():
             if file_size > 200 * 1024 * 1024:  # Check if file size exceeds 200 MB
                 st.error("File size exceeds the maximum limit of 200 MB.")
                 return
-
+    
             # Prompt user to enter details for the tracker CSV
             details = {}
             st.markdown("<h3>Enter Model Details</h3>", unsafe_allow_html=True)
             required_fields = ['Max Events', 'Input Length', 'Hidden Size', 'Dropout', 'Num Layers', 'Gap', 'Prediction Period', 'Num Epochs']
             optional_fields = ['Precision', 'Recall', 'Accuracy', 'F1', 'TN', 'FP', 'FN', 'TP']
-
+    
             for field in required_fields:
                 details[field] = st.text_input(f"Enter value for {field}", key=f"input_{field}_{key}", help=f"Required field: {field}")
-
+    
             for field in optional_fields:
                 details[field] = st.text_input(f"Enter value for {field} (optional)", key=f"input_{field}_{key}", help=f"Optional field: {field}")
-
+    
             if st.button("Submit", key=f"submit_{key}"):
                 with open(os.path.join(upload_dir, uploaded_file.name), "wb") as f:
                     f.write(uploaded_file.getbuffer())
                 st.success(f"Uploaded {uploaded_file.name} to {upload_dir}")
-
+    
                 # Generate the run number
                 if os.path.exists(tracker_path):
                     tracker_df = pd.read_csv(tracker_path)
@@ -113,14 +118,18 @@ def display_models_tab():
                 else:
                     tracker_df = pd.DataFrame(columns=['Run'] + required_fields + optional_fields)
                     run_number = 1
-
+    
                 details['Run'] = run_number
-
+    
                 new_entry = pd.Series(details)
                 tracker_df = pd.concat([tracker_df, new_entry.to_frame().T], ignore_index=True)
                 tracker_df.to_csv(tracker_path, index=False)
                 st.success(f"Updated tracker for {category} - {model_type}")
+        else:
+            st.info("Please upload a model file to proceed.")
+    
 
+    
     st.markdown("""
         <div class='section'>
             <h2>Available Models</h2>

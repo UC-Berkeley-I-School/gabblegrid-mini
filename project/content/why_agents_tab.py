@@ -100,8 +100,12 @@ def display_why_agents_tab():
             <p>
                 The primary design patterns for agents involve Reflection, Tool Use, Planning, and Collaboration. Below are the key elements of each pattern, highlighting the benefits and functionality of autonomous AI agents in various workflows.
             </p>
-        </div>
+        <p style='color: grey;'>
+            Inspired by <a href="https://training.continuumlabs.ai/agents/what-is-agency/andrew-ngs-presentation-on-ai-agents" target="_blank" style="color: grey;">Andrew Ng's presentation on AI agents</a>
+        </p>
+         </div>
     """, unsafe_allow_html=True)
+
 
 #########################################################################################################
     

@@ -208,12 +208,12 @@ if __name__ == "__main__":
         'autogen_setup.py',
         'backup_project_full.py',
         # 'blog.py',
-        # 'contextual_example_tab.py',
+        'contextual_example_tab.py',
         'config_sample.yaml',
         'config.yaml',
         'data_processing.py',
         # 'design_tab.py',
-        # 'documentation_tab.py',
+        'documentation_tab.py',
         'essential_reading.py',
         'experiments.py',
         'feature_engg_tab.py',
@@ -224,7 +224,7 @@ if __name__ == "__main__":
         'inference.py',
         'main.py',
         'main_Dummy_Test_Only.py',
-        'mindspace_main.py',
+        # 'mindspace_main.py',
         'models_tab.py',
         # 'mindspace.py',
         'mindspace_blog.db',
@@ -252,6 +252,7 @@ if __name__ == "__main__":
         'transcript_playground_brief.py',
         'transcript_playground_full.py',
         'transformers_tab.py',
+        'tutorial_videos_tab.py',
         'why_agents_tab.py'
         
     ]
@@ -285,7 +286,7 @@ if __name__ == "__main__":
         'models',
         'model',
         'mindspace',
-        # 'playground',
+        'playground',
         'qa',
         'static',
         'utils'
