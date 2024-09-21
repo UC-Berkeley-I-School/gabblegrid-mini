@@ -60,30 +60,30 @@ My career has centered around leveraging AI and machine learning to drive innova
     
 ############################# REVERT ONCE MARK CONFIRMS #########################
     
-#     with col2:
-#         st.image('/home/ubuntu/efs-w210-capstone-ebs/00.GabbleGrid/project/files/images/10.About_Us/about_us_photo_2.png', use_column_width=True)
-#         st.markdown("""
-#             <div class='section'>
-#                 <h2>Mark Butler</h2>
-#                 <p><strong>Title:</strong> Advisor</p>
-#                 <p>
-#                 Senior leader and seasoned Engineering executive with experience in designing and building language-based computer systems. I have extensive experience with automatic classification, information extraction and retrieval, metadata creation, and language generation. I've had the good fortune to spend the last three decades working with various aspects of getting computers to process language to help humans do their work. In these three decades I've watched the fields of computational linguistics and natural language processing make incredible advances from the rule-based Brill Part of Speech Tagger to CRF based statistical SRL parsers to today's neural net language models like BERT and GPT. Because of the length of my experience, I understand the strengths of each of these technological innovations in NLP -- rule-based, statistical, and deep learning. Human language and the ability of computers to process it continue to fascinate me every day.
-
-# Specialties: text analytics; text mining; machine learning; information extraction; syntactic/semantic modeling; automated taxonomy development; metadata extraction and systems; information retrieval; open source natural language processing software and system architecture.
-#                 </p>
-#             </div>
-#         """, unsafe_allow_html=True)
-
-####################################################################################################
-    
     with col2:
-        st.image('/home/ubuntu/efs-w210-capstone-ebs/00.GabbleGrid/project/files/images/10.About_Us/about_us_photo_blank.png', use_column_width=True)
+        st.image('/home/ubuntu/efs-w210-capstone-ebs/00.GabbleGrid/project/files/images/10.About_Us/about_us_photo_2.png', use_column_width=True)
         st.markdown("""
             <div class='section'>
-                <h2>Will be updated shortly</h2>
-                <p><strong>Will be updated shortly:</strong> Advisor</p>
+                <h2>Mark Butler</h2>
+                <p><strong>Title:</strong> Advisor</p>
                 <p>
-                Will be updated shortly 
+                Senior leader and seasoned Engineering executive with experience in designing and building language-based computer systems. I have extensive experience with automatic classification, information extraction and retrieval, metadata creation, and language generation. I've had the good fortune to spend the last three decades working with various aspects of getting computers to process language to help humans do their work. In these three decades I've watched the fields of computational linguistics and natural language processing make incredible advances from the rule-based Brill Part of Speech Tagger to CRF based statistical SRL parsers to today's neural net language models like BERT and GPT. Because of the length of my experience, I understand the strengths of each of these technological innovations in NLP -- rule-based, statistical, and deep learning. Human language and the ability of computers to process it continue to fascinate me every day.
+
+Specialties: text analytics; text mining; machine learning; information extraction; syntactic/semantic modeling; automated taxonomy development; metadata extraction and systems; information retrieval; open source natural language processing software and system architecture.
                 </p>
             </div>
         """, unsafe_allow_html=True)
+
+########################## Placeholder ##########################################################################
+    
+    # with col2:
+    #     st.image('/home/ubuntu/efs-w210-capstone-ebs/00.GabbleGrid/project/files/images/10.About_Us/about_us_photo_blank.png', use_column_width=True)
+    #     st.markdown("""
+    #         <div class='section'>
+    #             <h2>Will be updated shortly</h2>
+    #             <p><strong>Will be updated shortly:</strong> Advisor</p>
+    #             <p>
+    #             Will be updated shortly 
+    #             </p>
+    #         </div>
+    #     """, unsafe_allow_html=True)
