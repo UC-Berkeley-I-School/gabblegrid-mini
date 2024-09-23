@@ -93,10 +93,10 @@ project/.cache/
 project/playground/01.Experiments/
 project/mindspace/02.Blog
 project/files/images
-project/admin/01.Templates
+# project/admin/01.Templates
 
 # Exclude specific files, either for size of misc
-project/admin/01.Templates/A-Template_Detail.parquet
+# project/admin/01.Templates/A-Template_Detail.parquet
 project/files/images/interaction_diagram.png
 
 
