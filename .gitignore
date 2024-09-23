@@ -1,5 +1,7 @@
 # Key Files, secrets et al
-config.yaml
+project/config.yaml
+project/main.py
+
 # Exclude systemd service files
 /etc/systemd/system/gabblegrid.service
 /etc/systemd/system/gabblegrid-dev.service
@@ -9,7 +11,11 @@ config.yaml
 /etc/nginx/sites-available/dev.gabblegrid.com
 
 # Exclude private keys
-utils/api_keys_private.py
+project/utils/api_keys_private.py
+
+# skip all key untracked files
+project/00.key_untracked_files
+
 
 # skip all key untracked files
 project/00.key_untracked_files/
@@ -74,16 +80,24 @@ project/.cache/
 # Exclude specific folders related to your project
 00.Full_Project_Backups/
 01.Local_Model_Files/
+02.Local_Data_Files
+03.Local_Inference_Eval_Files
 04.Local_Other_Files/
 05.Local_Results_Tracker/
+
 95.Admin/
 96.Original_Code
 96.Original_Data
 97.Archive/
 94.Project_Transcript/
 03.Local_Inference_Eval_Files/
-project/playground_beta/01.Experiments/
+project/playground/01.Experiments/
+project/mindspace/02.Blog
+project/files/images
 
+# Exclude specific files, either for size of misc
+project/admin/01.Templates/A-Template_Detail.parquet
+project/files/images/interaction_diagram.png
 
 
 # Node.js dependencies (if applicable)

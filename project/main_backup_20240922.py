@@ -135,39 +135,97 @@ def check_auth():
         return False
     return True
 
+
+# #################################################################################################### 
+# ################################### GOLD ###########################################################
+# ####################################################################################################
+
+# def main():
+#     load_css('utils/styles.css')
+
+#     with open("config.yaml") as f:
+#         config = yaml.safe_load(f)
+
+#     # Print environment variable to ensure it's being detected
+#     # st.write(f"GABBLEGRID_ENV variable: {os.environ.get('GABBLEGRID_ENV', 'Not Found')}")
+
+#     # GitHub OAuth configuration
+#     client_id = config['credentials']['github']['client_id']
+#     client_secret = config['credentials']['github']['client_secret']
+#     # redirect_uri = "https://gabblegrid.com"
+
+#     # Google OAuth configuration
+#     google_client_id = config['credentials']['google']['client_id']
+#     google_client_secret = config['credentials']['google']['client_secret']
+#     # google_redirect_uri = "https://gabblegrid.com"
+#     google_redirect_uri = "https://mindmesh.io"
+
+# #################### Redirect URI for Dev Auth only ###################
+    
+#     # # Determine the environment based on a custom environment variable
+#     # if "GABBLEGRID_ENV" in os.environ and os.environ["GABBLEGRID_ENV"] == "dev":
+#     #     redirect_uri = "https://dev.mindmesh.io"
+#     #     google_redirect_uri = "https://dev.mindmesh.io"
+#     # else:
+#     #     redirect_uri = "https://gabblegrid.com"
+#     #     google_redirect_uri = "https://gabblegrid.com"
+
+#     if "GABBLEGRID_ENV" in os.environ and os.environ["GABBLEGRID_ENV"] == "dev":
+#         redirect_uri = "https://mindmesh.io"
+#         google_redirect_uri = "https://mindmesh.io"
+#     else:
+#         redirect_uri = "https://mindmesh.io"
+#         google_redirect_uri = "https://mindmesh.io"
+
+
+#     # Debugging output
+#     # st.write(f"Redirect URI: {redirect_uri}")
+
+# #################################################################################################### 
+# ################################# Coanged on 20240921 ##############################################
+# ####################################################################################################
+
 def main():
     load_css('utils/styles.css')
 
     with open("config.yaml") as f:
         config = yaml.safe_load(f)
 
-    # Print environment variable to ensure it's being detected
-    # st.write(f"GABBLEGRID_ENV variable: {os.environ.get('GABBLEGRID_ENV', 'Not Found')}")
-
     # GitHub OAuth configuration
     client_id = config['credentials']['github']['client_id']
     client_secret = config['credentials']['github']['client_secret']
-    # redirect_uri = "https://gabblegrid.com"
 
     # Google OAuth configuration
     google_client_id = config['credentials']['google']['client_id']
     google_client_secret = config['credentials']['google']['client_secret']
-    google_redirect_uri = "https://gabblegrid.com"
 
-#################### Redirect URI for Dev Auth only ###################
-    
+    #################### Redirect URI for Dev and Prod ###################
+
     # Determine the environment based on a custom environment variable
     if "GABBLEGRID_ENV" in os.environ and os.environ["GABBLEGRID_ENV"] == "dev":
+        # Use dev environment settings
         redirect_uri = "https://dev.mindmesh.io"
         google_redirect_uri = "https://dev.mindmesh.io"
     else:
-        redirect_uri = "https://gabblegrid.com"
-        google_redirect_uri = "https://gabblegrid.com"
+        # Check the environment variable or set manually for production
+        domain = os.environ.get("DOMAIN", "")
+        
+        if "gabblegrid.com" in domain:
+            redirect_uri = "https://gabblegrid.com"
+            google_redirect_uri = "https://gabblegrid.com"
+        elif "mindmesh.io" in domain:
+            redirect_uri = "https://mindmesh.io"
+            google_redirect_uri = "https://mindmesh.io"
+        else:
+            # Fallback to mindmesh.io if domain is unknown
+            redirect_uri = "https://mindmesh.io"
+            google_redirect_uri = "https://mindmesh.io"
 
     # Debugging output
     # st.write(f"Redirect URI: {redirect_uri}")
-######################################################################    
 
+####################################################################################################
+    
     if 'token' not in st.session_state:
         st.session_state.token = None
     if 'user' not in st.session_state:
