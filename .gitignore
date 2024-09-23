@@ -16,7 +16,8 @@ project/utils/api_keys_private.py
 # skip all key untracked files
 project/00.key_untracked_files
 
-
+# skip certain random files
+project/admin/01.Templates/A-Template_Detail.parquet
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
@@ -92,6 +93,7 @@ project/.cache/
 project/playground/01.Experiments/
 project/mindspace/02.Blog
 project/files/images
+project/admin/01.Templates
 
 # Exclude specific files, either for size of misc
 project/admin/01.Templates/A-Template_Detail.parquet
