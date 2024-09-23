@@ -13,6 +13,10 @@ project/main.py
 # Exclude private keys
 project/utils/api_keys_private.py
 
+# skip all key untracked files
+project/00.key_untracked_files
+
+
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
